@@ -1,0 +1,66 @@
+{% extends "structure.html" %}
+
+{% block title %}{{user.username}}{% endblock %}
+
+{% block extra_meta %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}whitelabel/css/light/pi.css">
+{% endblock %}
+
+{% block main %}
+	<div class="g12">
+		<div class="g9 myinfo">
+			<div class="g12 pi_icon">
+			<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="{{profile.avatar.url}}" class="profileicon" alt=""> </a>
+			<span class="left pi_username">{{user}}</span>
+			<span class="pi_intro">{{user.introduction}}</span>
+			<span class="pi_btn">
+				<button class="pi_followbtn">+关注TA</button>
+				<button >个人资料</button>
+			</span>
+			</div>
+		</div>
+		<div class="g3 pi_follow">
+				<div class="g12 pi_following">
+					<span>他的关注:</span>
+					<span class="pi_follow_number"> <a href="">1</a></span>
+				</div>
+				<div class="g12 pi_follower">
+					<span>他的粉丝:</span>
+					<span class="pi_follow_number"><a href="">34512451</a></span>
+				</div>
+		</div>
+		<div class="g9 pi_function">
+			<!--<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="images/icon2.jpg" class="profileicon" alt=""> </a>-->
+			<ul>
+				<li><a href="#state">TA的动态<span>21</span></a></li>
+				<li><a href="#diary">TA的日志<span>5</span></a></li>
+				<li><a href="#set">TA的题集<span>25</span></a></li>
+				<li><a href="#share">总结&分享<span>3</span></a></li>
+			</ul>
+			</div>
+		<div class="g9 pi_content">
+			<div class="pi_content_state">
+				{% autoescape off %}
+				{% include "status.html" %}
+				{% endautoescape %}
+			</div>
+			<div class="pi_content_diary">
+				{% autoescape off %}
+				{% include "log.html" %}
+				{% endautoescape %}
+			</div>
+				<div class="pi_content_set">
+					<a  id="set"></a>
+
+				</div>
+				<div class="pi_content_comment">
+					<a  id="comment"></a>
+
+				</div>
+				<div class="pi_content_share">
+					<a  id="share"></a>
+
+				</div>
+			</div>
+</div>
+{% endblock %}

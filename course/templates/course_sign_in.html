@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}当前习题{% endblock %}
+{% block extra_meta %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/course.css">
+	<script src="{{ STATIC_URL }}whitelabel/js/course-signin.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/piDialog.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+{% endblock %}
+{% block body_type%}<body class='cs_signin'>{% endblock %}
+
+
+{% block content %}	
+	<section id="content">
+		<div class="cs_signin_topbg">
+			<div class="cs_signin_info">
+				<div>
+					<h1>{{course.name}}</h1>
+					<h3>{{instructorName}}</h3>
+					<p>Workload: {{course.workload}} hours per week</p>
+				</div>
+				<hr>
+				<ul>
+					<li><a href="#cs_link1" class='active cs_link1'><i class="icon-book icon-large"></i>  课程信息</a></li>
+					<li><a href="#cs_link2" class='cs_link2'><i class="icon-user icon-large"></i> 授课教师</a></li>
+					<li><a href="#cs_link3" class='cs_link3'><i class="icon-signin icon-large"></i> 登记课程</a></li>
+					<li><a href="#cs_link4" class='cs_link4'><i class="icon-pencil icon-large"></i> 相关题集</a></li>
+					<li><a href="#cs_link5" class='cs_link5'><i class="icon-comments-alt icon-large"></i> 学生反馈</a></li>
+					
+				</ul>	
+			</div>
+
+		</div>
+		<div class="cs_course_content">
+			<a id="cs_link1"></a>
+			<h2><i class="icon-book icon-large"></i>  课程信息</h2>
+			<hr>
+			<h3 class='first'>About the Course</h3>
+			<p>{{course.intro}}</p>
+		
+		<h3>Course Syllabus</h3>
+		<ul>
+			<li>Week One: Infinity.</li>
+			<li>Week Two: Truth.</li>
+			<li>Week Three: Rational belief.</li>
+			<li>Week Four: If-then.</li>
+			<li>Week Five: Confirmation.</li>
+			<li>Week Six: Decision.</li>
+			<li>Week Seven: Voting.</li>
+			<li>Week Eight: Quantum Logic.</li>
+		</ul>
+		<h3>Recommended Background</h3>
+		<p>We will not presuppose more than bits of high school mathematics.</p>
+		<h3>Course Format</h3>
+		<p>The class will consist of lecture videos, which are between 8 and 12 minutes in length.</p>
+		<p> These contain 1-2 integrated quiz questions per video.</p>
+		<h3>FAQ</h3>
+		<p><strong>Will I get a Statement of Accomplishment after completing this class?</strong></p>
+		<p>Yes. Students who successfully complete the class will receive a Statement of Accomplishment signed by the instructors.</p>
+		<a id="cs_link2"></a>
+		<h2><i class="icon-user  icon-large"></i> 授课教师</h2>
+		<div class="cs_course_sets">
+			{% for instructor in instructors %}	
+				<div class="cs_course_teacher ">
+				<div class="cs_course_teacher_icon left">
+					<a href=""><img src="{{instructor.social_profile.avatar.url}}" alt=""></a>
+				</div>
+				<div class="cs_course_teacher_info left">
+					<a href=""><h3>{{instructor}}</h3></a>
+					<a href=""><h4>his/her courses</h4></a>
+					<hr>
+					<span>Jerre D. Noe Professor
+					Computer Science &amp; Engineering</span>
+				</div>
+				</div>
+			{% endfor %}
+		
+			<a id="cs_link3"></a>
+			<h2><i class="icon-signin  icon-large"></i> 登记课程</h2>
+			<hr>
+			<div class="pi_btn huge">
+				<p><strong><input type="checkbox" id="s1p2q1_checkbox">&nbsp;&nbsp;I agree to the Terms of Service and Honor Code</strong> </p><button>确认登记</button></div>
+			<a id="cs_link4"></a>
+				{% autoescape off %}
+				{% include "course_related_question_set.html" %}
+				{% endautoescape %}
+			<a id="cs_link5"></a>
+			<h2><i class="icon-comments-alt  icon-large"></i> 学生反馈</h2>
+			<hr>
+
+		</div>
+
+	</section>
+{% endblock %}

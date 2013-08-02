@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Question</title>
+
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}problems/css/question.css" />
+</head>
+
+<body>
+<h1> My Progress </h1>
+<h3> Progress of : {{user}}</h3>
+
+{% for progress in progress_set %}
+<div class="course-quiz-question-body">		
+	<h3 class="course-quiz-question-number">{{progress.topic }}</h3>
+	<div>Start at: {{progress.begins}}   Last update: {{ progress.update }}</div>
+	<h3 class="course-quiz-question-number">Total: {{raw.raw_grade }}</h3>
+</div>
+{% endfor %}
+
+</body>
+
+</html>
+

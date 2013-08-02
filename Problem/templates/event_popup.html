@@ -1,0 +1,87 @@
+<div class="caldetails calevent">
+    <span class="caltype-mark"></span>
+    <span class="caltitle">事件名称</span>
+    <hr>
+      	<span class="calitem-title">开始时间</span><span class="calitem-content calstart">All Day</span>
+        <span class="calitem-title">开始事件</span><span class="calitem-content calend">All Day</span>
+    <!--
+    <hr>
+      	<span class="calitem-title">重复</span><span class="calitem-content repeat">每周</span><hr class="clearaa">
+        <span class="calitem-title">结束重复</span><span class="calitem-content endrepeat">无</span>-->
+    <hr>
+    	<span class="calitem-title">提醒</span><span class="calitem-content calremind">无</span><hr class="clearall">
+    <hr>
+    	<input type='hidden' id='id_event_id' name='eventid' value='' />
+    	<span class="calitem-title">备注</span><span class="calitem-content description"></span><hr class="clearall">
+     	<a class="cusbtn green"><i class="icon-edit icon-large"></i> 编辑事件</a>
+     	<a class="cusbtn red delete"><i class="icon-remove icon-large"></i> 删除事件</a>
+</div>
+
+<form id="new_eventform" class='clearall'>
+<div class="caldetails caledit">
+		<span class="caltype-mark"></span>
+		<span class="caledit-name"><input type="text" name="title" placeholder="事件名称"></span>
+		<span class="caledit-set">
+			<select data-placeholder="相关题集" class="chzn-select-width" tabindex="15" name='questionset'>
+	            <option value=""></option>
+	            <option>习题集一</option>
+	            <option>习题集二</option>
+	            <option>习题集三</option>
+	            <option>习题集四</option>
+	            <option>习题集五</option>
+			</select>
+		</span>
+		<hr>
+		<span class="calitem-title">开始时间</span><span class="calitem-content caledit-start-time"> <input name="start" type="text" class="date"><input type="text" class="time" data-connect="start" name='start-time'></span>
+		<hr class="clearall">
+		<span class="calitem-title">结束时间</span><span class="calitem-content caledit-end-time"> <input name="end" type="text" class="date"><input type="text" class="time" data-connect="end" name='end-time'> </span>
+		<hr>
+		<span class="calitem-title">重复</span><span class="calitem-content caledit-repeating-time">
+		    <select data-placeholder="重复" class="chzn-select-width" tabindex="15" name='repeat'>
+	         	<option value=""></option>
+	            <option value='0'>无</option>
+	            <option value='1'>每天</option>
+	            <option value='7'>每周</option>
+	            <option value='14'>每两周</option>
+	            <option value='30'>每月</option>
+	            <option value='365'>每年</option>
+			</select>
+		 </span>
+		<hr class="clearall caledit-end-repeating-time">
+		<span class="calitem-title caledit-end-repeating-time">结束重复</span><span class="calitem-content caledit-end-repeating-time"> <input name="repeat_end" type="text" class="date"> </span>
+		<hr>
+		<span class="calitem-title">提醒</span><span class="calitem-content calremind">
+			<select data-placeholder="无" class="chzn-select-width" tabindex="15" name='reminder'>
+			            <option value=""></option>
+			            <option value='-1'>无</option>
+			            <option value='0'>事件发生时</option>
+			            <option value='5'>5分钟前</option>
+			            <option value='15'>10分钟前</option>
+			            <option value='15'>15分钟前</option>
+			            <option value='60'>1小时前</option>
+			            <option value='120'>2小时前</option>
+			</select>
+		</span>
+		<!--<hr class="clearall calremind2">-->
+		
+		<hr>
+		<textarea name="description" cols="30" rows="10" placeholder="备注"></textarea>
+		<button class="right calallday">全天:  是</button>
+		<a class="cusbtn green event_save"><i class="icon-check-sign icon-large"></i> 创建事件</a>
+    	<a class="cusbtn red event_reset"><i class="icon-remove icon-large"></i> 取消创建</a>
+	</div>
+</form>
+<!--
+<div class="do-problem-note notes calnote">				
+	<h4>我的备注：</h4>	
+	<h6>2013.06.15 16：00</h6>		
+	<p>我的备注。。。。。</p>
+</div>
+	-->
+
+<div class="caldetails-drop"></div>
+	<input type="hidden" id="hstartdate">
+	<input type="hidden" id="hstarttime">
+	<input type="hidden" id="henddate">
+	<input type="hidden" id="hendtime">
+	<input type="hidden" id="isallday">

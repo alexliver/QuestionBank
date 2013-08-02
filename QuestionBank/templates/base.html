@@ -1,0 +1,250 @@
+<!doctype html>
+{% load article_tags %}
+{% load staticfiles %}
+{% load dajaxice_templatetags %}
+
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	
+	<title>{% block title %}My amazing site{% endblock %}</title>
+
+	<meta name="author" content="keju.com">
+	<meta name="keywords" content="{% block meta-keywords %}{% endblock %}" />
+	<meta name="description" content="{% block meta-description %}{% endblock %}" />
+	
+	<!-- Google Font and style definitions -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold">
+	<link rel="stylesheet" href="{{ STATIC_URL }}whitelabel/css/modified-style.css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}whitelabel/css/mycss.css" id="themestyle">	
+	
+	<!-- include the skins (change to dark if you like) -->
+	<link rel="stylesheet" href="{{ STATIC_URL }}whitelabel/css/light/modified-theme.css" id="themestyle">
+	<link rel="stylesheet" href="{{ STATIC_URL }}whitelabel/css/light/font-awesome/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="css/dark/theme.css" id="themestyle"> -->
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="stylesheet" href="css/ie.css">
+	<![endif]-->
+	
+	<!-- Apple iOS and Android stuff -->
+	{% block mobile_meta %}
+	<meta name="apple-mobile-web-app-capable" content="no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+	{% endblock %}
+	
+	<!-- Apple iOS and Android stuff - don't remove! -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+	
+	<!-- Use Google CDN for jQuery and jQuery UI -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+	
+	<!-- Loading JS Files this way is not recommended! Merge them but keep their order -->
+	
+	<!-- some basic functions -->
+	<script src="{{ STATIC_URL }}whitelabel/js/functions.js"></script>
+	
+	<!-- all Third Party Plugins and Whitelabel Plugins -->
+	<script src="{{ STATIC_URL }}whitelabel/js/plugins.js"></script>
+
+	<script src="{{ STATIC_URL }}whitelabel/js/editor.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/fullcalendar.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/flot.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/elfinder.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/datatables.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Alert.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Autocomplete.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Breadcrumb.js"></script>	
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Chart.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Color.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Date.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Editor.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_File.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Dialog.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Fileexplorer.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Form.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Gallery.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Multiselect.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Number.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Password.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Slider.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Store.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Time.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Valid.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/wl_Widget.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+
+	
+	<!-- Ajax Usage -->
+	{% dajaxice_js_import %}
+	<script src="{{ STATIC_URL }}dajax/jquery.dajax.core.js"></script>
+	<script src="{{ STATIC_URL }}problems/js/custom.js"></script>
+
+	<!-- configuration to overwrite settings -->
+	<script src="{{ STATIC_URL }}whitelabel/js/config.js"></script>
+		
+	<!-- the script which handles all the access to plugins etc... -->
+	<script src="{{ STATIC_URL }}whitelabel/js/script.js"></script>
+	{% block extra-head %}{% endblock %}
+
+	<!-- Extra meta -->
+	{% block extra_meta %}
+	{% endblock %}
+	
+</head>
+{% block body_type%}<body> {% endblock %}
+	<!-- page options here -->
+ 	<div id="pageoptions">
+			<a href="home/" ><img src="{{ STATIC_URL }}whitelabel/css/images/logo.png" alt=""  id="kejulogo"></a>
+			<ul class='right'>
+				<li class='logincon'><img src="{{user.social_profile.avatar.url}}" class="profileicon" alt=""></li>
+				<li><a href="/qb/logout/">登出</a></li>
+				<li><a href="/forum/" >论坛</a></li>
+				{% if user.is_staff %}
+				<li><a href="/qb/staff/">管理</a></li>
+				{% else %}
+				<li><a href="/social/friendslist/">好友</a></li>
+				{% endif %}
+				<li>Welcome! <a href="/social/user/{{user.id}}" >{{user}}</a></li>
+			</ul>
+
+	</div>
+	<!--
+	<div class="topline">
+		<span class="kejulogo">科聚</span>
+		<div class="logicon">
+     		<a href="#" id="icon_tooltip" name="text_tooltip" original-title="用户名:someone"> <img src="images/logo/logicon.jpg" class="profileicon" alt=""> </a>  
+ 	 		<a class="" href="login.html">登出</a>
+ 	 		<a class="" href="login.html">登出2</a>
+ 	 		<a class="" href="login.html">登出3</a>
+ 	 		<a class="small btn" href="login.html">登出4</a>
+		</div>
+	</div>-->
+	{% block content %} {% endblock %}
+	<footer>
+		
+	{% block footer %} 
+
+			<div class="g12">
+
+
+
+				<div class="g4">
+
+					 <h2>关于科聚</h2>
+
+      <p>科聚是深圳滴答科技旗下产品. <br>
+
+      	简介：Keju is always looking for passionate individuals to become part of our team. Learn more about career opportunities at our firm.
+
+
+
+keju is a creative agency that helps brands define themselves. Headquartered in Cleveland, OH, we deliver outstanding illustration, branding, graphic design, and web development to forward thinking organizations across the globe.<br>
+
+       </p>
+
+     
+
+				</div>
+
+				<div class="g4"><h2>站点地图</h2>
+
+				<div class="g4">
+
+
+
+					<p>了解科聚</p>
+
+					<ul>
+
+						<li><a href="">主页</a></li>
+
+						<li><a href="">关于我们</a></li>
+
+						<li><a href="">联系我们</a></li>
+
+						<li><a href="">隐私政策</a></li>
+
+						<li><a href="">使用条款</a></li>
+
+					</ul>
+
+				</div>
+
+					<div class="g4">
+
+						
+
+					<p>开始使用</p>
+
+					<ul>
+
+						<li><a href="">搜索题集</a></li>
+
+						<li><a href="">发现与分享</a></li>
+
+						<li><a href="">知识树</a></li>
+
+						<li><a href="">开始练习</a></li>
+
+					</ul>
+
+					</div>
+
+					<div class="g4">
+
+						<p>进阶功能</p>
+
+					<ul>
+
+						<li><a href="">学习情况</a></li>
+
+						<li><a href="">日程安排</a></li>
+
+						<li><a href="">做题统计</a></li>
+
+						<li><a href="">我的错题本</a></li>
+
+						<li><a href="">我的收藏</a></li>
+
+					</ul>
+
+					</div>	
+
+				</div>
+
+				<div class="g4">
+
+					<h2>最新公告</h2>
+
+
+
+				</div>
+
+	</div>
+
+	<div class="g12">
+		<a href="#" class="finduson">关注我们在：</a>
+	
+		<a href="#" class="weibo"></a>
+
+		<a href="#" class="qq"></a>
+
+		<a href="#" class="weixin"></a>
+
+	</div>
+
+	<div class="g12">
+
+		<p> Copyright ©2013 Tigtag Technologies Limited, All Rights Reserved.</p>
+
+	</div>
+{% endblock %}
+		</footer>
+</body>
+{% block popup %} {% endblock %}
+<div class="img-drop"></div>
+</html>

@@ -1,0 +1,113 @@
+{% extends "structure.html" %}
+
+{% block title %}当前习题{% endblock %}
+{% block extra_meta %}
+	<script src="{{ STATIC_URL }}whitelabel/js/audio/audio.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/jquery-scrollspy.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/scroll-control.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/do.js"></script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endblock %}
+
+{% block main %}	
+
+<h1>{{question_set.container.name}} </h1>
+<p>{{question_set.intro}} </p>
+
+<div class="do-btngroup sections">
+	<a href="/qb/qs/{{question_set.container.id}}/">Welcome</a>
+	{% for set in sub_set %}
+		<a href="/qb/qs/{{question_set.container.id}}/{{set.id}}/"{% if question_set.id == set.id %}class="active"{% endif %}>{{set.name}}</a>	
+	{% endfor %}		
+</div>
+<div class="g12">
+
+<form method="post" class='clearall' id="questionform" action="/qb/qs/{{question_set.container.id}}/{{question_set.id}}/" data-ajax="false">
+{% csrf_token %}
+	{% if 1 == 1%}
+		{% for raw in raw_set %}
+		<div class="do-problem-container">
+		<div class="do-problem" title="第一题">
+		<div class="do-problem-content">
+			<h5>第一题:{{raw.title}}<span>{% for subtopic in raw.topic.all %} <a href="/qb/search/?topic={{subtopic.id}}">{{subtopic}}</a> {% endfor %}</span><span>{{raw.created}}</span><span><a href="/qb/search/?origin={{raw.origin.id}}">{{raw.origin}}</a></span><span>难度:{{raw.original_difficulty}}</span></h5>
+			<hr>
+			{% if raw.text_body%}
+			<p>{% autoescape off %}{{raw.text_body}}{% endautoescape %}</p><hr>{% endif %}
+			{% for audio in raw.audios %}
+			<audio src="{{audio.file.url}}" preload="auto"></audio><hr>
+			{% endfor %}
+
+			{% for questionInstance in raw.my_instance_set %}  
+
+
+				{% if questionInstance.question.question_type == 0 %}
+					{% if questionInstance.progress.marked %}
+						{% if questionInstance.progress.grade == 2 %}<p class="simplequestion correct"><span class="correct">得分{{questionInstance.progress.grade}}</span>{{ questionInstance.question_text }}
+						{% elif questionInstance.progress.grade == 1 %}<p class="simplequestion ppcw"><span class="wrong">得分{{questionInstance.progress.grade}}</span>{{ questionInstance.question_text }}
+						{% elif questionInstance.progress.grade == 0 %}<p class="simplequestion wrong"><span class="wrong">得分{{questionInstance.progress.grade}}</span>{{ questionInstance.question_text }}
+						{% endif %}
+						
+						{% for choice in questionInstance.choices %}<span class="choice"><input type="checkbox" id="answer{{ questionInstance.id }}" name="answer{{ questionInstance.id }}" value="{{ choice }}" 
+
+							{% if questionInstance.progress.solution == choice %}checked>
+								{{ choice }}
+								{% if questionInstance.solution_text == choice %}<span class="check">✓</span>
+								{% elif questionInstance.solution_text != choice %}<span class="cross">x</span>
+								{% endif %}
+							{%else%} 
+								>{{ choice }}
+								{% if questionInstance.solution_text == choice %}<span class="check">✓</span>
+								{%endif%}
+							{%endif%}</span>
+						{%endfor%}
+					
+						{%for exp in questionInstance.question.explanations.all %}<span class="explanation">疑难解答：{{exp.content}}</span>{%endfor%}
+						
+					{%else%}<p class="simplequestion">{{ questionInstance.question_text }}
+						{% for choice in questionInstance.choices %}
+						<span class="choice"><input type="checkbox" id="answer{{ questionInstance.id }}" name="answer{{ questionInstance.id }}" value="{{ choice }}" {% if questionInstance.progress.solution == choice %}checked{%endif%}>{{ choice }}</span>		
+						{%endfor%}
+					{%endif%}
+
+				{% elif questionInstance.question.question_type == 1 %}
+					{% if questionInstance.progress.marked %}
+					{%else%}
+						<p class="simplequestion">{{ questionInstance.question_text }}<br>
+						<input type="text" id="multi_text_field_{{ questionInstance.id }}" name="multi_text_field_{{ questionInstance.id }}" class="g5" placeholder="第一空"><br>
+						{%for exp in question.explanations.all %}<span class="explanation">疑难解答：{{exp.content}}</span>{%endfor%}
+					{%endif%}
+				</p>
+				{% elif questionInstance.question.question_type == 2 %}
+					{% if questionInstance.progress.marked %}
+					{%else%}
+						<p class="simplequestion">{{ questionInstance.question_text }}<br>
+						<textarea rows="4" cols="50" placeholder="your answer"></textarea>
+						{%for exp in question.explanations.all %}<span class="explanation">疑难解答：{{exp.content}}</span>{%endfor%}</p>
+					{%endif%}
+				{% else %}
+				{% endif %}
+
+			</p>{% endfor %}</div>
+					
+		</div>
+		</div>
+		{% endfor %}
+	{% endif %}	
+	<input type="hidden" name="subset" value="{{question_set.id}}" />
+</div>
+
+
+<section>
+	<div class="pi_btn huge">
+		<a class='cusbtn lightblue' onclick="Dajaxice.Problem.save_qs(Dajax.process,{'form':$('#questionform').serialize(true)});"><i class="icon-save icon-large"></i>  保存</a>
+		<a class='cusbtn green' onclick="submitquestion()"><i class="icon-ok-sign icon-large"></i>  提交</a>
+	</div>
+<!--
+	<div>
+		<button onclick="Dajaxice.Problem.save_qs(Dajax.process,{'form':$('#questionform').serialize(true)});">Save</button> 
+		<button class="red submit" onclick="submitquestion()">Submit</button>
+	</div>-->
+</section>
+</form>
+
+{% endblock %}

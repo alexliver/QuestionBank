@@ -1,0 +1,31 @@
+<html>
+<head>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold">
+<link rel="stylesheet" href="{{ STATIC_URL }}/www.css">
+<title>{{institute.name}}</title>
+</head>
+<body>
+<div class="coursera-body">
+<div class="container">
+	<div class="coursera-course-content">		
+		<div class="row-fluid">
+		<div class="span6">
+			<div>
+			<a href="/psu" class="internal-home"><img src="{{course.institute.logo.url}}" class="coursera-course-school-logo"></a>
+			</div>
+			<h1>{{course.name}}</h1>
+			<h3 class="instructor-name">{{course.creator}}</h3>
+			<p>{{course.brief_intro}}</p>
+			<div><span style="font-weight:bold" data-msg="coursera-course-workload">Workload: </span><span>{{course.workload}}-{{course.workload}} hours/week</span>
+			</div>
+		</div>
+		<div class="span6">
+			<div class="shadow-corners"><div class="coursera-course-logo"><img src="{{course.cover.url}}"></div><div class="btn coursera-course-playbutton"><div></div><span style="margin-right:8px;">Watch intro video</span></div></div><iframe width="412" height="231" frameborder="0" allowfullscreen="allowfullscreen" wmode="opaque" class="hide coursera-course-video"></iframe></div></div>
+
+
+
+	</div>
+</div>
+</div>
+</body>
+</html>

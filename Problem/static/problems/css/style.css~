@@ -1,0 +1,1099 @@
+/* Universal */
+
+body {
+	background: url('../images/bg.jpg');
+	font-family: "微软雅黑", "Adobe 黑体 Std R", "Adobe 仿宋 Std R", "华文中宋";
+	font-size: 13px;
+	color: #30373b;
+	line-height: 22px;
+
+}
+h3 {
+	font-size: 1.6em;
+	font-family: 'lucida grande', sans-serif;
+	color: #1f323f;
+	padding: 0px 0px 5px 0px;
+	line-height: 33px;
+	clear: both;
+}
+h3.secure {
+	background: url('http://www.sonarhq.com/system/i/icon-lock.gif') no-repeat 2px 6px;
+	padding-left: 22px;
+}
+h4 {
+	font-size: 1.3em;
+	font-weight: bold;
+	display: block;
+	padding: 0px 0px 22px 0px;
+}
+a:link, a:active, a:visited {
+	color: #5b9900;
+}
+a:hover {
+	text-decoration: none;
+}
+input {
+
+}
+textarea {
+	font-family: 'lucida grande', sans-serif;
+	background: #fff url('http://www.sonarhq.com/system/i/bg-field.gif') repeat-x;
+	padding: 3px;
+	border: solid 1px #9e9e9e;
+	font-size: 13px;
+}
+input.field-tip {
+	color: #7e7e7f;
+}
+input.field-active {
+	color: #000;
+}
+/* General styles */
+
+
+
+.hide {
+	display: none;
+}
+.clear-all {
+	clear: both;
+}
+a.button {
+	text-transform: uppercase;
+	color: #fff;
+	text-decoration: underline;
+	background: url('http://www.sonarhq.com/system/i/bg-button.gif') no-repeat bottom left;
+	border: solid 2px #fff;
+	border-bottom: solid 1px #fff;
+	padding: 6px 19px 6px 19px;
+	font-size: 16px;
+	letter-spacing: .8px;
+	clear: both;
+}
+input.button {
+	text-transform: uppercase;
+	color: #fff;
+	text-decoration: none;
+	background: url('http://www.sonarhq.com/system/i/bg-button.gif') no-repeat bottom left;
+	border: solid 2px #fff;
+	border-bottom: solid 1px #fff;
+	padding: 6px 19px 6px 19px;
+	margin: 0px 0px 22px 0px;
+	font-size: 16px;
+	letter-spacing: .8px;
+	clear: both;
+}
+input.button:hover {
+	cursor: pointer;
+}
+.button.large {
+	padding: 5px 19px 5px 19px;
+	font-size: 17px;
+}
+.button.medium {
+	padding: 4px 17px 4px 17px;
+	font-size: 14px;
+}
+.button.small {
+	padding: 2px 14px 2px 14px;
+	font-size: 12px;
+}
+.button.light {
+	border: solid 1px #ccc;
+}
+.button:hover {
+	border-color: #cbd7ba;
+	color: #e0ead3;
+}
+/* Buttons */
+
+
+
+.button-hero {
+	background: url('images/button-hero-signup.gif') no-repeat;
+	height: 37px;
+	width: 183px;
+	border: none;
+	text-indent: -3000px;
+	display: block;
+	overflow: hidden;
+	top: 40px;
+	position: relative;
+}
+.button-hero:hover {
+	background-position: 0px -37px;
+}
+.button-signup {
+	background: url('http://www.sonarhq.com/system/i/button-signup.gif') no-repeat;
+	height: 35px;
+	width: 169px;
+	border: none;
+	text-indent: -3000px;
+	display: block;
+	overflow: hidden;
+}
+.button-signup:hover {
+	background-position: 0px -35px;
+}
+p.testimonial {
+	color: #446e8c;
+	font-size: 16px;
+}
+p.testimonial .source {
+	color: #30373b;
+	font-size: 13px;
+	display: block;
+}
+.wrap {
+	clear: both;
+	display: block;
+}
+.wrap .button {
+	float: right;
+	margin-top: 0px;
+}
+.wrap .button-hero {
+	float: right;
+	margin-top: 0px;
+}
+.wrap p {
+	width: 455px;
+}
+.wrap p.testimonial {
+	float: right;
+	width: 450px;
+}
+.wrap h3 {
+	
+	clear: none;
+	color: #00998A;
+}
+/* Head */
+#hdbg {
+	background: url(../images/hdbg.png);
+	width: 100%;
+        min-width:1080px;
+	height: 70px;
+}
+#hd {
+	margin: auto;
+	width: 1080px;
+	clear: both;
+	height: 70px;
+}
+#hdshadow {
+	background: url(../images/hdshadow.png);
+	width: 100%;
+        min-width:1080px;
+	height: 22px;
+}
+#seperatorafterheader{
+	
+	height: 20px;
+	width:100%
+}
+
+#bd #seperatorafterslide {
+	background-image: url(../images/seperatorafterslide.png);
+	position: relative;
+	width: 1080px;
+	height: 22px;
+	clear: both;
+	left: -73px;
+	background-repeat: repeat-x;
+	background-position: top;
+}
+
+#hd h1 {
+	color: #fff;
+	width: 150px;
+	height: 53px;
+	display: block;
+	float: left;
+	font-size: 52px;
+	margin: 25px 20px 0px 40px;
+}
+/* search */
+.searchbox{
+	float:left;
+	margin:0;
+	background:url(../images/searchboxnormal.png) no-repeat;
+	width:352px;
+	height:43px;
+	margin-top:20px;
+}
+.onsearchbox{
+	float:left;
+	margin:0;
+	background: url(../images/searchboxexpand.png) no-repeat;
+	width:352px;
+	height:275px;
+	margin-top:20px;
+}
+
+#searchinputbox{
+	font-family: "Adobe 黑体 Std R", "Adobe 仿宋 Std R", "微软雅黑", "华文中宋";
+	color:#666;
+	font-size: 16px;
+	display:block;
+	height:20px;
+	position:relative;
+	top:12px;
+	width:250px;
+	margin-left:12px;
+	float:left;
+	border:none;
+}
+#onsubmiticon{
+cursor: pointer;
+display:block;
+width:65px;
+height: 43px;
+background: url(../images/onsubmiticon.png) no-repeat;
+font-size: 0px;
+border:none;
+float:right;
+}
+#submiticon{
+cursor: pointer;
+display:block;
+width:65px;
+height: 43px;
+background: url(../images/onsubmiticon.png) no-repeat;
+font-size: 0px;
+border:none;
+float:right;
+}
+/* nav */
+#nav {
+	float: right;
+	list-style: none;
+	margin: 0;
+}
+#nav li {
+	height: 70px;
+	display: block;
+	float: left;
+	position: relative;
+}
+#nav .active a {
+	border-bottom: 3px solid #06C;
+	font-size: 20px;
+	color: #DDD;
+}
+#nav li a {
+	height: 67px;
+	display: block;
+	float: left;
+	margin: 10px; 0 0px 15px;
+	padding: 0px 5px;
+	line-height: 70px;
+	border-bottom: 3px solid transparent;
+	font-size: 18px;
+	color: #DDD;
+	text-decoration: none;
+	font-family: "微软雅黑", "Adobe 黑体 Std R", "Adobe 仿宋 Std R", "华文中宋";
+	font-weight: 400;
+}
+#nav li a:hover {
+	color: #DDD;
+	border-bottom: 3px solid #06C;
+}
+/* body */
+
+
+
+#bd {
+	padding: 0px 73px 22px 73px;
+	width: 934px;/* 1024px incl padding */
+	overflow: hidden;
+	margin: 0px auto 0px auto;
+	-webkit-box-shadow: 3px 0 4px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 3px 0 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 3px 0 4px rgba(0, 0, 0, 0.1);
+	background-color: #eeeeee;
+	background-image: url(../images/paper_01.png);
+	border-color: #ededed;
+	background-repeat: repeat;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-left-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	border-bottom-right-radius: 4px;
+}
+#bd h2 {
+	font-size: 45px;
+	font-weight: bold;
+	padding: 0px 0px 0px 0px;
+}
+#bd .features {
+	width: 530px;
+	float: right;
+	margin: 0px 0px 22px 20px;
+}
+#bd .features li {
+	width: 250px; /* padding inc = 265px */
+	float: left;
+	margin: 0px 0px 10px 10px;
+	padding: 0px;
+	color: #727b80;
+	background: none;
+	display: inline;
+}
+#bd .features li a {
+	text-decoration: none;
+	color: #727b80;
+	display: block;
+	margin: 0px;
+	padding: 8px;
+	border: solid 1px #e2e2e2;
+	text-transform: uppercase;
+	font-size: 11px;
+	line-height: 18px;
+}
+#bd .features li a img {
+	border: solid 1px #fff;
+	margin-left: -3px;
+	margin-bottom: 11px;
+	display: block;
+	width: 235px;
+	height: 132px;
+}
+#bd .features li a:hover {
+	background: #ecf2f3;
+	color: #000;
+}
+#bd .features li a:hover img {
+	border: solid 1px #aec3c7;
+}
+#masthead {
+	background: #233a48 url('http://www.sonarhq.com/system/i/bg-masthead.jpg') repeat-x bottom left;
+	color: #fff;
+	border-bottom: solid 1px #ddd;
+	padding: 22px 24px 0px 37px;
+	margin: 0px -35px 23px -35px;
+	overflow: auto;
+}
+.main-col {
+	width: 520px;
+	float: left;
+}
+.right-col {
+	width: 280px;
+	float: left;
+	padding: 0px 0px 0px 20px;
+}
+.right-col .contact-form {
+	border: solid 1px #dcdcdc;
+	padding: 3px;
+}
+.right-col .contact-form form {
+	background: #eff6f7;
+	padding: 20px 30px 20px 20px;
+	overflow: auto;
+}
+.right-col .contact-form label {
+	display: block;
+	padding: 0px 0px 2px 0px;
+}
+.right-col input, .right-col textarea {
+	display: block;
+	width: 100%;
+	margin: 0px 0px 11px 0px;
+}
+.right-col .contact-form .button {
+	width: auto;
+	float: right;
+	margin: 11px -10px 0px 0px;
+}
+.right-col .contact-form .button-send {
+	margin: 11px 0px 0px 0px;
+	height: 35px;
+	width: 169px;
+	border-style: none;
+	background: none;
+}
+.right-col h4 {
+	font-size: 1.3em;
+	font-weight: normal;
+}
+/* Tour */
+
+
+
+#bd ul.feature-contents {
+	width: 535px;
+	overflow: auto;
+	padding-top: 11px;
+	margin-left: 5px;
+}
+#bd ul.feature-contents li {
+	padding-bottom: 5px;
+	float: left;
+	width: 240px;
+}
+#bd ul.tour-features {
+	margin: 22px 0px 0px 0px;
+	padding: 0px;
+}
+#bd ul.tour-features li {
+	clear: both;
+	padding: 0px;
+	background: none;
+	margin: 0px 0px 22px 0px;
+	padding: 0px 0px 0px 0px;
+}
+#bd ul.tour-features li .topofpage {
+	float: right;
+	text-transform: uppercase;
+	margin-top: -40px;
+	font-size: 11px;
+	letter-spacing: 0.4px;
+	background: url('http://www.sonarhq.com/system/i/icon-topofpage.gif') no-repeat 100% 45%;
+	padding: 0px 14px 0px 0px;
+	color: #9b9b9b;
+	text-decoration: none;
+}
+#bd ul.tour-features li .topofpage:hover {
+	text-decoration: underline;
+}
+ul.tour-features li img {
+	float: left;
+	margin-bottom: 22px;
+}
+ul.tour-features li div {
+	float: left;
+	width: 250px;
+	margin-left: 20px;
+	margin-bottom: 22px;
+	padding-top: 2px;
+}
+#bd ul.tour-features li ol {
+	margin: 0px 0px 0px 11px;
+	list-style: decimal;
+}
+#bd ul.tour-features li ol li {
+	list-style: decimal;
+	display: list-item;
+	padding: 0px 0px 0px 2px;
+	color: #797979;
+	font-size: 10px;
+}
+#bd ul.tour-features li ol li p {
+	color: #30373b;
+	font-size: 13px;
+	padding: 0px;
+	margin: 0px;
+}
+ul.tour-features li h3 {
+	padding: 22px 75px 11px 5px;
+}
+/* Headings */
+
+
+
+h2.heading-home {
+	/*background: url('http://www.sonarhq.com/system/i/heading-createyoursurvey.gif') no-repeat;
+
+	text-indent:-2000px;*/
+
+	height: 52px;
+	margin-top: 22px;
+}
+h2.heading-about {
+	background: url('http://www.sonarhq.com/system/i/heading-about.gif') no-repeat 0px 5px;
+	text-indent: -2000px;
+	height: 37px;
+	width: 131px;
+	float: left;
+	margin: 0px 20px 20px 0px;
+}
+h2.heading-contact {
+	background: url('http://www.sonarhq.com/system/i/heading-contact.gif') no-repeat 0px 5px;
+	text-indent: -2000px;
+	height: 37px;
+	width: 162px;
+	float: left;
+	margin: 0px 20px 20px 0px;
+}
+h2.heading-signup {
+	background: url('http://www.sonarhq.com/system/i/heading-signup.gif') no-repeat 0px 3px;
+	text-indent: -2000px;
+	height: 45px;
+	width: 141px;
+	float: left;
+	margin: 0px 20px 20px 0px;
+}
+h2.heading-tour {
+	background: url('http://www.sonarhq.com/system/i/heading-tour.gif') no-repeat;
+	text-indent: -2000px;
+	height: 37px;
+	width: 98px;
+	float: left;
+	margin: 0px 20px 20px 0px;
+}
+h2.heading-terms-of-service {
+	background: url('http://www.sonarhq.com/system/i/heading-termsofservice.gif') no-repeat;
+	text-indent: -2000px;
+	height: 37px;
+	width: 363px;
+	float: left;
+	margin: 0px 20px 20px 0px;
+}
+h2.heading-privacy-policy {
+	background: url('http://www.sonarhq.com/system/i/heading-privacy.gif') no-repeat;
+	text-indent: -2000px;
+	height: 45px;
+	width: 298px;
+	float: left;
+	margin: 0px 20px 20px 0px;
+}
+/* #footer
+
+--------------------------------------------------*/
+
+#ftshadow {
+	width: 100%;
+        min-width:1080px;
+	height: 22px;
+}
+#ft #ftcontent h2     {
+	font-size: 24px;
+	font-weight: 400;
+	color: #FFF;
+}
+#ft {
+	width: 100%;
+        min-width:1080px;
+	float: left;
+	color: #999;
+	background-color: #444;
+	font-size: 11px;
+}
+#ftcontent {
+	width: 1080px;
+	overflow: hidden;
+	clear: both;
+	margin: auto;
+	height: auto;
+}
+#ft a {
+	color: #FFF;
+	text-decoration:none;
+}
+span.hr {
+	background: url(../images/separator.gif) top repeat-x;
+	margin: 0px -10px 0px -10px;
+	display: block;
+	overflow: hidden;
+	height: 10px;
+}
+#ftcontent h2 {
+	font-size: 21px;
+	color: #2c2d2e;
+	line-height: 26px;
+	padding: 33px 0 15px 0
+}
+#ftcontent .list1 {
+	margin: -3px 0
+}
+#ftcontent .list1 li {
+	line-height: 20px
+}
+.under2 {
+	padding-bottom: 30px;
+	line-height: 0;
+	font-size: 0;
+	height: 0;
+	border-bottom: 1px solid #ededed;
+	margin: 0 25px 35px
+}
+.font_size {
+	font-size: 12px
+}
+/* forms */
+.input {
+	background: url(../images/input_bg.gif) top repeat-x;
+	border: 1px solid #444;
+	font: 14px;
+	height: 16px;
+	padding: 5px 10px;
+	color: #aaa;
+	behavior: url(js/PIE.htc);
+	position: relative
+}
+.bg {
+	behavior: url(js/PIE.htc);
+	position: relative;
+	margin-bottom: 15px
+}
+.submit {
+	font-size: 17px;
+	color: #fff;
+	float: right;
+	line-height: 32px;
+	background: url(../images/submitbutton.png) top repeat-x;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+.submit span {
+	display: block;
+	background: url(../images/submitleft.png) top left no-repeat
+}
+.submit span span {
+	padding: 0 17px;
+	height: 48px;
+	background: url(../images/submitright.png) top right no-repeat
+}
+#form_1 {
+	width: 237px
+}
+#form_1 .input {
+	width: 213px
+}
+#form_1 a {
+	line-height: 32px
+}
+#form_2 .input1 {
+	width: 120px
+}
+#form_2 .input2 {
+	width: 91px
+}
+#form_2 a {
+	line-height: 32px
+}
+#ContactForm {
+	line-height: 30px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	width: 100%
+}
+#ContactForm a {
+	float: right;
+	margin-bottom: 0;
+	background: url(../images/submitbutton.gif) top repeat-x;
+	margin-top: 5px
+}
+#ContactForm a span {
+	background: url(../images/submitleft.jpg) top left no-repeat
+}
+#ContactForm a span span {
+	background: url(../images/submitright.jpg) top right no-repeat
+}
+#ContactForm .bg {
+	float: right;
+	margin-bottom: 10px
+}
+#ContactForm .input {
+	width: 761px
+}
+#ContactForm .textarea {
+	background: url(../images/textarea_bg.gif) top repeat-x;
+	border: 1px solid #fff;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	behavior: url(js/PIE.htc);
+	position: relative
+}
+#ContactForm textarea {
+	overflow: auto;
+	height: 208px;
+	width: 761px;
+	padding: 5px 10px;
+	background: none;
+	font: 14px Arial, Helvetica, sans-serif;
+	color: #aaa
+}
+/* page specfic
+
+--------------------------------------------------*/
+
+#masthead-wrapper #masthead {
+	background-attachment: scroll;
+	background-color: transparent;
+	background-image: url(http://www.sonarhq.com/system/i/bg-masthead.jpg);
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	margin: 0;
+	padding-bottom: 0px;
+	padding-left: 37px;
+	padding-right: 24px;
+	padding-top: 22px;
+}
+#masthead-wrapper {
+	background: #233a48;
+	margin-left: -35px;
+	margin-right: -35px;
+	margin-bottom: 15px;
+	color: #FFFFFF;
+}
+
+
+.fluid_container {
+	margin: 0 auto;
+	max-width: 700px;
+	width: 100%;
+	left: 150px;
+	position: relative;
+	clear: both;
+}
+.masterheadleft {
+	position: absolute;
+	width: 280px;
+	float: left;
+	clear: both;
+	height: 329px;
+	color: #000;
+}
+#masthead-wrapper .masterheadleft ul li {
+	font-size: 16px;
+	position: relative;
+	left: 5px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 22px;
+}
+.masterheadleft .intro {
+	font-size: 14px;
+	font-family: "Adobe 黑体 Std R", "Adobe 仿宋 Std R", "微软雅黑", "华文中宋";
+	width: 400px;
+	padding: 0px 0px 22px 0px;
+	line-height: 23px;
+	color: #000;
+}
+#masthead-wrapper .masterheadleft .heading-home {
+	position: relative;
+	left: 5px;
+	font-size: 35px;
+	top: 10px;
+	font-weight: 700;
+	color: #222;
+}
+article {
+	display: block;
+}
+
+.col1, .col2, .col3, .cols , .colsx, .colsx2{
+	float: left
+}
+.col1 {
+	width: 290px
+}
+.col11 {
+	width: 304px;
+}
+.col2 {
+	width: 632px
+}
+.cols, .colsx, .colsx2{
+	width: 268px
+}
+.colsx{ padding-left:45px;}
+.colsx{ padding-left:45px; padding-right:100px;}
+.colss{width:200px; float:right}
+.pad_left2 {
+	padding-right: 10px;
+}
+.box1_out {
+	background: url('images/box1_out_bg.png') repeat;
+	border-bottom: 1px solid #e6e6e6;
+	border-right: 1px solid #eaeaea;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	behavior: url(js/PIE.htc);
+	position: relative;
+	padding: 5px;
+}
+.box1 {
+	background: url('images/box1_bg.gif') bottom repeat-x #fff;
+	position: relative;
+	padding: 0 14px 0 15px;
+}
+.box1 h2 {
+	font-size: 26px;
+	line-height: 36px;
+	color: #2c2d2e;
+	padding: 16px 0 12px 0;
+}
+.pad {
+	padding: 0 35px
+}
+.pad_bot1 {
+	padding-bottom: 22px;
+}
+.box1 .img {
+	position: absolute;
+	bottom: -30px;
+	right: -15px;
+	z-index: 1200;
+}
+.wrapper {
+	margin: 5px 0px 20px 0px;
+	display: block;
+	width: 100%;
+	overflow: hidden;
+}
+.box1_bot {
+	background: url('../images/box1_bot_bg.gif') top repeat-x
+}
+.box1_bot_left {
+	background: url('../images/box1_bot_left.gif') top left no-repeat
+}
+.box1_bot_right {
+	background: url('../images/box1_bot_right.gif') top right no-repeat;
+	height: 24px
+}
+.dream_copy_right {
+	width: 450px;
+	float: right;
+	margin-right: 25px;
+	margin-left: 15px;
+}
+.dream_copy_left {
+	width: 450px;
+	float: left;
+	margin-left: 15px;
+}
+.dream_h1 {
+	font-size: 18px;
+	line-height: 22px;
+	color: #00998A;
+	float: left;
+	width: 100%;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #00998A;
+}
+.dream_1 {
+	background: url(../images/pic1.jpg) center no-repeat;
+	display: block;
+	width: 420px;
+	height: 202px;
+	float: left;
+	padding: 2px;
+	border: 4px solid #DEE;
+}
+.dream_2 {
+	background: url(../images/pic2.jpg) center no-repeat;
+	display: block;
+	width: 420px;
+	height: 220px;
+	padding: 2px;
+	border: 4px solid #DEE;
+}
+.dream_3 {
+	background: url(../images/pic3.jpg) center no-repeat;
+	display: block;
+	width: 420px;
+	height: 226px;
+	float: left;
+	padding: 2px;
+	border: 4px solid #DEE;
+}
+.dream_4 {
+	background: url(../images/pic4.jpg) left bottom no-repeat;
+	display: block;
+	width: 420px;
+	height: 186px;
+	padding: 3px;
+	border: 4px solid #DEE;
+}
+#home #bd #masthead-wrapper .masterheadleft li {
+	display: block;
+	margin-left: 25px;
+	padding: 0px 0px 2px 25px;
+	background: url('http://www.sonarhq.com/system/i/bg-bullet.gif') no-repeat 0px 6px;
+}
+/*login*/
+#loginbox{
+   position:absolute;
+   margin-top:100px;
+   margin-left:700px;
+   clear:both;
+   background:url(../images/Form/login.png) ;
+   width:300px;
+   height:285px;
+    border:1px #CCCCCC solid;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-left-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	border-bottom-right-radius: 4px;
+   
+
+
+}
+#loginbd{
+	width: 1080px;
+	overflow: hidden;
+	margin: 0px auto 0px auto;
+    clear:both;
+	
+}
+.logininput1{
+	position:absolute;
+	height:30px;
+	top:105px;
+	width:240px;
+	left:30px;
+	background:none;
+	color:#999;
+	font-family: "Adobe 黑体 Std R", "Adobe 仿宋 Std R", "微软雅黑", "华文中宋";
+	font-size:16px;
+	border:none;
+}
+.logininput2{
+	position:absolute;
+	height:30px;
+	top:195px;
+	width:240px;
+	left:30px;
+	background:none;
+	color:#999;
+	font-family: "Adobe 黑体 Std R", "Adobe 仿宋 Std R", "微软雅黑", "华文中宋";
+	font-size:16px;
+	border:none;
+}
+.loginsubmit{
+	position:absolute; 
+	top:240px;
+}
+#loginrem{
+	position:absolute; 
+	top:250px;
+	left:90px;
+}
+#regbox{
+   position:absolute;
+      margin-top:100px;
+   margin-left:700px;
+   clear:both;
+   background: url(../images/Form/reg.png);
+   width:300px;
+   height:388px;
+    border:1px #CCCCCC solid;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-left-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	border-bottom-right-radius: 4px;
+	visibility:hidden;
+}
+.reginput1{
+	position:absolute;
+	height:30px;
+	top:100px;
+	width:240px;
+	left:30px;
+	background:none;
+	color:#999;
+	font-family: "Adobe 黑体 Std R", "Adobe 仿宋 Std R", "微软雅黑", "华文中宋";
+	font-size:16px;
+	border:none;
+}
+.reginput2{
+	position:absolute;
+	height:30px;
+	top:170px;
+	width:240px;
+	left:30px;
+	background:none;
+	color:#999;
+	font-family: "Adobe 黑体 Std R", "Adobe 仿宋 Std R", "微软雅黑", "华文中宋";
+	font-size:16px;
+	border:none;
+}
+.reginput3{
+	position:absolute;
+	height:30px;
+	top:235px;
+	width:240px;
+	left:30px;
+	background:none;
+	color:#999;
+	font-family: "Adobe 黑体 Std R", "Adobe 仿宋 Std R", "微软雅黑", "华文中宋";
+	font-size:16px;
+	border:none;
+}
+.reginput4{
+	position:absolute;
+	height:30px;
+	top:305px;
+	width:240px;
+	left:30px;
+	background:none;
+	color:#999;
+	font-family: "Adobe 黑体 Std R", "Adobe 仿宋 Std R", "微软雅黑", "华文中宋";
+	font-size:16px;
+	border:none;
+}
+.regsubmit{
+	position:absolute; 
+	top:340px;
+}
+#loginfooter{
+	position: absolute;
+margin-top:570px;
+height: 30px;
+width: 100%;
+border-top: 1px solid #ebebeb;
+overflow: hidden;
+}
+#loginfooter ul{
+color: #999;
+float: left;
+max-width: 80%;
+}
+#loginfooter ul li{
+	font-family:"Adobe 黑体 Std R", "Adobe 仿宋 Std R", "微软雅黑", "华文中宋";
+	font-size:12px;
+	color:#666;
+	display: inline;
+padding: 0 20px 0 0;
+}
+#loginfooter ul li a{
+	font-family:"Adobe 黑体 Std R", "Adobe 仿宋 Std R", "微软雅黑", "华文中宋";
+	font-size:12px;
+	color:#666;
+	display: inline;
+text-decoration:none;
+}
+/*new search bar*/
+#searchfield{
+	background: url(../images/Form/search.png);
+	background-repeat: repeat-x;
+	width:51px;
+	height:30px;
+	margin:0px 0 0 0;
+	padding:0 0 0px 0 ;
+	border:none;
+	color: rgba(255,255,255,0.7);
+	font-size: 13px;
+	position:relative;
+}
+.loginbutton{
+	position:absolute; 
+	width:45px;
+	height:25px;
+	
+	  font-size:14px; 
+	  font-weight:200;
+	  background:#06C;
+	  -webkit-box-shadow: 3px 0 4px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 3px 0 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 3px 0 4px rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius:2px;
+	border:1px solid #CCC;
+	color:#FFF;
+	text-decoration:none;
+	padding-left:15px;
+	
+}

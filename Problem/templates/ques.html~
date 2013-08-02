@@ -1,0 +1,79 @@
+{% extends "structure.html" %}
+
+{% block title %}当前习题{% endblock %}
+
+{% block main %}	
+
+<h1>{{question_set.container.name}} </h1>
+<p> This question set is created by {{question_set.container.owner}}</p>
+
+	<ul class="breadcrumb" data-connect="breadcrumbcontent">
+		<li><a href="#">Welcome</a></li>
+	{% for set in sub_set %}		
+		<li><a href="/qb/qs/{{question_set.id}}/{{set.id}}">{{ set.name }}</a></li>
+	{% endfor %}
+	</ul>
+
+<form method="post" action="/qb/qs/1/{{question_set.id}}/" data-ajax="false">
+{% csrf_token %}
+{% for raw in raw_set %}
+
+	<fieldset>	
+		{% if raw.text_body %}
+		<label>{{raw.title }}</label>
+		<section><pre>{{ raw.text_body }}</pre></section>
+		{% endif %}
+		
+		{% for questionInstance in raw.my_instance_set %}  
+		<section><label for="input">Question</label>
+			{% ifnotequal questionInstance.question_text "N/A" %}
+			<div>{{ questionInstance.question_text }}</div>
+			{% endifnotequal %}
+			<div>
+			{% for choice in questionInstance.choices %}
+				{% if questionInstance.user_solution == choice %}
+					
+				<input type="checkbox" id="answer{{ questionInstance.id }}" name="answer{{ questionInstance.id }}" value="{{ choice }}" checked>
+					{% if questionInstance.marked %}
+					{% ifequal questionInstance.solution_text choice %}
+					<label class="correct" for="answer{{ questionInstance.id }}">{{ choice }}</label>
+					{% else %}
+					<label class="incorrect" for="answer{{ questionInstance.id }}">{{ choice }}</label>
+					{% endifequal %}
+					{% else %}
+					<label for="answer{{ questionInstance.id }}">{{ choice }}</label>
+					{% endif %}
+				{% else %}
+				<input type="checkbox" name="answer{{ questionInstance.id }}" id="answer{{ questionInstance.id }}" value="{{ choice }}">
+					
+					{% if questionInstance.marked %}
+					{% ifequal questionInstance.solution_text choice %}		
+					<label class='missing' for="answer{{ questionInstance.id }}">{{ choice }}</label>
+					{% else %}
+					<label for="answer{{ questionInstance.id }}">{{ choice }}</label>	
+					{% endifequal %}					
+					{% else %}				
+					<label for="answer{{ questionInstance.id }}">{{ choice }}</label>				
+					{% endif %}
+				{% endif %}
+				
+				{% ifnotequal questionInstance.question_text "N/A" %}
+				<br />
+				{% endifnotequal %}
+			{% endfor %}			
+			</div>	
+			
+		</section>
+		{% endfor %}
+	</fieldset>
+
+{% endfor %}	
+	<section>
+		<div>
+		<button class="submit" name="submit_answers" value="Save">Save</button> <button class="submit" name="submit_answers" value="Submit">Submit</button> </div>
+		<button class="submit" name="submit_answers" value="Save"><a href="">Next</a></button>
+	</section>
+	
+</form>
+
+{% endblock %}

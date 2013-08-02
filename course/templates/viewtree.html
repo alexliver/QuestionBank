@@ -1,0 +1,36 @@
+	<a id="cs_link4"></a>
+	<h2><i class="icon-bar-chart  icon-large"></i> 知识树 <span class='right fulltree'>全屏 <i class="icon-fullscreen  icon-large"></i></span></h2>
+	<hr>
+		<ul class="knowledgetree" style="display:none">
+		
+			<li><span>{{root.name}}</span><span class='node_progress'><span>100%</span></span>
+				{% if root.children.count > 0 %}<ul>
+					{% for topic1 in root.children.all %} 
+					<li> <span>{{topic1.name}}</span><span class='node_progress'><span>100%</span></span>
+						{% if topic1.children.count > 0 %}<ul>
+						{% for topic2 in topic1.children.all %} 
+							<li><span>{{topic2.name}}</span><span class='node_progress'><span>100%</span></span>
+								{% if topic2.children.count > 0 %}<ul>
+								{% for topic3 in topic2.children.all %} 
+									<li> <span>{{topic3.name}}</span><span class='node_progress'><span>100%</span></span>
+										{% if topic3.children.count > 0 %}<ul>
+										{% for topic4 in topic3.children.all %} 								
+										<li> <span>{{topic4.name}}</span><span class='node_progress'><span>100%</span></span></li> 
+										{% endfor %}
+										</ul> {% endif %}
+									</li>
+								{% endfor %}
+								</ul> {% endif %}
+							</li> 
+						{% endfor %}
+						</ul>{% endif %}
+					</li> 
+					{% endfor %}
+				</ul>{% endif %}
+			</li>
+		
+		</ul> 
+									    
+	 <div class="cs_course_tree"><div id="chart" class="orgChart"></div></div>
+
+

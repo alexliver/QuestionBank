@@ -1,0 +1,42 @@
+{% extends "structure.html" %}
+
+{% block title %}学习日志{% endblock %}
+
+{% block main %}
+	
+	<div class="g12">
+			<h1>学习日志</h1>
+			<form id="form" action="" method="post" autocomplete="off" data-ajax="false">
+				<fieldset>
+					{% csrf_token %}
+					<label>学习日志</label>
+					<section>
+						
+						<label for="id_title">Title</label> 
+						<div>{{ form.title}}</div>
+						</section>
+						
+						<section>
+						
+						<label for="id_html_text">Text</label> 
+						<div><textarea id="id_html_text" rows="30" cols="40" name="html_text" class="html" ></textarea></div>
+						</section>
+						
+						<section>
+						
+						<label for="id_permission">Permission</label> 
+						<div>{{ form.permission}} </div>
+						</section>
+						
+						<section>
+						
+						<label for="id_commenton">Commenton</label> 
+						<div>{{ form.commenton}} </div>
+						</section>
+
+					</fieldset>
+			<button class="submit green" name="submit" value="submit">Submit</button><button class="submit">save</button>				
+			</form>
+			
+	</div>
+{% endblock %}

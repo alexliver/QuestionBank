@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>科聚 | 智能题库</title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}problems/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}problems/css/style.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}problems/css/camera.css"/>
+<!--[if IE]>
+      <link rel="stylesheet" type="text/css" href="/system/css/ie.css">
+    <![endif]-->
+
+<link rel="stylesheet" href="http://www.sonarhq.com/system/css/slimbox.css" type="text/css" media="screen" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="{{ STATIC_URL }}problems/js/jquery.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}problems/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}problems/js/onepage.js"></script>
+<script src="http://www.lanrentuku.com/js/jquery-1.2.6.pack.js" type="text/javascript"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}problems/js/searchboxexpand.js"></script>
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+                $(".contactLink").click(function(){
+                    if ($("#contactForm").is(":hidden")){
+                        $("#contactForm").slideDown("slow");
+                    }
+                    else{
+                        $("#contactForm").slideUp("slow");
+                    }
+                });
+            });
+            function closeForm(){
+                $("#messageSent").show("slow");
+                setTimeout('$("#messageSent").hide();$("#contactForm").slideUp("slow")', 2000);
+           }
+
+$(document).ready(function() {
+  function filterPath(string) {
+    return string
+      .replace(/^\//,'')
+      .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+      .replace(/\/$/,'');
+  }
+
+  $('a[href*=#]').each(function() {
+    if ( filterPath(location.pathname) == filterPath(this.pathname)
+    && location.hostname == this.hostname
+    && this.hash.replace(/#/,'') ) {
+      var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
+      var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+       if ($target) {
+         var targetOffset = $target.offset().top;
+         $(this).click(function() {
+           $('html, body').animate({scrollTop: targetOffset}, 1000);
+           var d = document.createElement("div");
+		d.style.height = "101%";
+		d.style.overflow = "hidden";
+		document.body.appendChild(d);
+		window.scrollTo(0,scrollToM);
+		setTimeout(function() {
+		d.parentNode.removeChild(d);
+	        }, 10);
+           return false;
+         });
+      }
+    }
+  });
+});
+/*! Smooth Scroll - v1.4.5 - 2012-07-22
+* Copyright (c) 2012 Karl Swedberg; Licensed MIT, GPL */
+</script>
+</head>
+<body id="home">
+<div id="hdbg">
+  <div id="hd"> <a id="homepage"></a>
+    <h1>科聚</h1>
+    <ul id="nav">
+      <li class="active"><a href="#"> 主页</a></li>
+      <li><a href="search  - with searchbox.html">搜索 </a></li>
+      <li><a href="set-demo-link1.html">习题 </a></li>
+      <li><a href="#">我的科聚 </a></li>
+    <li style="margin-left:30px;"><form id="searchbox" style="height:inherit; display:block;">
+    <span ><img src="{{ STATIC_URL }}problems/images/Form/searchleft.png" id="searchactive" style="margin:22px -5px 0px 0; top:10px; position:relative; padding:0;border:0;" width="37" height="30" /></span>
+    <input name="searchbox" type="text" id="searchfield" />
+    <span ><img src="{{ STATIC_URL }}problems/images/Form/searchright.png" style="margin:22px 0px 0px -5px; top:10px; position:relative; padding:0;border:0;" width="26" height="30" /></span>
+    </form></li>
+   
+    </ul>
+    
+  </div>
+</div>
+<div id="hdshadow"> </div>
+<div id="bd">
+  <div id="seperatorafterheader"></div>
+  <div id="masthead-wrapper">
+    <div class="masterheadleft">
+      <h2 class="heading-home">首创智能题库</h2>
+      <p class="intro">
+      <ul>
+        <li> 智能生成问题，题题唯一 </li>
+        <li> 智能匹配难度，度身打造</li>
+        <li> 智能评估练习成果，减轻负担 </li>
+        <li> 智能追踪学习进度，提高效率</li>
+      </ul>
+      </p>
+      <a href="" class="button-hero">免费注册</a> </div>
+    <div class="fluid_container">
+      <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+        <div data-thumb="images/slides/thumbs/b.png" data-src="images/slides/b.png" data-link="#featureA">
+          <div class="camera_caption fadeFromBottom"> 智能生成问题，题题唯一. <em> <a href="#featureB">进一步了解</a></em> </div>
+        </div>
+        <div data-thumb="images/slides/thumbs/bridge.png" data-src="images/slides/bridge.png" data-link="#featureB">
+          <div style="position:absolute; top:230px; left:10px;" class="fadeIn camera_effected"><span style="font-size:36px; color:#000;">科聚，搭设通往高分桥梁</span></div>
+        </div>
+        <div data-thumb="images/slides/thumbs/a.png" data-src="images/slides/a.png" data-link="#featureC">
+          <div class="camera_caption fadeFromBottom"> <em>智能评估练习成果，减轻负担</em> 一路迈向成功.<em><a href="#slideC">进一步了解</a></em> </div>
+        </div>
+        <div data-thumb="images/slides/thumbs/c.png" data-src="images/slides/c.png" data-link="#featureD">
+         <div style="position:absolute; top:230px; left:140px; width:192px; height:43px;" class="fadeIn camera_effected"><img src="{{ STATIC_URL }}problems/images/slides/cfadein.png" width="192" height="43" /></div>
+          <div class="camera_caption fadeFromBottom"> 智能追踪学习进度，提高效率, <em>最合理地安排学习进度.<em><a href="#featureD">进一步了解</a></em> </div>
+        </div>
+      </div>
+    </div>
+    <!-- #camera_wrap_1 --> 
+  </div>
+  <div id="seperatorafterslide"></div>
+  <div class="wrap">
+    <h3>学习倍添轻松，更具效率</h3>
+  </div>
+  <span class="hr">&nbsp;</span>
+  <div class="marg_top wrapper">
+    <article class="col1">
+      <div class="box1_out">
+        <div class="box1">
+          <h4>学习更有效率<a id="featureA"></a></h4>
+          <p class="pad_bot1"> 练习题度身筛选<br/>
+            根据用户程度匹配难度<br/>
+            避免单调重复训练 </p>
+          <img src="{{ STATIC_URL }}problems/images/img1.png" class="img" alt=""/> </div>
+      </div>
+      <div class="box1_bot">
+        <div class="box1_bot_left">
+          <div class="box1_bot_right"></div>
+        </div>
+      </div>
+    </article>
+    <article class="col1 pad_left1">
+      <div class="box1_out">
+        <div class="box1">
+          <h4>学习更有效果</h4>
+          <p class="pad_bot1"> 唯一问题杜绝取巧<br/>
+            系统即时反馈成果<br/>
+            智能追踪历史 </p>
+          <img src="{{ STATIC_URL }}problems/images/img2.png" class="img" alt=""/></div>
+      </div>
+      <div class="box1_bot">
+        <div class="box1_bot_left">
+          <div class="box1_bot_right"></div>
+        </div>
+      </div>
+    </article>
+    <article class="col1 pad_left1">
+      <div class="box1_out">
+        <div class="box1">
+          <h4>学习更有计划</h4>
+          <p class="pad_bot1"> 个人主页知识评估系统<br//>
+            知识掌握清晰明确<br/>
+            更有针对性 </p>
+          <img src="{{ STATIC_URL }}problems/images/img3.png" class="img" alt=""/> </div>
+      </div>
+      <div class="box1_bot">
+        <div class="box1_bot_left">
+          <div class="box1_bot_right"></div>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="wrap"> 
+    <!-- a href="http://www.sonarhq.com/signup" class="button small light">Sign up</a --> 
+    <a href=" " class="button-hero" style="position:relative; top:-5px;">免费注册</a>
+    <h3>科聚是怎样运行的？</h3>
+  </div>
+  <span class="hr">&nbsp;</span>
+  <div style="clear:both;padding-bottom:10px;"> </div>
+  <p><span class="dream_copy_left"><span class="dream_h1">针对每位用户 生成最优组合</span>教育学家认为，因材施教能大大提高学生的学习热情和学习效率。然而在传统教育的模式下，教师任务繁重，让每位老师专门辅导每位学生，针对学生弱项做到因材施教是不可能的事情。现在，科聚正是帮助学生解决这一问题的智能系统，<a id="featureB">它能针对每位用户的知识掌握程度，采用优秀算法筛选出适合学生的配套题目帮助学生巩固并加强对知识的理解。科聚，专注着力提供更加丰富的优质教育。<a href="#homepage">回到顶部</a></span> <span class="dream_1"></span> </p>
+  <div style="clear:both;padding-bottom:20px;"> <a id="featureC"></a></div>
+  <p><span class="dream_copy_right"><span class="dream_h1">用户解答问题 获得及时反馈</span>科聚不仅拥有针对个人的出题系统，同时有着一套完善的评价系统。在用户提交其完成的答案后，科聚可以即时对其进行实时评估，在比对用户所做的答案和系统收录的正确答案之后，用户可以直观地看到自己的错误和正确的做题思路，同时这些信息也被收入数据库，以便能更好地衡量用户的学习情况和当前水平。对于用户尚未掌握的知识点，科聚之后会不断选择相应适合的题目给用户练习。 <a href="#homepage">回到顶部</a></span><span class="dream_2"><a id="slideB"></a></span>
+  <div style="clear:both;padding-bottom:20px;"></div>
+  </p>
+  <p><span class="dream_copy_left"><span class="dream_h1">学习进度 知识点掌握情况 一目了然<span class="dream_rule"></span></span>科聚为每位用户设计了自己专属的主页，在那里用户可以直观地看到自己对每门课每一个知识点的掌握情况和自己的总体学习进度。这样每位用户可以清楚的知道自己的薄弱环节，在科聚的帮助下实现各个击破，这无疑大大地提高了学习的效率，避免了在不必要的知识点重复学习做题，浪费学习时间。科聚也会在一段学习之后，为用户生成一份自己专属的学习报告，让您更清楚地了解自己的进步和不足。<a href="#homepage">回到顶部</a></span><span class="dream_3"><a id="slideC"></a></span></p>
+  <div style="clear:both;padding-bottom:20px;"></div>
+  <p><span class="dream_copy_right"><span class="dream_h1">无论何时何地 享受顶级学习资源<span class="dream_rule"></span></span>"坚持教育的公益性和普惠性，构建幸福教育"是中国教育界的统一需求。有了科聚，无论用户身处繁华的都市还是边缘的农村，他们都一样可以享受科聚提供的优质服务，共享全国优秀的教育资源。同时学习也是终身的事业，不分年龄，每位用户都可以享受我们提供的优质学习管理助手服务。着力形成惠及全民的公平教育，这是科聚的目标。<a href="#homepage">回到顶部</a></span><span class="dream_4"><a id="featureD"></a></span></p>
+  <div style="clear:both"> </div>
+</div>
+<div id="ftshadow"> </div>
+<div id="ft"> <a id="login"></a>
+  <div id="ftcontent">
+    <article class="colsx">
+      <div class="pad">
+        <h2>关于科聚</h2>
+        <p style="color:#fff;">科聚是深圳滴答科技旗下产品. <br />
+          Copyright &copy;2013 Tigtag Technologies Limited, All Rights Reserved.</p>
+        <ul class="list1">
+          <li><a href="/privacy-policy">隐私声明</a></li>
+          <li><a href="/terms-of-service">服务条款</a></li>
+          <li class="last"><a href="/contact">联系我们</a></li>
+        </ul>
+      </div>
+    </article>
+    <article class="col2 pad_left1">
+      <div class="pad">
+        <div class="wrapper">
+          <article class="colsx2">
+            <h2>新闻订阅</h2>
+            <form id="form_1" action="" method="post">
+              <div>
+                <div class="bg">
+                  <input class="input" type="text" value="请输入电邮地址" onblur="if(this.value=='') this.value='请输入电邮地址'" onFocus="if(this.value =='请输入电邮地址' ) this.value=''" />
+                </div>
+                <a href="#" class="submit" onClick="document.getElementById('form_1').submit()"><span><span>提交</span></span></a> <a href="#">取消订阅</a> </div>
+            </form>
+          </article>
+          <article class="colss pad_left2">
+            <h2>用户登录</h2>
+            <form id="form_2" action="" method="post">
+              <div>
+                <div class="bg left">
+                  <input class="input input1" type="text" value="请输入用户名"	onblur="if(this.value=='') this.value='请输入用户名'" onFocus="if(this.value =='请输入用户名' ) this.value=''" />
+                </div>
+                <div class="bg right">
+                  <input class="input input2" type="password" value="••••••••••" onblur="if(this.value=='') this.value='••••••••••'" onFocus="if(this.value =='••••••••••' ) this.value=''"	 />
+                </div>
+                <a href="#" class="submit" onClick="document.getElementById('form_2').submit()"><span><span>登录</span></span></a> <a href="#">忘记密码?</a> &nbsp; <a href="#">注册</a> </div>
+            </form>
+          </article>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+<script type="text/javascript" src="scripts/jquery.mobile.customized.min.js"></script> 
+<script type="text/javascript" src="scripts/jquery.min.js"></script> 
+<script type="text/javascript" src="scripts/jquery.easing.1.3.js"></script> 
+<script type="text/javascript" src="scripts/camera.min.js"></script> 
+
+
+
+<script>
+		jQuery(function(){			
+			jQuery('#camera_wrap_1').camera({
+				thumbnails: false,
+				pagination: false,
+				height: '329px',
+				width: '700px',
+				fx: 'simpleFade',
+				thumbnails: true,
+				pagination: true,
+				pauseOnClick: false,
+			});
+		});		
+</script>
+</body>
+</html>

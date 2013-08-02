@@ -1,0 +1,52 @@
+{% extends "structure.html" %}
+{% load comments %}
+
+{% block title %}学习日志{% endblock %}
+
+{% block main %}
+	
+	<div class="g12">
+			<h1>{{log.title}}</h1>
+			<p><a href="/qb/user/{{log.author.id}}">{{log.author}}</a></p>
+			<div>
+			{% autoescape off %}
+			{{log.html_text}}
+			{% endautoescape %}
+			</div>
+	</div>
+
+	<div class="g12">
+	<h3>Comments</h3>
+	{% render_comment_list for log %}
+	{% for comment in comment_list %}
+		{{comment.comment}}
+	{% endfor %}
+	</div>
+
+	<div class="g12">
+	{% if user.is_authenticated %}
+	    	{% get_comment_form for log as form %}
+	    	<form action="{% comment_form_target %}" method="POST" data-ajax="false">
+		<fieldset>
+		<label>Add New Comment</label>
+	
+	    	{% csrf_token %}
+	    	<section>
+			<label>Comment Text</label>
+			<div><textarea id="id_comment" rows="10" cols="40" name="comment" autocomplete="off"></textarea></div>	
+		</section>
+	    	{{ form.honeypot }}
+	    	{{ form.content_type }}
+	    	{{ form.object_pk }}
+	    	{{ form.timestamp }}
+	    	{{ form.security_hash }}
+		</fieldset>
+	    	<input type="hidden" name="next" value="/qb/showlog/{{log.id}}"/>
+	    	<button class="submit green" type="submit" id="id_submit">Add comment</button>
+	    </form>
+	{% else %}
+	    <p>Please <a href="{% url 'auth_login' %}">log in</a> to leave a comment.</p>
+	{% endif %}
+	</div>
+	
+{% endblock %}

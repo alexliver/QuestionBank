@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+.shape-skew {
+background-color: #40b3d5;
+-webkit-transform: skewX(15deg) skewY(-10deg);
+-moz-transform: skewX(15deg) skewY(-10deg);
+margin-left: 435px;
+margin-top:70px;
+z-index:10000;
+}
+.shape {
+float: left;
+width: 80px;
+height: 80px;
+text-align: center;
+color: white;
+font-weight: 500;
+line-height: 70px;
+border-radius: 3px;
+margin-bottom: 40px;
+z-index:1000px;
+}
+.zoomTarget {
+-webkit-touch-callout: none;
+-moz-user-select: none;
+-webkit-user-select: none;
+-o-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.shape-scale {
+	
+-webkit-transform: scaleX(0.7) translateY(0px);
+-moz-transform: scaleX(0.7) translateY(0px);
+background-color: #27c;
+margin-right: 50px;
+}
+.shape-rotation {
+	margin:150px 0 0 70px;
+background-color: #40b3d5;
+-webkit-transform: rotate(-60deg) translateX(-60px);
+-moz-transform: rotate(-60deg) translateX(-60px);
+}

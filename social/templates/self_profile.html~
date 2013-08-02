@@ -1,0 +1,287 @@
+{% extends "structure.html" %}
+
+{% block title %}{{user.username}}{% endblock %}
+
+{% block extra_meta %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}whitelabel/css/light/pi.css">
+	<script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/pi.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/dashboard.js"></script>
+{% endblock %}
+
+{% block main %}
+<div class="g12 info_container">
+<div class="g12 myinfo dashboard pi">
+        <div>
+        	<div class="g12 pi_icon">
+        	<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:{{user}}"> <img src="{{profile.avatar.url}}" class="profileicon" alt=""> </a>
+        	</div>
+       		<ul>
+         		<li class="active"><a class="active">发表状态</a></li>
+         		<li><a>分享题集</a></li>
+         		<li><a>新建备忘</a></li>
+			<li><a>新建备忘</a></li>
+       		</ul>
+       		<div class="state1 state">
+	       		<textarea name="" id="" cols="30" rows="10" placeholder="在这里发表状态"></textarea>
+			<div class="state_btn">
+		       		<span class="pi_btn">
+					<button class="addpic">图片</button>
+		      		</span>
+				<span class="pi_btn">
+					<button>发表</button>
+		       		</span>
+	      		</div>
+      		</div>
+      		<div class="state2 state">
+       			<textarea name="" id="" cols="30" rows="10" placeholder="介绍题集"></textarea>
+        		<div class="state_btn">
+	       			<span class="pi_btn">
+					<button class="addset">题集</button>
+	      			</span>
+				<span class="pi_btn">
+					<button>分享</button>
+	       			</span>
+      			</div>
+      		</div>
+      		<div class="state3 state">
+       			<textarea name="" id="" cols="30" rows="10" placeholder="新建备忘"></textarea>
+         		<div class="state_btn">
+       				<span class="pi_btn">
+        				<button class="alarm">提醒</button>
+      				</span>
+        			<span class="pi_btn">
+        				<button>创建</button>
+       				</span>
+      			</div>
+      		</div>
+		<div class="state4 state">
+       			<textarea name="" id="" cols="30" rows="10" placeholder="新建备忘"></textarea>
+         		<div class="state_btn">
+       				<span class="pi_btn">
+        				<button class="alarm">提醒</button>
+      				</span>
+        			<span class="pi_btn">
+        				<button>创建</button>
+       				</span>
+      			</div>
+      		</div>
+     
+        </div>
+      </div>
+			<div class="g3 pi_follow mypi_follow right">
+				<div class="g12 pi_following">
+					<span>我的关注:</span>
+					<span class="pi_follow_number"> <a href="">1</a></span>
+				</div>
+				<div class="g12 pi_follower">
+					<span>我的粉丝:</span>
+					<span class="pi_follow_number"><a href="">34512451</a></span>
+				</div>
+			</div>
+			<div class="g9 pi_function mypi_function">
+				<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="images/icon.jpg" class="profileicon" alt=""> </a>
+				<ul>
+					<li><a href="#state">我的动态<span>{{numberOfStatus}}</span></a></li>
+					<li><a href="#diary">我的日志<span>{{numberOfLogs}}</span></a></li>
+					<li><a href="#set">我的题集<span>{{numberOfQuestionSet}}</span></a></li>
+					<li><a href="#comment">评论&留言<span>245</span></a></li>
+					<li><a href="#share">总结&分享<span>3</span></a></li>
+				</ul>
+			</div>
+			<div class="g9 pi_content">
+				<!-- post -->
+				<div class="pi_content_state">
+					{% autoescape off %}
+					{% include "self_status.html" %}
+					{% endautoescape %}
+				</div>
+				<!-- diary -->
+				<div class="pi_content_diarys">
+					{% autoescape off %}
+					{% include "self_log.html" %}
+					{% endautoescape %}
+				</div>
+				<div class="pi_content_set">
+					{% autoescape off %}
+					{% include "self_questionSet.html" %}
+					{% endautoescape %}
+				</div>
+
+<!-- share -->
+				<div class="pi_content_shares">
+					<a  id="share"></a>
+					<span class="pi_content_title">我的心得:25个新心得</span>
+					<hr class="first">
+					<!-- share1 -->
+					<div class="pi_content_share pi_content_diary">
+						<span class="time">5月 2013</span>
+						<h3>分享一个有深度的题目</h3>
+						<h6>by FANG Wei</h6>
+						<p><img src="images/post/postsample6.jpg" alt="" width="200px" class="left" border="0">简介：Kicking off the Summer movie season this weekend, Iron Man 3 lived up to sky-high expectations with $174.1 million haul. That ranks second all-time behind last year's The Avengers ($207.4 million), and is way up on the previous Iron Man outings. The movie also continues to do phenomenal business overseas, and is on its way to earning well over $1 billion worldwide. </p>
+						<div class="do-problem">
+						<div class="do-problem-content">
+						<h5>题目标题
+						<div class="do-btngroup small active">
+							<a href="">查看题集</a>
+							<a href="">添加</a>
+							<a href="">标记</a>
+							<a href="">疑问</a>
+							<a href="">提交</a>
+						</div>
+						</h5>
+						<hr>
+						<p class="simplequestion">1. When Lenore Skenazy’s son was allowed to take the subway alone, he ________.<br><span class="choice"><input type="checkbox" id="s1p2q1_checkbox">  A.shows traditior lock and key and cell phone and careful watch is the</span><span class="choice"><input type="checkbox" id="s1p2q1_checkbox">  B.shows er lock and key and</span><span class="choice"><input type="checkbox" id="s1p2q1_checkbox">  C.shows traditional parental caution y shoreful watch is the</span><span class="choice"><input type="checkbox" id="s1p2q1_checkbox">  D.shows traditional parental caution y short: My son got home, is the</span></p>				
+				</div>				
+				</div>
+				</div>
+				<hr>
+				<!-- share2 -->
+					<div class="pi_content_share pi_content_diary">
+						<span class="time">5月 2013</span>
+						<h3>提交后:分享一个有深度的题目</h3>
+						<h6>by FANG Wei</h6>
+						<p><img src="images/post/postsample6.jpg" alt="" width="200px" class="left" border="0">简介：Kicking off the Summer movie season this weekend, Iron Man 3 lived up to sky-high expectations with $174.1 million haul. That ranks second all-time behind last year's The Avengers ($207.4 million), and is way up on the previous Iron Man outings. The movie also continues to do phenomenal business overseas, and is on its way to earning well over $1 billion worldwide. </p>
+						<!-- sample1 -->
+						<div class="do-problem">
+						<div class="do-problem-content">
+						<h5>正确
+						<div class="do-btngroup small green active">
+							<a href="" class="active">批改</a>
+							<a href="">查看题集</a>
+							<a href="">添加</a>
+							<a href="">标记</a>
+							<a href="">疑问</a>
+						</div></h5>
+						<hr>
+						<p class="simplequestion correct"><span class="correct">回答正确,得分10</span>1. When Lenore Skenazy’s son was allowed to take the subway alone, he ________.<br><span class="choice"><span class="check">&#10003;</span><input type="checkbox" id="s1p2q1_checkbox">  A.shows trader lock and key and cell phone and careful watch is the</span><span class="choice"><input type="checkbox" id="s1p2q1_checkbox">  B.shows traditional parentsode to now want to turn on in for child abuse. As if keeping kids under lock and key and cell phone and careful watch is the</span><span class="choice"><input type="checkbox" id="s1p2q1_checkbox">  C.shows traditional parental caution y y and cell phone and careful watch is the</span><span class="choice"><input type="checkbox" id="s1p2q1_checkbox">  D.shows traditional parental caution  and cell phone and careful watch is the</span><span class="explainnation">疑难解答：Long story short: My son got home, overjoyed with independence,” Skenazy wrote on April 4 in the New York Sun. “Long story longer: Half the people I’ve told this episode to now want to turn on in for child abuse. As if keeping kids under lock and key and cell phone and careful watch is the right way to rear kids. It’s not. It’s debilitating for us an</span></p>					
+						</div>				
+						</div>
+						<!-- sample2 -->
+						<div class="do-problem" title="第一题">
+						<div class="do-problem-content">
+						<h5>错误
+							<div class="do-btngroup small red active">
+							<a href="" class="active">批改</a>
+							<a href="">查看题集</a>
+							<a href="">添加</a>
+							<a href="">标记</a>
+							<a href="">疑问</a>
+							</div></h5>
+							<hr>
+							<p class="simplequestion wrong"><span class="wrong">回答错误,得分0</span>1. When Lenore Skenazy’s son was allowed to take the subway alone, he ________.<br><span class="choice"><span class="check">&#10003;</span><input type="checkbox" id="s1p2q1_checkbox">  A.shows traditional parental caution y short: My son got home, overjoyed with indepthe</span><span class="choice"><input type="checkbox" id="s1p2q1_checkbox">  B.shows traditional parental caution y short: My son got home, overjoyed with indhe</span><span class="choice"><input type="checkbox" id="s1p2q1_checkbox">  C.shows traditional parental caution y short: My son got home, overjoyed with indethe</span><span class="choice"><span class="cross">X</span><input type="checkbox" id="s1p2q1_checkbox">  D.shows traditional parental caution y short: My son got home, overjoyed with independence,” Skenazy wrote on Aprillock and key and cell phone and careful watch is the</span><span class="explainnation">疑难解答：Long story short: My son got home, overjoyed with independence,” Skenazy wrote on April 4 in the New York Sun. “Long story longer: Half the people I’ve told this episode to now want to turn on in for child abuse. As if keeping kids under lock and key and cell phone and careful watch is the right way to rear kids. It’s not. It’s debilitating for us an</span></p>			
+							</div>				
+							</div>
+							<!-- spample 3 -->
+							 	<div class="do-problem">
+					         	<div class="do-problem-content">
+					            <h5>多选:部分选对
+					            <div class="do-btngroup small yellow active">
+								<a href="" class="active">批改</a>
+								<a href="">查看题集</a>
+								<a href="">添加</a>
+								<a href="">标记</a>
+								<a href="">疑问</a>				
+								</div>
+					            </h5>
+					            <hr>
+					            <p class="simplequestion ppcw"><span class="ppcw">选对部分,得分5</span>1. When Lenore Skenazy’s son was allowed to take the subway alone, he ________.<br><span class="choice"><span class="check">&#10003;</span><input type="checkbox" id="s1p2q1_checkbox"><span class="check">&#10003;</span>  A.shows traditional parental caution y short: My son got home, overjoyed with independence,” Skenazy wrping kids under lock and key and cell phone and careful watch is the</span><span class="choice"><span class="miss">&#10004;漏选</span><input type="checkbox" id="s1p2q1_checkbox">  B.shows traditional parental caution y short: My son got home, overjoyed with independence,” Skenazy wrote on As under lock and key and cell phone and careful watch is the</span><span class="choice"><input type="checkbox" id="s1p2q1_checkbox">  C.shows traditional parental caution y short: My son got home, overjoyed with independd abuse. As if keeping kids under lock and key and cell phone and careful watch is the</span><span class="choice"><span class="cross">X</span><input type="checkbox" id="s1p2q1_checkbox">  D.shows traditional parental cautie told this episode to now want to turn on in for child abuse. As if keeping kids under lock and key and cell phone and careful watch is the</span><span class="explainnation">疑难解答：Long story short: My son got home, overjoyed with independence,” Skenazy wrote on April 4 in the New York Sun. “Long story longer: Half the people I’ve told this episode to now want to turn on in for child abuse. As if keeping kids under lock and key and cell phone and careful watch is the right way to rear kids. It’s not. It’s debilitating for us an</span></p>	       
+						        </div>        
+						        </div>
+							<!-- end of sample -->
+							</div>
+				<!-- <hr> no hr for the last one of all the pi_content! -->
+				<!-- end of share 2 -->
+					</div>
+			</div>
+          </div> 			
+
+	<div class="modal-setdetail state-addpic state">    
+    <div class="modal-setdetail-head">
+      <strong>插入图片</strong><hr>
+      <form action="" class="clearall">
+        <h6>上传文件</h6>
+      <input type="file" id="file_upload_manual" name="file_upload_manual" data-auto-upload="false" multiple data-allowed-extensions="[jpg,jpeg,gif]" data-max-file-size="100000">
+      <hr>
+      <h6>或通过链接</h6>
+      <input type="text" class="g8" placeholder="http://www.">
+    </form>
+    </div>
+    <div class="modal-setdetail-footer">
+      <button class="right">插入图片</button>
+    </div>
+  </div>
+  <div class="modal-setdetail state state-addset">    
+    <div class="modal-setdetail-head">
+      <strong>插入题集</strong><hr>
+      <form action="" class="clearall">
+      <select name="multiselect" id="multiselect" multiple>
+                    <option value="artichoke">我的题集1</option>
+                    <option value="beans">我的题集2</option>
+                    <option value="broccoli">我的题集3</option>
+                    <option value="carrot">我的题集4</option>
+                    <option value="corn">我的题集5</option>
+                    <option value="chicory">我的题集6</option>
+                    <option value="kohlrabi">我的题集7</option>
+                    <option value="melon">我的题集8</option>
+                    <option value="onion">我的题集9</option>
+       </select>    
+    </form>
+    </div>
+    <div class="modal-setdetail-footer">
+      <button class="right">确认</button>
+    </div>
+  </div>
+   <div class="modal-setdetail state state-alarm">    
+    <div class="modal-setdetail-head">
+      <strong>设置提醒</strong><hr>
+  <form action="" class="clearall">
+    <input id="datetime" name="datetime" type="text" class="date"><input type="text" class="time" data-connect="datetime">
+    </form>
+    </div>
+    <div class="modal-setdetail-footer">
+      <button class="right">确认</button>
+    </div>
+  </div>
+  <div class="modal-setdetail state state-editor">		
+		<div class="modal-setdetail-head">
+			<strong>分享心得(高级模式)</strong><hr>
+			<p></p>
+			<textarea id="textarea_wysiwyg" name="textarea_wysiwyg" class="html" rows="12"></textarea>	
+		</div>
+		<div class="modal-setdetail-footer">
+			<button class="right">发表</button>
+		</div>
+	</div>
+	<div class="modal-setdetail forward pi">		
+		<div class="modal-setdetail-head">
+			<strong>转发来自"</strong><strong class="username"></strong><strong>"的分享</strong><hr>
+			<textarea name="" id="" cols="20" rows="5"></textarea>			
+		</div>
+		<div class="modal-setdetail-footer">
+			<button class="right">确认并转发</button>
+		</div>
+	</div>
+	<div class="modal-setdetail reply pi">		
+		<div class="modal-setdetail-head">
+			<strong>评论来自"</strong><strong class="username"></strong><strong>"的分享</strong><hr>
+			<p></p>
+			<textarea name="" id="" cols="20" rows="5"></textarea>			
+		</div>
+		<div class="modal-setdetail-footer">
+			<button class="right">发表评论</button>
+		</div>
+	</div>
+	  <div class="modal-drop state state-alarm">
+  </div>  
+  <div class="modal-drop state state-addpic">
+  </div>  
+  <div class="modal-drop state state-addset">
+  </div>  
+  <div class="modal-drop state state-editor">
+	</div>  
+	<div class="modal-drop pi_drop forward">
+	</div>  
+	<div class="modal-drop pi_drop reply">
+	</div>  
+{%endblock%}

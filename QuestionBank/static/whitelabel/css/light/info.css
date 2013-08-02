@@ -1,0 +1,428 @@
+/*------------------------------info-------------------------------------*/
+/*------------------------------contents--------------------------------*/
+/* general
+/* clue line
+/* tree
+/* alert
+/* modal
+/*----------------------------------------------------------------------*/
+/*------------------------------general--------------------------------*/
+div.info-general{
+	padding: 0 20px 0 20px;
+}
+div.info-cover{
+}
+div.info-general>div.resultlistitem{
+	margin: 0px 0px 20px 0px;
+	position: relative;
+	height: auto;
+	margin-top: 5px;
+}
+div.info-cover>img{
+	width: 90%;
+	max-height: 150px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+div.info-tree,
+div.info-section{
+	background-image: url(images/paper_01.png);
+	margin: 5px 0px 20px 0px;
+	padding: 15px 6px 2px;
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	border-left: 1px solid #e7e7e7;
+	border-right: 1px solid #e7e7e7;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+div.problem-general{
+	background-image: url(images/paper_01.png);
+	margin: 5px 0px 20px 0px;
+	padding: 15px 6px 2px;
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	border-left: 1px solid #e7e7e7;
+	border-right: 1px solid #e7e7e7;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+div.problem-general div.info-section{
+		margin:10px 0px 7px 0;
+		padding: 10px;
+}
+div.info-section textarea.clearall{
+	box-shadow: none;
+	height: 30px;
+	min-height: 0;
+	display: none;
+	float: none;
+}
+div.info-section textarea.placeholder{
+	color: #555;
+	font-style: normal;
+}
+div.problem-general h5{
+	overflow: hidden;
+}
+div.problem-general h5 span{
+	font-size: 18px;
+	font-weight: bold;
+}
+input.addinfo,
+input.info_title{
+	display: none;
+	padding-top: 3px;
+	padding-bottom: 5px;
+}
+button.deleteinfo,
+button.addinfo{
+	display: none;
+}
+button.addsection{
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+div.problem-general>ul{
+	margin: 5px 10px 15px 5px;
+}
+div.problem-general>ul>h5{
+	padding-right: 10px;
+}
+div.problem-general>ul>hr{
+	margin: 5px 0;
+}
+div.problem-general>ul>li{
+	margin-bottom: 2px;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	display: block;
+	margin-left: 0;
+	position: relative;
+}
+div.problem-general>ul>li>a{
+	color: #0088cc;
+	text-decoration: none;
+	display: block;
+	padding: 8px 15px;
+	background: white;
+}
+div.problem-general>ul>li>button{
+	position: absolute;
+	right: 10px;
+	top: 4px;
+}
+div.problem-general>ul>li>a.complete{
+	background:none;
+}
+div.infocontainer{
+	margin: 0 20px 20px 20px;
+}
+/*------------------------------clue line------------------------------*/
+div.clue-tree-link-container{
+	margin-top: 10px;
+}
+div.clue-review-link-container{
+	margin-bottom: 30px;
+}
+div.g12.cluecontainer{
+	padding: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+div.info-concrete{
+	padding-top: 30px;
+}
+div.clue-banner>img{
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+div.clue.g2{
+	padding: 0;
+	margin-left: 0;
+	margin-right: 0;
+	background: none;
+}
+div.clue div.clueleft{
+	border-right:1px solid #e1e1e1;
+	border-top:1px solid #e1e1e1;
+}
+div.clue div.clueright{
+	border-left:1px solid #e1e1e1;
+	border-top:1px solid #e1e1e1;
+	position: relative;
+	left: -1px;
+}
+div.clue>div{
+	width:100%;
+	margin:0;
+	padding: 0;
+	border: none;
+	clear: both;
+}
+div.clue div.clueline{
+	border-top:1px solid #e1e1e1;
+	position: relative;
+}
+div.clue div.clueline2{
+	border-right:1px solid #e1e1e1;
+	position: relative;
+}
+div.clue div.clueline3{
+	border-right:1px solid #e1e1e1;
+	position: relative;
+	padding: 2px 0;
+}
+pre.clue-problem{
+	margin: 10px 15px 10px 0px;
+	padding: 5px;
+	font-size: 12px;
+}
+div.cluecontent.g5{
+	padding: 0;
+	margin-left: 0;
+	margin-right: 0;
+	width: 41%;
+}
+div.cluecontentright{
+	margin-top:80px;
+	 position:relative; 
+	left:-3px
+}
+div.cluecontent>h3{
+	margin-top:20px;
+}
+div.cluecontent>a>img{
+	margin-top: -20px;
+	width: 100%;
+	-webkit-perspective:300;
+	box-shadow: 0px -1px 2px rgba(0,0,0,.25); 
+	-webkit-box-reflect:below 1px -webkit-gradient(linear, left top, left bottom, color-stop(0.7,rgba(0,0,0,0)), to(rgba(0,0,0,.5))); 
+}
+div.cluecontent>a:hover>img{
+	-webkit-box-reflect:below 1px -webkit-gradient(linear, left top, left bottom, color-stop(0.4,rgba(0,0,0,0)), to(rgba(0,0,0,.5)));
+}
+a.clue-problem-details{
+	background: #f1f1f1;
+	display: block;
+	padding-right: 0;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1f1f1', endColorstr='#e8e8e8');
+	background: -webkit-gradient(linear, left top, left bottom, from(#f1f1f1), to(#e8e8e8));
+	background: -moz-linear-gradient(top, #f1f1f1, #e8e8e8);
+	background: -o-linear-gradient(top, #f1f1f1, #e8e8e8);
+	font-size: 14px;
+	display: block;
+	color: #ffffff;
+	padding: 5px 35px 5px 35px;
+	color: #353535;
+	text-shadow: 0px 1px 0 #ffffff;
+	text-align: center;
+	float: left;
+	clear: both;margin-left: auto;margin-right: auto;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+a.clue-problem-details.imcomplete:hover,a.clue-problem-details.active{
+	background-image: url(images/nav_active.png);
+	background-repeat: repeat-x;
+	background-color: #2980B9;
+	background-position: left center;
+	filter: none;
+	color: white;
+	text-shadow:none;
+	text-decoration: none;
+	-webkit-transition: all 0.1s ease-in-out;
+}
+a.clue-problem-details.complete{
+	background-image: url(images/nav_active.png);
+	background-repeat: repeat-x;
+	background-color: #bada55;
+	background-position: left center;
+	filter: none;
+	color: white;
+	text-shadow:none;
+	text-decoration: none;
+}
+div.clue-usericon>a>img{
+	height: 59px;
+	width: 59px;
+	float: left;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	border-left: 1px solid #e7e7e7;
+	border-right: 1px solid #e7e7e7;
+}
+div.clue-usercomment.g10{
+	padding: 0;
+}
+div.clue-usercomment2.g10{
+	padding: 0;
+}
+div.clue-usercomment>pre{
+	margin-left: 20px;
+	padding: 5px 10px;
+	margin-bottom: 0;
+}
+div.clue-usercomment2>pre{
+	margin-right: 10px;
+	padding: 5px 10px;
+	margin-bottom: 0;
+}
+div.pi_btn.huge{
+	text-align: center;
+}
+div.pi_btn.huge>a{
+	padding: 7px 15px;
+	font-size: 20px;
+	margin: 5px;
+}
+div.pi_btn.huge>button{
+	padding: 10px 30px;
+	font-size: 25px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 ;
+	/*box-shadow: 4px 0px 6px 0px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 4px 0px 6px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 4px 0px 6px 0px rgba(0,0,0,0.3);
+	-ms-box-shadow: 4px 0px 6px 0px rgba(0,0,0,0.3);
+	-o-box-shadow: 4px 0px 6px 0px rgba(0,0,0,0.3);*/
+	border: none;
+	color: white;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.7);
+}
+/*div.cluecontent>img.clueimgleft{
+	-webkit-transform:rotateY(30deg);
+}
+div.cluecontent>img.clueimgright{
+	-webkit-transform:rotateY(-30deg);
+}*/
+/*------------------------------comment--------------------------------*/
+div.pi_function.info{
+	height: 120px;
+}
+div.pi_function.info span.username{
+	font-size: 18px;
+	font-weight: 700;
+	color: #333;
+	position: absolute;
+	top: 5px;
+	left: 140px;
+	text-shadow: 1px 1px 3px rgba(100, 100, 100, 0.07);
+}
+div.pi_function.info span.pi_btn{
+	position: relative;
+	top: -20px;
+}
+div.pi_function.info textarea{
+	margin: 30px 0px 10px 140px;
+	background: #f1f1f1;
+	height: 45px;
+	width: 70%;
+}
+div.pi_function.info a.icon>img{
+	width: 120px;
+	height: 120px;
+}
+div.pi_content.info{
+	margin-bottom: 20px;
+}
+div.pi_content.info div.pi_content_post{
+background: #f5f5f5;
+}
+span.pi_content_title.info{
+	font-size: 15px;
+	color: #333;
+}
+/*------------------------------tree--------------------------------*/
+ul.progressgroupbutton{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-align: center;
+	clear: both;
+	margin-left: 20px;
+}
+ul.progressgroupbutton>li{
+	display:inline-block;
+	margin-left: -2px;
+	float: left;}
+ul.progressgroupbutton>li>button{
+	display: inline-block;
+	margin: 0;
+	border-radius: 0;
+	padding: 4px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	color: #333;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
+	background-image: -o-linear-gradient(top,#fff,#e6e6e6);
+	background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	border: 1px solid #bbb;
+	border-bottom-color: #a2a2a2;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(0,0,0,.05);
+}
+ul.progressgroupbutton>li>button.active{
+	background:url(images/paper_02.png);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+}
+div.set-btngroup{
+	position: relative;
+}
+div.info-btngroup{
+	position: relative;
+}
+/*------------------------------alert----------------------------------*/
+div.info-container div.alert.blue{
+	background-color: #5bc0de;
+	color: white;
+	text-shadow:0 2px 0 rgba(0,0,0,0.3);
+}
+div.info-container div.alert.blue:hover{
+	background:#4bb1cf;
+}
+/*------------------------------modal--------------------------------*/
+div.modal-setdetail.addsection{
+	top: 25%;
+}
+div.modal-setdetail.addsection input,
+div.modal-setdetail.addsection textarea{
+	margin: 5px 0;
+}
+div.modal-setdetail.addsection textarea{
+	height: 50px;
+	min-height: 0;
+}

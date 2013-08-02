@@ -1,0 +1,11 @@
+		<a id="cs_link2"></a>
+		<h2><i class="icon-exclamation-sign icon-large"></i> 课程通知</h2>
+		<hr>
+		{% for announcement in session.session_announcements.all %}
+			
+			<p class="{% if announcement.type == 0%}ppcw {% elif announcement.type == 1%} {% elif announcement.type == 2%}correct {% elif announcement.type == 3%}wrong {% endif %} info inform">
+				<strong>{{announcement.title}} </strong><br>
+				{{announcement.body}} <span class="{% if announcement.type == 0%}ppcw{% elif announcement.type == 2%}correct {% elif announcement.type == 3%}wrong{% endif %}">{{announcement.publish_at}}</span>
+			</p>
+
+		{% endfor %}

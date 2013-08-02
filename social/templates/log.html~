@@ -1,0 +1,17 @@
+<a id="diary"></a><span class="pi_content_title">TA的日志:{{study_logs.count}}篇新日志</span>
+<hr class="first">
+	{% for log in study_logs %}
+	<div class="pi_content_diary" id="diary{{log.id}}">
+		<span class="time">{{log.created.date}}</span>
+		<h3>{{log.title}}</h3>
+		<h6>by {{log.author}}</h6>
+		<p><!--<img src="images/post/postsample6.jpg" alt="" class="left" border="0">-->{{log.html_text|truncatewords:30}} </p>查看全文</a>
+		<div class="option">
+		<button class="small reply icon i_speech_bubbles_2">查看评论</button>
+		<button class="small forward icon i_bended_arrow_right">转发</button>
+		<button class="small reply icon i_speech_bubble_2">评论</button>
+		<button class="small plusone icon i_facebook_like">赞: <span>151</span></button>	
+		<button class="small minusone icon i_footprint">踩: <span>0</span></button>	
+		</div>
+	</div>
+	{% endfor %}

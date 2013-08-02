@@ -1,0 +1,971 @@
+/*------------------------------course-----------------------------------*/
+/*------------------------------contents--------------------------------*/
+/* banner
+/* what is hot
+/*----------------------------------------------------------------------*/
+/*------------------------------banner---------------------------------*/
+body.cs{
+	position: relative;
+	width: 100%;
+	margin: 0;
+	min-width: 1024px;
+}
+.cs_banner{
+	width:100%;
+	height:auto;
+	position: relative;
+	background: url(images/blurbg2.png) 100% no-repeat;
+	/*overflow: hidden;*/
+}
+.cs_banner>img{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+.cs_banner>div.cs_topline{
+	background: rgba(0,0,0,.1);
+	height: 50px;
+	width: 100%;
+	z-index: 2;
+	position: fixed;
+	top: 0;
+	left: 0;
+	-webkit-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.2) inset;
+	-moz-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.2) inset;
+	-ms-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.2) inset;
+	-o-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.2) inset;
+}
+div.cs_topline .cs_logo{
+}
+ .cs_logo{
+	margin-left: 50px;
+	font-size: 30px;
+	color: #f1f1f1;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+	display: block;
+	font-weight: 700;
+	margin-top: 3px;
+	float: left;
+}
+.cs_logo>span{
+	margin-top: 10px;
+	font: 18px ProximaNovaSoft,sans-serif;
+	position: relative;
+	top: 3px;
+}
+.cs_logo:hover{
+	color: #fff;
+	text-decoration: none;
+}
+div.cs_topline>ul{
+	float: right;
+	margin-right: 50px;
+	margin-top: 20px;
+}
+div.cs_topline>ul li{
+	display: block;
+	width: auto;
+	float: left;
+	padding: 0 10px;
+}
+div.cs_topline>ul li a{
+	color: #fff;
+	font-size: 18px;
+	padding-bottom: 8px;
+	position: relative;
+}
+div.cs_topline>ul li a:hover{
+/*	border-bottom: 3px solid #fff;*/
+	text-decoration: none;
+	top: -3px;
+	-webkit-transition: all 100ms;
+	-moz-transition: all 100ms;
+	-ms-transition: all 100ms;
+	-o-transition: all 100ms;
+	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+div.cs_college_info{
+	padding-top: 150px;
+	position: relative;
+	display: block;
+}
+div.cs_college_info div.cs_text{
+	margin: 0 auto;
+	margin-top: 30px;
+	display: block;
+	text-align: center;
+}
+div.cs_college_info h1{
+	text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+	color: #fff;
+	font-size: 45px;
+	margin-left: 100px;
+	position: relative;
+	line-height: 50px;
+	display: inline;
+	width: 580px;
+}
+div.cs_college_info p{
+	text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+	color: #f1f1f1;
+	font-size: 16px;
+	margin: 0 auto;
+	position: relative;
+	line-height: 30px;
+	display: block;
+	width: 700px;
+	padding-left: 110px;
+	padding-top: 10px;
+	height: 100px;
+	overflow: none;
+}
+div.cs_college_search{
+	margin-top: 100px;
+	position: relative;
+	margin-bottom: 100px;
+}
+.cs_college_logo{
+	position: absolute;
+	left: -190px;
+	top: -5px;
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+	border: 2px solid white;	
+	  -webkit-box-shadow:
+            0px 0px 0px 2px rgba(0,0,0,0.3),
+                0px 0px 0px 6px #fff,
+                0px 0px 0px 6px rgba(0,0,0,0.2),
+                3px 3px 6px 6px #555;
+   
+     -moz-box-shadow:
+            0px 0px 0px 2px rgba(0,0,0,0.6),
+                0px 0px 0px 6px #fff,
+                0px 0px 0px 6px rgba(0,0,0,0.2),
+                3px 3px 6px 6px #555;
+   
+          box-shadow:
+            0px 0px 0px 2px rgba(0,0,0,0.3),
+                0px 0px 0px 6px #fff,
+                0px 0px 0px 6px rgba(0,0,0,0.2),
+                3px 3px 6px 6px #555;
+	float: left;
+	display: block;
+}	
+.cs_college_logo img{
+	width: 150px;
+	height: 150px;
+}
+form#searchcollege{
+	position: relative;
+}
+form#searchcollege div.searchexpand{
+	display: none;
+	width: 288px;
+	position: absolute;
+	z-index: 100;
+	top: 100%;
+	left: 50%;
+	margin-left: -144px;
+	background-color: rgba(0,0,0,0.4);
+	border: solid 1px rgba(255,255,255,0.13);
+	border-radius: 0 0 2px 2px;
+	  box-shadow: 0px 1px 7px 0px rgba(0,0,0,0.3) ,0px 1px 3px 0px rgba(0,0,0,0.3)  inset;
+	  -webkit-box-shadow: 0px 1px 7px 0px rgba(0,0,0,0.3) ,0px 1px 3px 0px rgba(0,0,0,0.3)  inset;
+	  -moz-box-shadow: 0px 1px 7px 0px rgba(0,0,0,0.3) ,0px 1px 3px 0px rgba(0,0,0,0.3)  inset;
+	  -ms-box-shadow: 0px 1px 7px 0px rgba(0,0,0,0.3) ,0px 1px 3px 0px rgba(0,0,0,0.3)  inset;
+	  -o-box-shadow: 0px 1px 7px 0px rgba(0,0,0,0.3) ,0px 1px 3px 0px rgba(0,0,0,0.3)  inset;
+}
+form#searchcollege div.searchexpand a{
+	display: block;
+	margin: 0;
+	height: 70px;
+	padding-left: 70px;
+	padding-right: 0;
+	width: 218px;
+	border-top: solid 1px rgba(255,255,255,0.33);	
+	position: relative;
+	text-align: center;vertical-align: center;
+}
+form#searchcollege div.searchexpand a:hover{
+	background-color: rgba(255,255,255,0.4);
+	text-decoration: none;
+	margin: 0;
+}
+form#searchcollege div.searchexpand>a.searchexpand_more{
+	height: 30px;
+	text-align: center;
+	color: #fff;
+	padding-top: 10px;
+	padding-left: 0;
+	width: 288px;
+}
+form#searchcollege div.searchexpand a>p{
+	display: block;
+	width: 198px;
+	height: 65px;
+	padding-top:8px;
+	padding-left:10px;
+	font-size: 13px;
+	text-align: left;
+	line-height: 14px;
+	text-shadow:none;
+	color: #eee;
+	margin: 0;
+}
+form#searchcollege div.searchexpand a>p>strong{
+	color: #fff;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 16px;
+}
+form#searchcollege div.searchexpand a>div{
+	border: 1px solid #fff;
+	-webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3),
+	 0px 0px 0px 2px #fff,
+	 0px 0px 0px 2px rgba(0,0,0,0.1),
+	 1px 1px 2px 2px #555;
+	-moz-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.2),
+	 0px 0px 0px 2px #fff,
+	 0px 0px 0px 2px rgba(0,0,0,0.1),
+	 1px 1px 2px 2px #555;
+	box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3),
+	 0px 0px 0px 2px #fff,
+	 0px 0px 0px 2px rgba(0,0,0,0.1),
+	 1px 1px 2px 2px #555;
+	 position: absolute;
+	 left: 15px;
+	 top: 8px;
+	 width: 50px;
+	height: 50px;
+	overflow: hidden;
+}
+form#searchcollege div.searchexpand a>div.searchexpand_icon{
+	border-radius: 50%;
+}	
+form#searchcollege div.searchexpand a>div>img{
+	width: 50px;
+	height: 50px;
+}
+input.cs_college_search{
+	width: 300px;
+	height: 40px;
+	padding: 0;
+	padding-right: 20px;
+	margin: auto;
+	color: #fff;
+	background-color: rgba(0,0,0,0.1);
+	border: solid 4px rgba(255,255,255,0.3);
+	border-radius: 40px;
+	text-align: center;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+input.cs_college_search:hover{
+	background-color: rgba(0,0,0,0.2);
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+div.cs_nav.fixed{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 200;
+	-webkit-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.2) inset;
+	-moz-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.2) inset;
+	-ms-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.2) inset;
+	-o-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.2) inset;
+	background-color:rgba(87, 164, 199,.5);
+	/*#5d8fa6;*/
+	 /*rgba(73,175,205,0.8);*/
+}
+div.cs_nav{
+	height: 50px;
+	width: 100%;
+	background-color: rgba(73,175,205,0.5);
+	/*#49afcd;*/
+}
+ul.cs_nav{
+	height: 50px;
+	width: 900px;
+	margin: 0;	
+	margin-left: -450px;
+	left: 50%;
+	bottom: 0;
+	display: block;
+	text-align: center;
+	position: absolute;
+}
+ul.cs_nav li{
+	display: block;
+	float: left;
+	width: 20%;
+	margin-left: 0;
+	position: relative;
+}
+ul.cs_nav li a,
+ul.cs_nav_dropdown li a{
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+	height: 35px;
+	font-size: 20px;
+	padding-top: 15px;
+	color: #eee;
+	/*color: #ddd;*/
+	text-shadow: 0 1px 0 #555;
+	position: relative;
+}
+ul.cs_nav li a.active{
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+}
+ul.cs_nav li a:hover{
+	/*background: rgba(0,0,0,0.3);*/
+	text-decoration: none;
+	color: #fff;
+	/*font-weight: bold;*/
+	top: -3px;
+	-webkit-transition: all 100ms;
+	-moz-transition: all 100ms;
+	-ms-transition: all 100ms;
+	-o-transition: all 100ms;
+	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+ul.cs_nav li a>span.tri{
+	color: #fff;
+	font-size: 12px;
+	margin-left: 5px;
+}      
+ul.cs_nav li:hover ul.cs_nav_dropdown{
+	height: 200px;
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+ul.cs_nav_dropdown{
+	position: absolute;
+	width: 180px;
+	top: 100%;
+	left: 0;
+	height: 0;
+	background-color: rgba(73,175,205,0.5);
+	overflow: hidden;
+}
+ul.cs_nav_dropdown li{
+	margin-left: 0;
+	display: block;
+	width: 100%;
+}
+/*------------------------------courses---------------------------------*/
+.cs_container{
+	margin-right: auto;
+	margin-left: auto;
+	width: 960px;
+	padding: 0 30px;
+}
+.cs_container>h3{
+	font-size: 1em;
+	margin:50px auto 50px;
+	clear: both;
+	background: transparent url(images/line.gif) 0 center repeat-x;
+	color: #555555;
+	text-align: center;
+	width: 960px;
+}
+.cs_container>h3 span {
+	padding: 10px;
+	background-image: url(images/paper_02.png);
+	font-size: 30px;
+	line-height: 30px;
+/*	color: #fff;
+	text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+             0 5px 10px rgba(0,0,0,.25),
+                 0 10px 10px rgba(0,0,0,.2);*/
+             color: #fff; text-shadow: 0px 1px 0px #ccc, 0px 1px 0px #bbb, 0px 1px 0px #aaa, 0px 2px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 3px 0px #666, 0px 4px 3px #555;
+	/*color: #fff; text-shadow: 0px 1px 0px #bbb, 0px 1px 0px #aaa, 0px 1px 0px #999, 0px 2px 0px #888, 0px 2px 0px #777, 0px 3px 0px #666, 0px 3px 0px #555, 0px 4px 3px #333;*/
+}
+.cs_container>h3 span>span{
+	color: #ffb440;
+	text-shadow: 1px 1px 0px #555, 3px 3px 0px #999;
+}
+div.cs_course{
+	width: 100%;
+	margin: 20px auto;
+	clear: both;
+	height: auto;
+	overflow: hidden;
+	display: block;
+}
+div.cs_course_slide{
+	float: left; 
+	position: relative; 
+	width: 300px; 
+	margin-right: 27px;
+	height: auto;
+	background: #fff;
+	overflow: hidden;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	height: 335px;
+	overflow: hidden;
+}
+div.cs_course_slide:last-child{
+	margin-right: 0;
+}
+div.cs_course_slide img{
+	width: 100%;
+	height: 170px;
+}
+div.cs_course_slide img:hover{
+	opacity: 0.9;
+}
+.cs_course_slide_info{
+	padding: 10px;
+}
+.cs_course_slide_info p{
+	height: 90px;
+	overflow: hidden;
+	margin-bottom: 0;
+}
+.cs_course_slide_info>hr{
+	margin: 5px 0;
+}
+/*-----------------------------Instructors---------------------------------*/
+.cs_teacher,
+.cs_u{
+	margin: 20px;
+	display: block;
+	padding-left: 200px;
+	position: relative;
+	overflow: hidden;
+}
+.cs_u .cs_college_logo{
+	overflow: hidden;
+	position: absolute;
+	left: 15px;
+	top: 10px;
+}
+.cs_teacher_icon{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 4px solid #fff;
+	-webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3),
+	 0px 0px 0px 4px #fff,
+	 0px 0px 0px 4px rgba(0,0,0,0.1),
+	 2px 2px 4px 4px #555;
+	-moz-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.4),
+	 0px 0px 0px 4px #fff,
+	 0px 0px 0px 4px rgba(0,0,0,0.1),
+	 2px 2px 4px 4px #555;
+	box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3),
+	 0px 0px 0px 4px #fff,
+	 0px 0px 0px 4px rgba(0,0,0,0.1),
+	 2px 2px 4px 4px #555;
+	overflow: hidden;
+	position: absolute;
+	left: 15px;
+	top: 10px;
+}
+.cs_teacher_icon img{
+	width: 150px;
+	height: 150px;
+}
+.cs_teacher_info,
+.cs_u_info{
+	position: absolute;
+	left: 15px;
+	top: 170px;
+	width: 150px;
+	height: auto;
+	padding-top: 20px;
+	text-align: right;
+}
+.cs_teacher_info h3{
+	color: #333;
+	font-weight: bold;
+}
+.cs_teacher_info hr{
+	margin: 2px 0;
+}
+.cs_teacher_gallery_large{
+	width: 660px;
+	height: 208px;
+	overflow: hidden;
+	margin: 1px 30px 4px 30px;
+	padding: 0;
+}
+.cs_teacher_gallery_half_left{
+	width: 327px;
+	margin: 1px 2px 1px 30px;
+	float: left;
+	height: 413px;
+	overflow: hidden;
+}
+.cs_teacher_gallery_half_right{
+	width: 327px;
+	margin: 1px 30px 1px 2px;
+	float: left;
+	height: 413px;
+	overflow: hidden;
+}
+.cs_teacher_gallery_half_toge{
+	width: 327px;
+	margin: 1px 32px 1px 0px;
+	float: left;
+}
+.cs_teacher_gallery_overflow{
+	overflow: hidden;
+}
+.cs_teacher_gallery img{
+	width: 100%;
+	box-shadow:0px 0px 4px rgba(0,0,0,0.3);
+	border-radius: 2px;
+}
+.cs_teacher_gallery_small_left{
+	width: 327px;
+	margin: 0 3px 3px 30px;
+	height: 204px;
+	overflow: hidden;
+}
+.cs_teacher_gallery_small_right{
+	width: 327px;
+	margin: 0 30px 3px 3px;
+	height: 204px;
+	overflow: hidden;
+}
+.cs_teacher_gallery{
+	position: relative;
+}
+.cs_teacher_gallery span{
+	width: 100%;
+	height: 99%;
+	display: block;
+	z-index: 10;
+	background: rgba(0,0,0,.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom:0;
+	right: 0;
+	display: none;
+}
+.cs_teacher_gallery:hover span{
+	display: block;
+	-webkit-transition: all 0.3s;
+}
+.cs_teacher_gallery span>div{
+	padding: 20px;
+}
+.cs_teacher_gallery span  h3{
+	color: #fff;
+}
+/*------------------------------set-------------------------------------*/
+.cs_set.resultlistitem{
+	width: 940px;
+	height: 150px;
+	padding: 10px;
+	overflow: hidden;
+	margin: 30px 0;
+	background: #fff;
+	border-radius: 2px;
+}
+.cs_set .resultimg{
+	width: 270px;
+	float: left;
+	margin-right: 20px;
+	height: 150px;
+	border-radius: 2px;
+}
+.cs_set .resultimg>a.listviewcover>div,
+.cs_set .resultimg>a.listviewcover>img{
+	border-radius: 2px;
+}
+.cs_set-info{
+	width: 320px;
+	float: left;
+}
+.cs_set-info>span{
+	width: 150px;
+	float: left;
+	display: block;
+	margin: 5px 0px;
+}
+.cs_set-info .tagcontainer{
+	overflow: hidden;
+	width: 100%;
+}
+.cs_set .resulttree{
+	width: 310px;
+	float: left;
+	margin-left: 18px;
+}
+.cs_set .resulttree>div{
+	height: 130px;
+	padding: 10px;
+	border-radius: 2px;
+}
+/*------------------------------contacts-------------------------------------*/
+.googlemap{
+	margin: 10px 2px;
+	border: 4px solid #fff;
+	-webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3),
+	 0px 0px 0px 4px #fff,
+	 0px 0px 0px 4px rgba(0,0,0,0.1),
+	 2px 2px 4px 4px #555;
+	-moz-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.4),
+	 0px 0px 0px 4px #fff,
+	 0px 0px 0px 4px rgba(0,0,0,0.1),
+	 2px 2px 4px 4px #555;
+	box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3),
+	 0px 0px 0px 4px #fff,
+	 0px 0px 0px 4px rgba(0,0,0,0.1),
+	 2px 2px 4px 4px #555;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	margin-top: 0;
+	float: right;
+}
+.cs_college_contact{
+	width: 500px;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 50px;
+}
+.cs_college_contact h3{
+	margin:0 0px 20px 20px;
+}
+.cs_college_contact span,
+.cs_college_contact h3>a{
+	font-size: 16px;
+	color: #666;
+	margin-left: 20px;
+}
+/*------------------------------footer--------------------------------*/
+body.cs footer{
+	height: 50px;
+	width: 960px;
+	margin: 50px auto 20px auto;
+	display: block;
+	clear: all;
+	border-top: 1px solid #ddd;
+	padding-top: 10px;
+}
+body.cs footer ul li{
+	display: block;
+	width: auto;
+	float: left;
+}
+body.cs footer ul li a{
+	font-size: 16px;
+}
+body.cs footer ul li a:hover{
+	text-decoration: none;
+	color: rgb(87, 164, 199);
+}
+body.cs footer span{
+	float: right;
+	font-size: 13px;
+}
+/*------------------------------search----------------------------------*/	
+div.cs_college_search a.searchnode_submit{
+	left: 50%;
+	margin-left: 130px;
+	top: 14px;
+}
+div.cs_college_info.cs_search h1{
+	margin-left: -400px;
+	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+div.cs_college_info.cs_search{
+	padding-top: 80px;
+}
+.cs_banner.cs_search{
+ 	background: url(images/blurbg3.png) 100% no-repeat;
+ 	background-size: cover;
+}
+div.cs_college_info.cs_search div.cs_college_search{
+	margin-top: 70px;
+	position: relative;
+	margin-bottom: 70px;
+}	
+div.cs_loadmore{
+	border-radius: 2px;
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	display: block;
+	padding-top: 10px;
+	color: #333;
+	font-size: 15px;
+	border: 1px solid #ddd;
+}
+div.cs_loadmore a:hover{
+	text-decoration: none;
+	color: rgb(87, 164, 199);
+}
+/*------------------------------course info---------------------------------*/
+body.cs_signin{
+	max-width: 1080px;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 650px;
+}
+body.cs_signin>section#content{
+	padding: 0 0 20px 0;
+	padding-left: 0;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	-moz-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	position: relative;
+	border-radius: 4px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.cs_signin_topbg{
+	background: url(images/cityuwide.png) 100% no-repeat;
+	height: 200px;
+	width: 100%;
+	position: relative;
+	background-size: cover;
+	margin-bottom: 70px;
+	z-index: 2000;
+	border-radius: 4px 4px 0 0;
+}
+.cs_signin_topbg.fixed{
+	position: absolute;
+	top: -230px;
+	background: none;
+}
+.cs_signin_info{
+	height: 130px;
+	width: 90%;
+	position: absolute;
+	bottom:-65px;
+	margin:0 5%;
+	background: rgba(255,255,255,0.7);
+	border-radius: 7px;
+	-webkit-box-shadow: inset 0 8px 10px #ebebeb,inset 4px 35px 65px 5px rgba(242,242,242,0.9),rgba(0,0,0,0.3) 0 1px 3px;
+	-moz-box-shadow: inset 0 8px 10px #ebebeb,inset 4px 35px 65px 5px rgba(242,242,242,0.9),rgba(0,0,0,0.3) 0 1px 3px;
+	box-shadow: inset 0 8px 10px #ebebeb,inset 4px 35px 65px 5px rgba(242,242,242,0.9),rgba(0,0,0,0.3) 0 1px 3px;
+}
+.cs_signin_info>div{
+	padding: 10px 20px 0 20px;
+	height: 78px;
+}
+.cs_signin_info>div>h1{
+	color: #333;
+	text-shadow: none;
+	margin-top: 0;
+}
+.cs_signin_info>div>h3{
+	text-align: right;
+	color: #353535;
+	text-shadow: none;
+	padding-right: 30px;
+}
+.cs_signin_info>div>p{
+	color: #444;
+	font-size: 16px;
+	margin-bottom: 0;
+	padding-top: 5px;
+}
+.cs_signin_info ul{
+	height: 36px;
+	width: 100%;
+	margin-bottom: 0;	
+}
+.cs_signin_info hr{
+	margin: 7px 0 0 0;
+}
+.cs_signin_info ul li{
+	margin-left: 0;
+	display: block;
+	width: 20%;
+	float: left;
+	padding-top: 7px;
+	text-align: center;
+
+}
+.cs_signin_info ul li a{	
+	background-repeat: no-repeat;
+	vertical-align: bottom;
+	font-size: 15px;
+	color:#777;
+	font-weight: bold;
+	position: relative;
+}
+div.cs_course_content .cs_course_outlink h3{
+	margin-top: 20px;
+}
+.cs_signin_info ul li a:hover,
+.cs_signin_info ul li a.active,
+div.cs_course_content .cs_course_outlink h3:hover,
+div.cs_course_content .cs_course_outlink:hover{
+	color: #2488d4;
+	text-decoration: none;
+	position: relative;
+}
+.cs_signin_info ul li a:hover,
+div.cs_course_content .cs_course_outlink h3:hover{
+	top: -2px;
+	-webkit-transition: all 100ms;
+	-moz-transition: all 100ms;
+	-ms-transition: all 100ms;
+	-o-transition: all 100ms;
+	text-shadow: 1px 2px 2px rgba(73,175,205,0.2);
+}
+.cs_signin_info ul li a.active:hover{
+	top: 0;
+	text-shadow:none;
+}
+div.cs_course_content{
+	padding:20px 5%; 
+}
+div.cs_course_content h2{
+	color: #2488d4;
+	margin-top: 30px;
+}
+div.cs_course_content h2 span{
+	margin: 10px 30px 0;
+	cursor: pointer;
+}
+div.cs_course_content h3.first{
+	margin-top: 5px;
+}
+div.cs_course_content>h3{
+	margin-top: 25px;
+	color: #555;
+}
+div.cs_course_content hr{
+	margin: 5px 0;
+}
+div.cs_course_content p{
+	margin: 5px 0;
+	color: #666;
+	font-size: 14px;
+	text-indent: 2em;
+	line-height: 18px;
+}
+div.cs_course_content  p.inform{
+	text-indent: 0;
+	padding: 10px 35px 30px 25px;
+	margin: 25px 0;
+}
+div.cs_course_content  p.inform strong{
+	font-size: 17px;
+	line-height: 30px;
+}
+div.cs_course_content p.info{
+	color: #3a87ad;
+}
+div.cs_course_content p.info.correct{
+	border: 1px solid #d6e9c6;
+	background-color: #dff0d8;
+	color: #468847;
+}
+div.cs_course_content p.info.wrong{
+	border: 1px solid #f2dede;
+	background-color: #eed3d7;
+	color: #b94a48;
+}
+div.cs_course_content p.info.ppcw{
+	border: 1px solid #fbeed5;
+	background-color: #fcf8e3;
+	color: #c09853;
+}
+div.cs_course_content ul{
+	margin: 5px 0;
+	color: #666;
+	font-size: 14px;
+	margin-left: 2em;
+}
+div.cs_course_content ul li{
+	list-style: none;
+	margin-left: 0;
+	line-height: 22px;
+}
+div.cs_course_content .pi_btn{
+	margin-top: 50px;
+}
+div.cs_course_content .pi_btn p{
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+div.cs_course_content .cs_course_teacher{
+	position: relative;
+	padding:20px 0;
+	overflow: hidden;
+}
+.cs_course_teacher_icon{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 4px solid #fff;
+	-webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3),
+	 0px 0px 0px 4px #fff,
+	 0px 0px 0px 4px rgba(0,0,0,0.1),
+	 2px 2px 4px 4px #555;
+	-moz-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.4),
+	 0px 0px 0px 4px #fff,
+	 0px 0px 0px 4px rgba(0,0,0,0.1),
+	 2px 2px 4px 4px #555;
+	box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3),
+	 0px 0px 0px 4px #fff,
+	 0px 0px 0px 4px rgba(0,0,0,0.1),
+	 2px 2px 4px 4px #555;
+	overflow: hidden;
+	margin-right: 70px;
+}
+.cs_course_teacher_icon img{
+	width: 150px;
+	height: 150px;
+}
+div.cs_course_content .drag-calendar{
+	margin:20px 0;
+}
+.cs_course_set{
+	margin-top: 50px;
+	overflow: hidden;
+}
+.fulltree{
+	z-index: 100;
+}
+.tree-drop{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1040;
+	background-color: rgba(0,0,0,0.7);
+	display: none;
+}
+.tree-drop .orgChart{
+	margin-top: 10%;
+	margin-left: 15%;
+}
+div.cs_course_content .resultlistitem{
+	margin: 20px 0;
+}

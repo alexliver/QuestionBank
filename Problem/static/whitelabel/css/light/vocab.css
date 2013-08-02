@@ -1,0 +1,291 @@
+.va-container{
+	float: left;
+	width: 300px;
+	position: relative;
+	margin: 30px;
+}
+.va-container > span {
+	width: 220px;
+	height: 60px;
+	line-height: 60px;
+	color: #999;
+	font-weight: 700;
+	font-size: 16px;
+	background: url(images/vocab.png);
+	display: block;
+	padding: 0 50px 0 30px;
+	position: relative;
+	cursor: pointer;
+	z-index: 110;
+}
+.va-container>span>span.va-tag{
+	position: absolute;
+	height: 52px;
+	width: 55px;
+	display: block;
+	right: 10px;
+	top: 0;	
+}
+.va-orange.va-container>span>span.va-tag{
+	background: url(images/tagsat.png);
+}
+.va-green.va-container>span>span.va-tag{
+	background: url(images/taggre.png);
+}
+.va-blue.va-container>span>span.va-tag{
+	background: url(images/taggk.png);
+}
+.va-purple.va-container>span>span.va-tag{
+	background: url(images/tagi.png);
+}
+.va-red.va-container>span>span.va-tag{
+	background: url(images/tag4.png);
+}
+.va-yellow.va-container>span>span.va-tag{
+	background: url(images/tag6.png);
+}
+.va-container > span>span.vline{
+	float: right;
+	display: block;
+	height: 44px;
+	margin-top: 8px;
+	width: 20px;
+	border-left: 1px solid #ddd;
+}
+.va-container > span span.caret{
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #000000;
+}
+.va-container ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: block;
+	position: relative;
+}
+.va-container ul li {
+	display: block;
+	margin-left: 0;
+}
+.va-container ul li>span{
+	width: 220px;
+	background: url(images/vocab.png);
+	height: 55px;
+	padding: 0 70px 5px 10px;
+	display: block;
+	overflow: hidden;
+}
+.va-container ul li>span span.va-word{
+	color: #999;
+	font-weight: 700;
+	font-size: 16px;
+	position: relative;
+	top: 10px;
+	left: 20px;
+}
+.va-container ul li>span span.va-expan{
+	position: absolute;
+	top: 35px;
+	left: 35px;
+	line-height: 15px;
+	width: 200px;
+	height: 15px;
+	display: block;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+.va-container ul {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+}
+.va-container ul li>span a{
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	right: -10px;
+	top: 10px;
+	font-size: 35px;
+	color: #fff;
+	display: none;
+	cursor: pointer;
+}
+.va-container ul li>span a:hover{
+	text-decoration: none;
+}
+.va-container > span,
+.va-container ul li> span{
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+.va-container ul li {
+	position: absolute;
+	width: 100%;
+	pointer-events: none;
+}
+.va-active.va-container ul li {
+	pointer-events: auto;
+}
+.va-red.va-container > span {
+	color: #fc756f;
+}
+.va-red.va-active.va-container ul li span:hover{
+	background: #fc756f;
+}
+.va-green.va-container > span {
+	color:#97d1bc;
+}
+.va-green.va-active.va-container ul li span:hover{
+	background:#97d1bc;
+}
+.va-blue.va-container > span {
+	color:#4d8c9d;
+}
+.va-blue.va-active.va-container ul li span:hover{
+	background:#4d8c9d;
+}
+.va-orange.va-container > span {
+	color:#e66b20;
+}
+.va-orange.va-active.va-container ul li span:hover{
+	background:#e66b20;
+}
+.va-purple.va-container > span {
+	color:#c29ad2;
+}
+.va-purple.va-active.va-container ul li span:hover{
+	background:#c29ad2;
+}
+.va-yellow.va-container > span {
+	color:#f8b161;
+}
+.va-yellow.va-active.va-container ul li span:hover{
+	background:#f8b161;
+}
+.va-active.va-container ul li span:hover{
+	-webkit-transition: all 0.2s linear 0s;
+	-moz-transition: all 0.2s linear 0s;
+	-ms-transition: all 0.2s linear 0s;
+	-o-transition: all 0.2s linear 0s;
+	transition: all 0.2s linear 0s;
+}
+.va-active.va-container ul li span:hover span.va-word,
+.va-active.va-container ul li span:hover span.va-expan{
+	color: #fff;
+}
+.va-card{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: left;
+	margin-left: -300px;
+	margin-top: -300px;
+	width: 600px;
+	height: 400px;
+	position: absolute;
+	background: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	background-image: url(../images/fabric.png);
+	-webkit-transform-origin: 25% 90%;
+	-moz-transform-origin: 25% 90%;
+	-o-transform-origin: 25% 90%;
+	-ms-transform-origin: 25% 90%;
+	transform-origin: 25% 90%;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: 9999;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	box-shadow:inset 2px 2px 0 rgba(255, 255, 255, 0.2),inset 0 2px 2px  rgba(255, 255, 255, 0.1);
+}
+.va-card:first-child{
+	box-shadow: 12px 12px 20px rgba(0,0,0,0.2), inset 2px 2px 0 rgba(255, 255, 255, 0.2),inset 0 2px 2px  rgba(255, 255, 255, 0.1);
+}
+.va-card.va-red{
+	background-color: #fc756f;
+}
+.va-card.va-green{
+	background-color:rgb(167, 228, 206);
+}
+.va-card.va-blue{
+	background-color:rgb(97, 172, 192);
+}
+.va-card.va-orange{
+	background-color:rgb(250, 116, 35);
+}
+.va-card.va-purple{
+	background-color:rgb(216, 172, 233);
+}
+.va-card.va-yellow{
+	background-color:#f8b161;
+}
+.va-card span a,
+.va-card span a:hover{
+	color: rgba(250,250,250,0.9);
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.2);
+	font-weight: 700;
+	font-size: 26px;
+	text-decoration: none;
+	margin-left: 20px;
+	display: block;
+}
+.va-card p{
+	color: rgba(255,255,255,0.9);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	font-size: 16px;
+	border-top: 1px dashed rgba(0,0,0,0.15);
+	border-bottom: 1px dashed rgba(0,0,0,0.15);
+	margin: 5px;
+	padding: 5px;
+/*	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;*/
+	white-space: pre-line;
+	line-height: 25px;
+	padding-left: 30px;
+	cursor: text;
+	max-height: 300px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+.va-card a.checkvocab{
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.2);
+	color: rgba(250,250,250,0.9);
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	text-decoration: none;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	font-size: 35px;
+	color: #fff;
+	cursor: pointer;
+}
+.va-card a.checkvocab:hover{
+	text-decoration: none;
+}
+.va-card span a.next,
+.va-card span a.again{
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
+	font-size: 15px;
+}
+.img-drop.card-drop{
+	background:rgba(255,255,255,0.5);
+}
+
+	
+

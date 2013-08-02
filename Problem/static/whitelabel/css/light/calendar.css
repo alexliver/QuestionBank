@@ -1,0 +1,266 @@
+/*------------------------------calendar--------------------------------*/
+/*------------------------------contents--------------------------------*/
+/* event
+/* event details
+/*----------------------------------------------------------------------*/
+/*------------------------------event---------------------------------*/
+div.calsetcontainer{
+	background: #fafafa;
+	border: 1px solid;
+	border-color: #e5e5e5 #dbdbdb #d2d2d2;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0 1px 3px inset;
+	-moz-box-shadow: rgba(0,0,0,0.3) 0 1px 3px inset;
+	box-shadow: rgba(0,0,0,0.3) 0 1px 3px inset;
+	z-index: 1;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	margin-bottom: 20px;
+}
+div.calsetcontainer>span:first-child{
+	margin-left: 7px;
+}
+div.calsetcontainer>span{
+	display: inline-block;
+	float: left;
+	padding: 3px 5px;
+	margin: 3px;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 21px;
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	vertical-align: baseline;
+	cursor: pointer;
+	background-color: #999999;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+div.calsetcontainer>span.small{
+	display: inline-block;
+	float: left;
+	padding: 3px 5px;
+	margin: 3px;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 12px;
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	vertical-align: baseline;
+	cursor: pointer;
+	background-color: #999999;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+div.calsetcontainer>span:hover{
+	  box-shadow: 3px 2px 10px 0px #000000;
+	  -webkit-box-shadow: 3px 2px 10px 0px #000000;
+	  -moz-box-shadow: 3px 2px 10px 0px #000000;
+	  -ms-box-shadow: 3px 2px 10px 0px #000000;
+	  -o-box-shadow: 3px 2px 10px 0px #000000;
+	  cursor: move;
+}
+span.caledit-type>ul li a.calno-color{
+	background-color: #999999;
+}
+div.calsetcontainer>span.calgreen,
+span.caledit-type>ul li a.calgreen{
+	background-color: #468847;
+}
+div.calsetcontainer>span.calblue,
+span.caledit-type>ul li a.calblue{
+	background-color: #3a87ad;
+}
+div.calsetcontainer>span.calred,
+span.caledit-type>ul li a.calred{
+	background-color: #b94a48;
+}
+div.calsetcontainer>span.calwarning,
+span.caledit-type>ul li a.calwarning{
+	background-color: #f89406;
+}
+table.weektable td{
+	height: 30px;
+}
+/*------------------------------event details------------------------------*/
+div.caldetails{
+	width: 250px;
+	height: auto;
+	top: 10px;
+	left: 50%;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	display: none;
+	z-index: 1042;
+	padding: 15px 10px 10px 35px;
+}
+div.caldetails-drop{
+	position:fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1041;
+	background-color:none;
+	display: none;
+}
+div.caldetails>span.caltype-mark{
+	width: 10px;
+	height: 10px;
+	border: 1px solid #f1f1f1;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	background-color: #999;
+	position: absolute;
+	left: 10px;
+	top: 18px;
+	cursor: move;
+}
+div.caldetails>span.caltitle{
+	font-weight: bold;
+	color: #111;
+	margin-right: 20px;
+	font-size: 14px;
+	max-width: 180px;
+	line-height: 20px;
+	display: block;
+}
+div.caldetails>hr {
+	margin: 10px 0 0 0;
+}
+div.caldetails>hr.clearall {
+	margin: 1px 0 0px 0;
+}
+div.caldetails>button{
+	background: none;
+	color: #111;
+	border: 1px solid rgba(0,0,0,0.2);
+	font-weight: normal;
+	position: absolute;
+	top: 12px;
+	text-shadow:none;
+	right: 15px;
+	background-image: none;
+	background-color: none;
+	padding: 1px 5px;
+	text-align: center;
+	box-shadow: none;
+	box-shadow: 0 0 1px rgba(0,0,0,0.15) inset;
+}
+div.caldetails.caledit>button{
+	top: 18px;
+}
+div.caldetails.caledit>button.calallday{
+	top: 48px;
+}
+span.calitem-title{
+	display: block;
+	width: 80px;
+	float: left;
+	margin: 5px 5px 2px 5px;
+}
+span.calitem-content {
+	float: left;
+	display: block;
+	margin: 5px 5px 2px 5px;
+	color: #333;
+	font-size: 13px;
+}
+span.calitem-content>a{
+	color: #333;
+}
+div.caldetails.caledit{
+	top: 20%;
+	left: 40%;
+}
+div.caldetails.caledit input,
+div.caldetails.caledit textarea{
+	margin-bottom: 2px;
+	margin-top: 2px;
+	color: #333;
+	font-style: normal;
+}
+div.caldetails.caledit input{
+	float: none;
+	box-shadow: none;
+	border: none;
+	margin-top: 1px;
+	border-bottom: 1px solid #ddd;
+	border-radius: 0;
+}
+div.caldetails.caledit textarea{
+	border: 1px solid #ddd;
+	height: 50px;
+	min-height: 0;
+	float: none;
+	box-shadow: none;
+	margin-top: 10px;
+	width: 230px;
+}
+div.caldetails.caledit textarea:focus{
+	margin-top: 9px;
+}
+span.caledit-repeating-time>input,
+span.calremind input{
+	width: 135px;
+}
+span.caledit-repeating-time,
+span.calitem-content.calremind,
+span.calitem-content.calremind2,
+span.caledit-type{
+	position: relative;
+}
+span.calitem-content>ul.do-dropdown{
+	width: 140px;
+	min-width: 0;
+	left: 2px;
+	z-index: 2000;
+}
+span.caledit-name>input,
+span.caledit-set>input{
+	width: 175px;
+}
+div.caldetails.caledit input.date{
+	margin-right: 12px;
+}
+span.caledit-type>ul.do-dropdown li a{
+	opacity: 0.8;
+}
+span.caledit-type>ul.do-dropdown li a:hover{
+	opacity: 1;
+	color: #fff;
+}
+div.do-problem-note.notes.calnote{
+	position: absolute;
+	display: none;
+}
+div.do-problem-note.notes.calnote>h4{
+	margin: 10px 10px 0 20px;
+	color: #666;
+	text-shadow: 0 1px 0 #ddd;
+}
+div.do-problem-note.notes.calnote>h6{
+	margin: 5px 10px 0 20px;
+	text-shadow:none;
+	color: #555;
+}
+div.do-problem-note.notes.calnote>p{
+	margin: 5px 10px 0 20px;
+	color: #555;
+}
+div.caldetails>a.cusbtn{
+	padding: 0px 20px 2px 20px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	float: left;
+}
+div.caldetails>a.cusbtn.green{
+	margin-right: 10px;
+}
+

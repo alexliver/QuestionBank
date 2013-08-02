@@ -1,0 +1,36 @@
+{% extends "structure.html" %}
+
+{% block title %}我的日程安排{% endblock %}
+{% block extra_meta %}
+    <script src="{{ STATIC_URL }}whitelabel/js/customecal.js"></script>
+    <script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+    <script src="{{ STATIC_URL }}whitelabel/js/chosen.jquery.js"></script>
+    <script src="{{ STATIC_URL }}whitelabel/js/piDialog.js"></script>
+
+{% endblock %}
+
+{% block main %}
+	
+	<div class="g12">
+		<h3>我的日程安排<!-- <span><a href="doc-calendar.html" class="small">Documentation</a></span> --></h3>
+		<h6>使用拖拽快速安排日程</h6>
+		<hr>
+
+		<div class="calsetcontainer g12" id="external-events"> 
+			<span class="cal external-event ui-draggable">事件类型---无</span>
+            <span class="calblue external-event ui-draggable">事件类型---日常</span>
+            <span class="calgreen external-event ui-draggable">事件类型---学习</span>  
+            <span class="calred external-event ui-draggable">事件类型---测试</span>
+            <span class="calwarning external-event ui-draggable">事件类型---紧急</span>
+        </div>
+		<h3>日程列表</h3>
+		<h6>点击日期安排日程事件</h6>
+		<hr>
+		<div class="drag-calendar">
+        </div> 
+
+    </div>
+
+{% endblock %}
+
+{% block popup %} {% include 'event_popup.html' %}{% endblock %}

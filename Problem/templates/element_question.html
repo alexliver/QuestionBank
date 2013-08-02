@@ -1,0 +1,86 @@
+{% extends "structure.html" %}
+
+{% block title %}当前习题{% endblock %}
+{% block extra_meta %}
+	<script src="{{ STATIC_URL }}whitelabel/js/audio/audio.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/jquery-scrollspy.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/scroll-control.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/do.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/cp.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endblock %}
+
+{% block main %}	
+<div class="do-btngroup sections">
+	<a class="active">第一部分</a>
+	<a class="cp_newptosection">录入题目到新的分区</a>
+</div>
+{% for raw in rawlist%}
+<!-- basic element -->
+	<div class="do-problem-container cp_container cp_simplequestion">
+			<div class="do-problem">
+				<div class="do-problem-content">
+					<h5><input type="text" id="cp_title" name="raw_title" value="{{raw.title}}" class="g2"><span>简答题<span class="closemark">×</span></span>
+						<div class="do-btngroup small lightblue active">
+							<a class="cp_tag">添加标签</a>
+							<!--<a class="cp_type">更改题目类型</a>-->
+							<a class="cp_info">题目信息</a>
+							<!-- in the middle important -->
+							<ul class="do-dropdown">
+							<li class="divider-text cp_dropdown_type">简答题/选择题
+							<a class="cusbtn lightblue right r3 tiny cp_dropdown_cancle">取消</a>
+							</li>
+							<li class="divider-text cp_dropdown_tag">添加标签
+								<a class="cusbtn lightblue  r3 tiny cp_dropdown_addtag right ">添加</a>
+								<a class="cusbtn r3 lightblue tiny right cp_dropdown_cancle">取消</a>
+							</li>
+							<li class="divider"></li>
+							<li class="cp_dropdown_tag"><input type="text" name="添加标签" placeholder="添加标签"></li>
+							<li class="cp_dropdown_type cp_dropdown_type_toradio"><a href="#">单选题</a></li>
+						            <li class="cp_dropdown_type cp_dropdown_type_tocheck"><a href="#">多选题</a></li>
+						            <li class="cp_dropdown_type cp_dropdown_type_toinput"><a href="#">填空题</a></li>
+						           </ul>
+							<a class="cp_save">保存</a>
+							<a class="cp_done">提交</a>	
+						</div>
+					</h5>
+					<hr>
+					{% if raw.text_body %}
+					<div class="cp_script_container rel cp_option2_content">
+							<textarea name="" id="" cols="30" rows="10" class="g10">{{raw.text_body}}</textarea><span class="info">阅读材料</span>
+					</div>	
+					{% endif %}
+
+				{% for question in raw.question_raws.all %}
+					
+					
+					<div class="cp_choice_container">
+							{% if question.question_type == 0 %}
+							{% include "choice.html" %}
+
+							{% elif question.question_type == 1 %}
+							{% include "blankfilling.html" %}
+							
+							{% elif question.question_type == 2 %}
+							{% include "essay.html" %}
+							
+							{% endif %}
+							
+							<div class="cp_hint_container rel cp_option2_content">
+								<textarea name="hint" id="q_hint-{{question.id}}" cols="30" rows="10" class="g10">{{question.hints}}</textarea><span class="info">提示信息</span>
+							</div>	
+							<div class="cp_explanation_container rel cp_option2_content">
+								
+								<textarea name="explanation" id="q_exp-{{question.id}}" cols="30" rows="10" class="g10">{%for exp in question.explanations.all %}{%if exp.creator == user %}{{exp.content}} {% endif %}{% endfor %}</textarea><span class="info">疑难解答</span>
+								
+							</div>	
+					</div>
+
+				{% endfor %}					
+											
+			</div>				
+		</div>
+	</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,66 @@
+.com { color: #75715E; }
+.lit { color: #AE81FF; }
+.pun, .opn, .clo { color: #ddd; margin: 0 1px;}
+.fun { color: #A6E22E; }
+.str, .atv { color: #E6DB74; }
+.kwd, .linenums .tag { color: #F92672; }
+.typ, .atn, .dec, .var { color: #66D9EF; font-style: italic; margin: 0 2px;}
+.pln { color: #A6E22E; }
+
+.prettyprint {
+  padding: 8px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+}
+.prettyprint.linenums {
+  -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+     -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+          box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+}
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin: 0 0 0 33px; /* IE indents via margin-left */
+} 
+ol.linenums li {
+  padding-left: 12px;
+  color:#bbb;
+  line-height: 18px;
+}
+/*custom*/
+p.simplequestion.numcode{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+code.prettyprint{
+    padding: 0;
+}
+.prettyprint.linenums ol.linenums{
+    line-height: 30px;
+    font-size: 13px;
+    background-color: #272822;
+    padding: 0;
+    list-style: decimal-leading-zero;
+    padding-left: 40px;
+    margin-left: 0;
+    border-radius: 4px;
+    position: relative;
+}
+p.simplequestion.numcode::selection{
+    background: #49483E;
+  }
+.prettyprint.linenums ol>li {
+    padding-left: 20px;
+    line-height: 25px;
+    border-left: 1px solid #999;
+    margin-left: 20px;
+}
+.prettyprint.linenums ol>li span{
+   font-size: 16px;
+  font-family:'Segoe UI', Menlo, Monaco, "Courier New", monospace;
+}   
+.prettyprint.linenums ol>li:first-child{
+    padding-top: 10px;
+}
+.prettyprint.linenums ol>li:last-child{
+    padding-bottom: 10px;
+}

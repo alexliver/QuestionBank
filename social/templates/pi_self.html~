@@ -1,0 +1,79 @@
+		<div class="g12 myinfo dashboard pi">
+		<div>
+			<div class="g12 pi_icon">
+			<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:{{target_user}}"> <img src="{{profile.avatar.url}}" class="profileicon" alt=""> </a>
+			</div>
+	       		<ul>
+		 		<li class="active"><a class="active">发表状态</a></li>
+		 		<li><a>分享题集</a></li>
+		 		<li><a>新建备忘</a></li>
+				<li><a>新建备忘</a></li>
+	       		</ul>
+	       		<div class="state1 state">
+		       		<textarea name="" id="" cols="30" rows="10" placeholder="在这里发表状态"></textarea>
+				<div class="state_btn">
+			       		<span class="pi_btn">
+						<button class="addpic">图片</button>
+			      		</span>
+					<span class="pi_btn">
+						<button>发表</button>
+			       		</span>
+		      		</div>
+	      		</div>
+	      		<div class="state2 state">
+	       			<textarea name="" id="" cols="30" rows="10" placeholder="介绍题集"></textarea>
+				<div class="state_btn">
+		       			<span class="pi_btn">
+						<button class="addset">题集</button>
+		      			</span>
+					<span class="pi_btn">
+						<button>分享</button>
+		       			</span>
+	      			</div>
+	      		</div>
+	      		<div class="state3 state">
+	       			<textarea name="" id="" cols="30" rows="10" placeholder="新建备忘"></textarea>
+		 		<div class="state_btn">
+	       				<span class="pi_btn">
+						<button class="alarm">提醒</button>
+	      				</span>
+					<span class="pi_btn">
+						<button>创建</button>
+	       				</span>
+	      			</div>
+	      		</div>
+			<div class="state4 state">
+	       			<textarea name="" id="" cols="30" rows="10" placeholder="新建备忘"></textarea>
+		 		<div class="state_btn">
+	       				<span class="pi_btn">
+						<button class="alarm">提醒</button>
+	      				</span>
+					<span class="pi_btn">
+						<button>创建</button>
+	       				</span>
+	      			</div>
+	      		</div>
+		</div>
+		</div>
+
+		<div class="g3 pi_follow mypi_follow right">
+				<div class="g12 pi_following">
+					<span>我的关注:</span>
+					<span class="pi_follow_number"> <a href="">1</a></span>
+				</div>
+				<div class="g12 pi_follower">
+					<span>我的粉丝:</span>
+					<span class="pi_follow_number"><a href="">31</a></span>
+				</div>
+		</div>
+
+
+		<div class="g9 pi_function">
+			<!--<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="images/icon2.jpg" class="profileicon" alt=""> </a>-->
+			<ul>
+				<li><a href="#state">我的动态<span>21</span></a></li>
+				<li><a href="#diary">我的日志<span>5</span></a></li>
+				<li><a href="#set">我的题集<span>25</span></a></li>
+				<li><a href="#share">总结&分享<span>3</span></a></li>
+			</ul>
+		</div>

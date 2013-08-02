@@ -1,0 +1,173 @@
+{% extends "structure.html" %}
+
+{% block title %}当前习题{% endblock %}
+{% block extra_meta %}
+	<script src="{{ STATIC_URL }}whitelabel/js/audio/audio.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/jquery-scrollspy.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/scroll-control.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/do.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/inform.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/piDialog.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/prettify/prettify.js"></script>
+
+	<script src="{{ STATIC_URL }}whitelabel/js/jquery.raty.min.js"></script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+{% endblock %}
+
+{% block main %}	
+
+<div class="g12">
+<h1>{{question_set.container.name}} </h1>
+<p>{{question_set.intro}} </p>
+{% if question_set.id %}
+<div class="do-btngroup sections">
+	{% for set in  question_set.container.subsets.all %}
+		<a href="/qb/qs/{{question_set.container.id}}/{{set.id}}/"{% if question_set.id == set.id %}class="active"{% endif %}>{{set.name}}</a>	
+	{% endfor %}		
+</div>
+{% endif%}
+<form method="post" class='clearall' id="questionform" action="/qb/qs/{{question_set.container.id}}/{{question_set.id}}/" data-ajax="false">
+{% csrf_token %}
+
+		{% for raw in raw_set %}
+		<div class="do-problem-container">
+		<div class="do-problem" title="第{{forloop.counter}}题">
+		<div class="do-problem-content">
+			<h5>第{{forloop.counter}}题:{{raw.title}}{% for subtopic in raw.topic.all %} <a href="/qb/search/?topic={{subtopic.id}}"><span>{{subtopic}}</span></a> {% endfor %}<span>{{raw.created}}</span><a href="/qb/search/?origin={{raw.origin.id}}"><span>{{raw.origin}}</span></a><span>难度:{{raw.original_difficulty}}</span>
+				<div class="do-btngroup small active">
+					<a class='do-addto'>添加到</a>
+					<a class='reportproblem'>纠错</a>
+					<a class='doubtproblem'>疑问</a>					
+					{% if raw.full_marked %}			
+					<a>疑问</a>					
+					<a class='rating'>评分</a>	
+					<ul class="do-dropdown">
+						<li class="divider-text  cp_dropdown_rating"><span>为该题评分</span>
+
+						<span class="closemark">×</span>
+						<li class="cp_dropdown_rating">
+							<!-- <div class="rating-star">
+								<div class="rating-color"></div>
+							</div> -->
+							<div class="star" id="raw{{raw.id}}" data-score="{{raw.rating.quality}}"</div>							
+						</li>
+						<li class="divider-text cp_dropdown_rating_diff"><span>为该题评价难度</span></li>
+						<li class="divider"></li>
+						<li class="cp_dropdown_rating">
+							<div class="diff" id="raw{{raw.id}}" data-score="{{raw.rating.difficulty}}"></div>	
+							<!-- <div class="rating-difficulty">
+		
+							</div> -->
+						</li>
+					</ul>
+					{% else %}
+					<a>提示</a>
+					<a onclick="Dajaxice.Problem.save_qs(my_callback,{'form':$('#questionform').serialize(true), 'raw': {{raw.id}},});">保存</a>
+					{% endif %}
+				</div>
+			</h5>
+			<hr>
+			{% if raw.text_body%}
+			<p>{% autoescape off %}{{raw.text_body}}{% endautoescape %}</p><hr>{% endif %}
+			{% for audio in raw.audios %}
+			<audio src="{{audio.file.url}}" preload="auto"></audio><hr>
+			{% endfor %}
+
+			{% for questionInstance in raw.my_instance_set %}  
+
+				{% if questionInstance.question.question_type == 0 or questionInstance.question.question_type == 4 %}
+					{% if questionInstance.progress.marked %}
+						<p class="simplequestion {{questionInstance.get_extra_class}} {{questionInstance.progress.get_grade_class}}"><span class="{{questionInstance.progress.get_grade_class}}">得分{{questionInstance.progress.grade}}</span>{% autoescape off %}{{ questionInstance.question_text }}{% endautoescape %}
+						
+						{% for choice in questionInstance.answer_text.splitlines %}<span class="choice"><input type="{{questionInstance.get_choice_type}}" disabled value="{{ choice }}" 
+
+							{% if questionInstance.progress.solution == choice %}checked >
+								{% autoescape off %}{{ choice }}{% endautoescape %}
+								{% if questionInstance.solution_text == choice %}<span class="check">✓</span>
+								{% elif questionInstance.solution_text != choice %}<span class="cross">x</span>
+								{% endif %}
+							{%else%} 
+								>{% autoescape off %}{{ choice }}{% endautoescape %}
+								{% if questionInstance.solution_text == choice %}<span class="check">✓</span>
+								{%endif%}
+							{%endif%}</span>
+						{%endfor%}
+					
+						{%for exp in questionInstance.question.explanations.all %}<span class="explanation">疑难解答：{{exp.content}}</span>{%endfor%}
+						
+					{%else%}<p class="simplequestion {{questionInstance.get_extra_class}}">{% autoescape off %}{{ questionInstance.question_text }}{% endautoescape %}
+						{%if questionInstance.question.question_type == 4%}<br />Choose the wrong one.<br />{% endif %}{% for choice in questionInstance.answer_text.splitlines %}
+						<span class="choice"><input type="{{questionInstance.get_choice_type}}" id="answer{{ questionInstance.id }}" name="answer{{ questionInstance.id }}" value="{{ choice }}" {% if questionInstance.progress.solution == choice %}checked{%endif%}>{% autoescape off %}{{ choice }}{% endautoescape %}</span>		
+						{%endfor%}
+					{%endif%}
+
+				{% elif questionInstance.question.question_type == 1 %}
+					{% if questionInstance.progress.marked %}
+						<p class="simplequestion {{questionInstance.progress.get_grade_class}}"><span class="{{questionInstance.progress.get_grade_class}}">得分{{questionInstance.progress.grade}}</span>{% autoescape off %}{{ questionInstance.question_text }}{% endautoescape %}
+						<br />
+						<input type="text" class="g5" disabled value="{{ questionInstance.progress.solution }}"><br />
+						<span class="explanation">参考答案:{{questionInstance.solution_text}}</span>
+						{%for exp in question.explanations.all %}<span class="explanation">疑难解答：{{exp.content}}</span>{%endfor%}
+
+					{%else%}
+						<p class="simplequestion">{% autoescape off %}{{ questionInstance.question_text }}{% endautoescape %}<br>						
+						<input type="text" id="id_answer{{ questionInstance.id }}" name="answer{{ questionInstance.id }}" class="g5" placeholder="第一空" value='{{questionInstance.progress.solution}}'><br>
+						
+					{%endif%}
+					</p>
+				{% elif questionInstance.question.question_type == 2 %}
+					{% if questionInstance.progress.marked %}
+						<p class="simplequestion {{questionInstance.progress.get_grade_class}}"><span class="{{questionInstance.progress.get_grade_class}}">得分{{questionInstance.progress.grade}}</span>{% autoescape off %}{{ questionInstance.question_text }}{% endautoescape %}
+						<br />
+						<input type="text" class="g5" disabled value="{{ questionInstance.progress.solution }}"><br />
+						<span class="explanation">参考答案:{{questionInstance.solution_text}}</span>
+						{%for exp in question.explanations.all %}<span class="explanation">疑难解答：{{exp.content}}</span>{%endfor%}
+
+					{%else%}
+						<p class="simplequestion">{% autoescape off %}{{ questionInstance.question_text }}{% endautoescape %}<br>
+						<textarea rows="4" cols="50" placeholder="your answer"></textarea>
+						{%for exp in question.explanations.all %}<span class="explanation">疑难解答：{{exp.content}}</span>{%endfor%}</p>
+
+					{%endif%}
+				{% else %}
+				{% endif %}
+
+			</p>{% endfor %}
+			{% if raw.user_vocabs and raw.full_marked %}
+				<span class="vocab explanation">
+						以下是本题出现的生词,点击未掌握的加入生词本：<br>
+						{% for vocab in raw.user_vocabs %}
+						<span class='tooltip notadd' title="点击将&quot;{{ vocab.word }}&quot;加入生词本" id='{{ vocab.id }}'><i class="icon-plus"></i>{{ vocab.word }}</span>	
+						{% endfor %}
+				</span>
+			{% endif %}
+		</div>
+					
+		</div>
+		</div>
+		{% endfor %}
+
+	<input type="hidden" name="subset" value="{{question_set.id}}" />
+</div>
+
+
+<section>
+	<div class="pi_btn huge">
+		<a class='cusbtn lightblue' onclick="Dajaxice.Problem.save_qs(my_callback,{'form':$('#questionform').serialize(true), 'raw': '-1',});"><i class="icon-save icon-large"></i>  保存</a>
+		<a class='cusbtn green' onclick="submitquestion()"><i class="icon-ok-sign icon-large"></i>  提交</a>
+	</div>
+<!--
+	<div>
+		<button onclick="Dajaxice.Problem.save_qs(Dajax.process,{'form':$('#questionform').serialize(true)});">Save</button> 
+		<button class="red submit" onclick="submitquestion()">Submit</button>
+	</div>-->
+</section>
+</form>
+
+{% endblock %}
+
+{% block popup%}
+{% include 'notepop.html' %}
+{% endblock %}

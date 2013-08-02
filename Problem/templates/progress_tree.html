@@ -1,0 +1,98 @@
+{% load  getProgressMeasurement%}
+
+<div class="ct">
+			<div class="ct_btn_container">
+			<ul class="breadcrumb">
+					<li><a class="ct_info_link active">知识结构图</a></li>
+					<li><a class="ct_info_link" >高三</a></li>
+					<li><a class="ct_info_link" >数学</a></li>
+					<li><a class="ct_info_link ct_info_level"  >中等难度</a></li>
+					<li><a class="ct_info_link ct_info_name"  >我的知识树</a></li>
+			</ul>
+			</div>
+
+	
+		<ul class="knowledgetree" style="display:none">
+		
+			<li><span>{{root.name}}</span>
+				{% if root|args:user|call:"getOverall" < 20 %}
+					<span class='node_progress danger'><span>{{root|args:user|call:"getOverall"}}</span></span>
+				{% elif root|args:user|call:"getOverall" < 80 %}
+					<span class='node_progress'><span>{{root|args:user|call:"getOverall"}}</span></span>
+				{% else %}
+					<span class='node_progress success'><span>{{root|args:user|call:"getOverall"}}</span></span>
+				{% endif %}
+
+ 
+				{% if root.children.count > 0 %}<ul>
+					{% for topic1 in root.children.all %} 
+					<li> <span>{{topic1.name}}</span>
+						{% if topic1|args:user|call:"getOverall" < 20 %}
+							<span class='node_progress danger'><span>{{topic1|args:user|call:"getOverall"}}</span></span>
+						{% elif topic1|args:user|call:"getOverall" < 80 %}
+							<span class='node_progress'><span>{{topic1|args:user|call:"getOverall"}}</span></span>
+						{% else %}
+							<span class='node_progress success'><span>{{topic1|args:user|call:"getOverall"}}</span></span>
+						{% endif %}
+
+
+						{% if topic1.children.count > 0 %}<ul>
+						{% for topic2 in topic1.children.all %} 
+							<li><span>{{topic2.name}}</span>
+
+								{% if topic2|args:user|call:"getOverall" < 20 %}
+									<span class='node_progress danger'><span>{{topic2|args:user|call:"getOverall"}}</span></span>
+								{% elif topic2|args:user|call:"getOverall" < 80 %}
+									<span class='node_progress'><span>{{topic2|args:user|call:"getOverall"}}</span></span>
+								{% else %}
+									<span class='node_progress success'><span>{{topic2|args:user|call:"getOverall"}}</span></span>
+								{% endif %}
+
+								{% if topic2.children.count > 0 %}<ul>
+								{% for topic3 in topic2.children.all %} 
+									<li> <span>{{topic3.name}}</span>
+
+										{% if topic3|args:user|call:"getOverall" < 20 %}
+											<span class='node_progress danger'><span>{{topic3|args:user|call:"getOverall"}}</span></span>
+										{% elif topic3|args:user|call:"getOverall" < 80 %}
+											<span class='node_progress'><span>{{topic3|args:user|call:"getOverall"}}</span></span>
+										{% else %}
+											<span class='node_progress success'><span>{{topic3|args:user|call:"getOverall"}}</span></span>
+										{% endif %}
+
+
+										{% if topic3.children.count > 0 %}<ul>
+										{% for topic4 in topic3.children.all %} 								
+										<li> <span>{{topic4.name}}</span>
+											{% if topic4|args:user|call:"getOverall" < 20 %}
+												<span class='node_progress danger'><span>{{topic4|args:user|call:"getOverall"}}</span></span>
+											{% elif topic4|args:user|call:"getOverall" < 80 %}
+												<span class='node_progress'><span>{{topic4|args:user|call:"getOverall"}}</span></span>
+											{% else %}
+												<span class='node_progress success'><span>{{topic4|args:user|call:"getOverall"}}</span></span>
+											{% endif %}
+
+										</li> 
+
+
+										{% endfor %}
+										</ul> {% endif %}
+									</li>
+								{% endfor %}
+								</ul> {% endif %}
+							</li> 
+						{% endfor %}
+						</ul>{% endif %}
+					</li> 
+					{% endfor %}
+				</ul>
+				{% endif %}
+			</li>
+		
+		</ul> 
+									    
+	 <div id="chart" class="orgChart"></div>
+</div>
+
+
+

@@ -1,0 +1,109 @@
+{% extends "structure.html" %}
+
+{% block title %}Search Result{% endblock %}
+
+{% block main %}
+<div class="g12">
+	<div class="viewmode">				
+	<div class="chooseviewmode g12">
+		<a class="active" id="photoview">视图模式</a>
+		<a id="listview">列表模式</a></div>  
+		<!--   
+		<div class="g12 setphotoview setpicview">  
+			<div class="halfcol">
+			<div class="halfcol">
+			{# place the viewmodeitem #}
+			</div>
+			<div class="halfcol">
+			{# place the viewmodeitem #}
+			</div>
+			</div>
+			<div class="halfcol">
+			<div class="halfcol">
+			{# place the viewmodeitem #}
+			</div>
+			<div class="halfcol">
+			{# place the viewmodeitem #}
+			</div>
+			</div>
+	
+		</div>-->
+		<div class="g12 setphotoview setlistview">  
+			<div class="listviewcontainer">
+			{% for result_item in result_set %}
+			<div class="g12">
+<!--
+<div class="resultitemhandle g12">{{ result_item.name }}
+	  <a class="right btn small startsetbtn" href="">开始做题</a>
+</div>-->
+<div class="g12 resultlistitem">
+	<div class="g3">
+	   <div class="resultimg">
+	      <a  class="listviewcover">
+		 <div>
+		    <span>
+		    <button class="i_admin_user small icon">{{ result_item.owner }}</button>
+		    <button  class="i_calendar_day small icon">{{ result_item.created }}</button>
+		    <button  class="i_fullscreen small icon">查看详情</button></span>	
+		 </div>
+		{% if result_item.thumbnail %}
+		<img src="{{result_item.thumbnail.url}}" alt="thumbnail" name="点击查看详细内容"/>
+		{% else %}
+		<img src="/media/thumbnails/questionset/images.jpg" alt="thumbnail" name="点击查看详细内容"/>
+		{% endif %}
+	      </a>
+	   </div>
+	</div>
+	<div class="g5 result-info">
+	   <h3><a href="/qb/qs/{{ result_item.id }}/" >{{ result_item.name }}</a></h3>
+	   <div class="g12">
+	      <div class="right tagcontainer"><button class="i_tags small icon">标签</button><a href="">{{var}}</a><a href="">{{var}}</a><a href="">{{var}}</a></div>
+	   </div>
+	   <div class="g12">
+	      <span class="result-info-id g6">题集编号：<span>{{ result_item.id }}</span></span>
+	      <span class="g6">习题数量: <span>{{var}}</span></span>
+	   </div>
+	   <div class="g12">
+	      <span  class="g6">
+		 <a class="checkreview">总体评价: </a>
+		 <span class="reviewstar">
+		    <!-- 86/<span>100</span> -->{{var}}
+		 </span>
+	      </span>
+	      <span  class="g6">订阅人数：<span>{{var}}</span></span>
+	   </div>
+	   <div class="g12">
+	      <span  class="g6">热度：<span>{{var}}</span></span>
+	      <span  class="g6">总体难度：<span>{{var}}</span></span>
+	   </div>
+	</div>
+	<div class="g4 resulttree">
+	   <div class="g12">
+	      <!-- tree-info goes here -->
+	      <div class="g12 result-tree-info">
+		 <span>相关知识树:  <span> 数学 {{var}}&gt; 函数 {{var}}</span></span>
+	      </div>
+	      <div class="g12 result-tree-info">
+		 <span>你已经完成了:
+		 <span class=" result-tree-number"> 95 {{var}}&nbsp; /<span>&nbsp; 100 {{var}}</span></span></span>
+	      </div>
+	      <div class="g12 result-tree-progress">
+		 <div class="progress progress-striped active progress-success">
+		    <div class="bar" style="width: {{var}} 95%;"></div>
+		 </div>
+		 	<button class="small right checktree">查看相关知识树信息</button>
+			<button class="small right" onclick="Dajaxice.Problem.subscribe_qs(my_callback, {'id':{{result_item.id}}, 'name':{{result_item.name}}})">subscribe</button>
+	      </div>
+	   </div>
+	</div>
+</div>
+</div>
+		
+			{% endfor %}		
+			</div>
+		</div>
+	</div>
+	<div>
+<div>
+{% endblock %}
+

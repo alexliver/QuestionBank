@@ -1,0 +1,84 @@
+{% extends "structure.html" %}
+
+{% block title %}当前习题{% endblock %}
+{% block extra_meta %}
+<script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+<script src="{{ STATIC_URL }}whitelabel/js/vocab.js"></script>
+<script src="{{ STATIC_URL }}whitelabel/js/inform.js"></script>
+<style>
+		::selection{
+			background: rgba(255,255,255,0.3);
+		}
+</style>
+
+{% endblock %}
+
+{% block main %}	
+		<div class="g12">
+			<div class="g4">
+			<!-- list -->
+			{% if CET4_vocab_list %}
+			<div class="va-container va-red">
+				<span>四级生词本&#32;&#32;2013.06.25 <span class="va-tag"></span></span>
+				<ul>
+					{% for vocab in CET4_vocab_list %}
+					<li><span>
+						<span class="va-word">{{ vocab.word }}</span>
+						<span class="va-expan">{{ vocab.get_explanation }}</span>
+						<a  title='点击从生词本中移除'><i class="icon-check-empty"></i></a></span></li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+			<!-- list -->
+			{% if Gaokao_vocab_list %}
+			<div class="va-container va-blue">
+				<span>高考生词本&#32;&#32;2013.06.25 <span class="va-tag"></span></span>
+				<ul>
+					{% for vocab in Gaokao_vocab_list %}
+					<li><span>
+						<span class="va-word">{{ vocab.word }}</span>
+						<span class="va-expan">{{ vocab.get_explanation }}</span>
+						<a  title='点击从生词本中移除'><i class="icon-check-empty"></i></a></span></li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+			<!-- list -->
+			{% if Zhongkao_vocab_list %}
+			<div class="va-container va-red">
+				<span>中考生词本&#32;&#32;2013.06.25 <span class="va-tag"></span></span>
+				<ul>
+					{% for vocab in Zhongkao_vocab_list %}
+					<li><span>
+						<span class="va-word">{{ vocab.word }}</span>
+						<span class="va-expan">{{ vocab.get_explanation }}</span>
+						<a  title='点击从生词本中移除'><i class="icon-check-empty"></i></a></span></li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+			<!-- list -->
+			{% if SAT_vocab_list %}
+			<div class="va-container va-orange">
+				<span>SAT生词本&#32;&#32;2013.06.25 <span class="va-tag"></span></span>
+				<ul>
+					{% for vocab in SAT_vocab_list %}
+					<li><span>
+						<span class="va-word">{{ vocab.word }}</span>
+						<span class="va-expan">{{ vocab.get_explanation }}</span>
+						<a  title='点击从生词本中移除'><i class="icon-check-empty"></i></a></span></li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+			<!-- list -->
+			</div>
+			
+{% endblock %}
+
+{% block popup %}
+	<input type="hidden" id="hiddenVal" value='9998'>
+	<div class="img-drop card-drop">		  	
+	</div>
+{% endblock %}

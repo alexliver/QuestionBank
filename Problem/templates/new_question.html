@@ -1,0 +1,219 @@
+{% extends "structure.html" %}
+
+{% block title %}当前习题{% endblock %}
+{% block extra_meta %}
+    <script src="{{ STATIC_URL }}whitelabel/js/audio/audio.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/jquery-scrollspy.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/scroll-control.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/do.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/cp.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endblock %}
+
+{% block main %}	
+
+	<div class="g12">
+				<div class="do-btngroup sections">
+					<a  class="active">第一部分</a>
+					<a class="cp_newptosection">录入题目到新的分区</a>
+				</div>
+				<!-- basic element -->
+				 <form action="" class="clearall  section1 do-problem-form" id="4543737">
+				<div class="do-problem-container cp_container cp_simplequestion">
+				<div class="do-problem">
+					<div class="do-problem-content">
+						<h5><input type="text" id="cp_title" name="添加习题名称" placeholder="添加习题名称" class="g2"><span>简答题<span class="closemark">×</span></span>
+						<div class="do-btngroup small lightblue active">
+							<a class="cp_tag">添加标签</a>
+							<a class="cp_type">更改题目类型</a>
+							<a class="cp_info">题目信息</a>
+							<!-- in the middle important -->
+							<ul class="do-dropdown">
+							<li class="divider-text cp_dropdown_type">简答题/选择题
+							<a class="cusbtn lightblue right r3 tiny cp_dropdown_cancle">取消</a>
+							</li>
+							<li class="divider-text cp_dropdown_tag">添加标签
+								<a class="cusbtn lightblue  r3 tiny cp_dropdown_addtag right ">添加</a>
+								<a class="cusbtn r3 lightblue tiny right cp_dropdown_cancle">取消</a>
+							</li>
+							<li class="divider"></li>
+							<li class="cp_dropdown_tag"><input type="text" name="添加标签" placeholder="添加标签"></li>
+							<li class="cp_dropdown_type cp_dropdown_type_toradio"><a href="#">单选题</a></li>
+						            <li class="cp_dropdown_type cp_dropdown_type_tocheck"><a href="#">多选题</a></li>
+						            <li class="cp_dropdown_type cp_dropdown_type_toinput"><a href="#">填空题</a></li>
+						           </ul>
+							<a class="cp_save">保存</a>
+							<a class="cp_done">提交</a>	
+						</div>
+						</h5>
+						<hr>
+						
+						<div class="cp_choice_container">
+						<div class="cp_question"><input type="text" name="添加习题" placeholder="添加习题" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项A内容" placeholder="选项A内容" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项B内容" placeholder="选项B内容" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项C内容" placeholder="选项C内容" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项D内容" placeholder="选项D内容" class="g10"></div>	
+							<div class="do-btngroup small active cp_option2">
+							<a class="cp_addoption disabled">请在正确选项旁打勾√</a>
+							<a class="cp_addvar">添加变量</a>
+							<a class="cp_addoption">添加选项</a>
+							<a class="cp_deleteoption">删除最后选项</a>
+							<a class="cp_explanation">添加疑难解答</a>
+							<a class="cp_hint">添加提示</a>
+							<a class="cp_save">保存</a>
+							<a class="cp_done">提交</a>
+							</div>	
+							<div class="cp_hint_container rel cp_option2_content">
+							<textarea name="" id="" cols="30" rows="10" class="g10"></textarea><span class="info">提示信息</span>
+							</div>	
+							<div class="cp_explanation_container rel cp_option2_content">
+							<textarea name="" id="" cols="30" rows="10" class="g10"></textarea><span class="info">疑难解答</span>
+							</div>	
+						</div>
+										
+											
+				</div>				
+				</div>
+			</div>
+					<!--audio -->
+			
+
+				          <div class="do-problem-container cp_container cp_audio">
+				        <div class="do-problem">
+				          <div class="do-problem-content">
+				            <h5><input type="text" id="cp_title" name="添加习题" placeholder="添加习题" class="g2"><span>听力题<span class="closemark">×</span></span>
+					<div class="do-btngroup small lightblue active">
+							<a class="cp_tag">添加标签</a>
+							<a class="cp_type">添加题目</a>
+							<a class="cp_info">题目信息</a>
+							<!-- in the middle important -->
+							<ul class="do-dropdown">
+							<li class="divider-text cp_dropdown_type cp_multi">添加题目:选择题目类型
+							<a class="cusbtn lightblue right r3 tiny cp_dropdown_cancle">取消</a>
+							</li>
+							<li class="divider-text cp_dropdown_tag">添加标签
+								<a class="cusbtn lightblue  r3 tiny cp_dropdown_addtag right ">添加</a>
+								<a class="cusbtn r3 lightblue tiny right cp_dropdown_cancle">取消</a>
+							</li>
+							<li class="divider"></li>
+							<li class="cp_dropdown_tag"><input type="text" name="添加标签" placeholder="添加标签"></li>
+							<li class="cp_dropdown_type cp_dropdown_type_radio"><a href="#">单选题</a></li>
+						            <li class="cp_dropdown_type cp_dropdown_type_check"><a href="#">多选题</a></li>
+						            <li class="cp_dropdown_type cp_dropdown_type_input"><a href="#">填空题</a></li>
+						           </ul>
+							<a class="cp_save">保存</a>
+							<a class="cp_done">提交</a>	
+						</div>
+				            </h5>
+				            <hr>
+				             <input type="file" id="audio_upload"> 
+				             <div class="cp_script_container rel cp_option2_content">
+							<textarea name="" id="" cols="30" rows="10" class="g10"></textarea><span class="info">听力原文</span>
+					</div>	
+				           
+						<div class="cp_choice_container">
+						<div class="cp_question cp_multip"><input type="text" name="添加习题" placeholder="添加习题" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项A内容" placeholder="选项A内容" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项B内容" placeholder="选项B内容" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项C内容" placeholder="选项C内容" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项D内容" placeholder="选项D内容" class="g10"></div>	
+						<div class="do-btngroup small active cp_option2">
+							<a class="cp_addoption disabled">请在正确选项旁打勾√</a>
+							<a class="cp_deleteq">删去该题</a>
+							<a class="cp_addvar">添加变量</a>
+							<a class="cp_addoption">添加选项</a>
+							<a class="cp_deleteoption">删除最后选项</a>
+							<a class="cp_explanation">添加疑难解答</a>
+							<a class="cp_hint">添加提示</a>
+							<a class="cp_save">保存</a>
+							<a class="cp_done">提交</a>
+						</div>	
+						<div class="cp_hint_container rel cp_option2_content">
+							<textarea name="" id="" cols="30" rows="10" class="g10"></textarea><span class="info">提示信息</span>
+						</div>	
+						<div class="cp_explanation_container rel cp_option2_content">
+							<textarea name="" id="" cols="30" rows="10" class="g10"></textarea><span class="info">疑难解答</span>
+						</div>	
+						</div>															
+				        </div>        
+				        </div>
+				        </div>	
+				        <!-- reading-->
+				        <div class="do-problem-container cp_container cp_reading">
+				        <div class="do-problem">
+				          <div class="do-problem-content">
+				            <h5><input type="text" id="cp_title" name="添加习题" placeholder="添加习题" class="g2"><span>阅读题<span class="closemark">×</span></span>
+					<div class="do-btngroup small lightblue active">
+							<a class="cp_tag">添加标签</a>
+							<a class="cp_type">添加题目</a>
+							<a class="cp_info">题目信息</a>
+							<!-- in the middle important -->
+							<ul class="do-dropdown">
+							<li class="divider-text cp_dropdown_type cp_multi">添加题目:选择题目类型
+							<a class="cusbtn lightblue right r3 tiny cp_dropdown_cancle">取消</a>
+							</li>
+							<li class="divider-text cp_dropdown_tag">添加标签
+								<a class="cusbtn lightblue  r3 tiny cp_dropdown_addtag right ">添加</a>
+								<a class="cusbtn r3 lightblue tiny right cp_dropdown_cancle">取消</a>
+							</li>
+							<li class="divider"></li>
+							<li class="cp_dropdown_tag"><input type="text" name="添加标签" placeholder="添加标签"></li>
+							<li class="cp_dropdown_type cp_dropdown_type_radio"><a href="#">单选题</a></li>
+						            <li class="cp_dropdown_type cp_dropdown_type_check"><a href="#">多选题</a></li>
+						            <li class="cp_dropdown_type cp_dropdown_type_input"><a href="#">填空题</a></li>
+						           </ul>
+							<a class="cp_save">保存</a>
+							<a class="cp_done">提交</a>	
+						</div>
+				            </h5>
+				            <hr>
+				             <input type="file" id="readingimg_upload"> 
+				             <div class="cp_script_container rel cp_option2_content">
+							<textarea name="" id="" cols="30" rows="10" class="g10"></textarea><span class="info">阅读材料</span>
+					</div>	
+				           
+						<div class="cp_choice_container">
+						<div class="cp_question cp_multip"><input type="text" name="添加习题" placeholder="添加习题" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项A内容" placeholder="选项A内容" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项B内容" placeholder="选项B内容" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项C内容" placeholder="选项C内容" class="g10"></div>
+						<div class="cp_choice"><input type="checkbox" class="checkbox">
+							<input type="text" name="选项D内容" placeholder="选项D内容" class="g10"></div>	
+						<div class="do-btngroup small active cp_option2">
+							<a class="cp_addoption disabled">请在正确选项旁打勾√</a>
+							<a class="cp_deleteq">删去该题</a>
+							<a class="cp_addvar">添加变量</a>
+							<a class="cp_addoption">添加选项</a>
+							<a class="cp_deleteoption">删除最后选项</a>
+							<a class="cp_explanation">添加疑难解答</a>
+							<a class="cp_hint">添加提示</a>
+							<a class="cp_save">保存</a>
+							<a class="cp_done">提交</a>
+						</div>	
+						<div class="cp_hint_container rel cp_option2_content">
+							<textarea name="" id="" cols="30" rows="10" class="g10"></textarea><span class="info">提示信息</span>
+						</div>	
+						<div class="cp_explanation_container rel cp_option2_content">
+							<textarea name="" id="" cols="30" rows="10" class="g10"></textarea><span class="info">疑难解答</span>
+						</div>	
+						</div>															
+				        </div>        
+				        </div>
+				        </div>	
+ 			</form>	
+ 			<!-- add a new section to here	 -->
+		</div>   
+{%endblock%}  

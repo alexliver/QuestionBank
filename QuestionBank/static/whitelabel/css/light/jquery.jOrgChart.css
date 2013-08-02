@@ -1,0 +1,146 @@
+/* Basic styling */
+/* Draw the lines */
+.jOrgChart .line {
+  height                : 20px;
+  width                 : 4px;
+}
+
+.jOrgChart .down {
+  background-color: #ddd;	
+  margin: 0px auto;
+}
+
+.jOrgChart .top {
+  border-top: 3px solid #ddd;
+}
+
+.jOrgChart .left {
+  border-right: 2px solid #ddd;
+}
+
+.jOrgChart .right {
+  border-left: 2px solid #ddd;
+}
+
+.jOrgChart{
+  margin-bottom: 50px;
+}
+/* node cell */
+.jOrgChart td {
+  text-align: center;
+  vertical-align: top;
+  padding: 0;
+}
+
+/* The node */
+.jOrgChart .node.notselected {
+      color: #aaa;
+       box-shadow: none;
+       background: none;
+       border: 2px solid #ddd;
+       box-shadow:rgba(0, 0, 0, 0.07) 0px 1px 1px inset;
+      -webkit-box-shadow:rgba(0, 0, 0, 0.07) 0px 1px 1px inset;
+      -moz-box-shadow:rgba(0, 0, 0, 0.07) 0px 1px 1px inset;
+      -ms-box-shadow:rgba(0, 0, 0, 0.07) 0px 1px 1px inset;
+      -o-box-shadow:rgba(0, 0, 0, 0.07) 0px 1px 1px inset;
+}
+.jOrgChart .node{
+      color: #3a87ad;
+      font-weight: 700;
+      text-shadow:0 0 0 1px #fff;
+      cursor: pointer;
+      display: inline-block;
+      width: 96px;
+      height: 50px;
+      z-index: 10;
+      margin: 0 2px;
+      border-radius: 4px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -o-border-radius: 4px;
+      -khtml-border-radius: 4px;
+      background-image: -moz-linear-gradient(top, rgba(250, 250, 250, 1) 0%, rgba(230,230,230, 1) 100%);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(250, 250, 250, 1)), color-stop(100%,rgba(230,230,230, 1)));
+      background-image: -webkit-linear-gradient(top, rgba(250, 250, 250, 1) 0%,rgba(230,230,230, 1) 100%);
+      background-image: -o-linear-gradient(top, rgba(250, 250, 250, 1) 0%,rgba(230,230,230, 1) 100%);
+      background-image: -ms-linear-gradient(top, rgba(250, 250, 250, 1) 0%,rgba(230,230,230, 1) 100%);
+      background-image: linear-gradient(to bottom, rgba(250, 250, 250, 1) 0%,rgba(230,230,230, 1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FAFAFA', endColorstr='#e6e6e6',GradientType=0 );
+      box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+      -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+      -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+      -ms-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+      -o-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+      border: none;
+      padding-top: 10px;
+      position: relative;
+      overflow: hidden;
+}
+.jOrgChart .node a{
+      color: #3a87ad;
+      font-weight: 700;
+      text-shadow:0 0 0 1px #fff;
+}
+.jOrgChart .node a:hover{
+      text-decoration: none;
+      border-bottom: 3px solid #3a87ad;
+}
+.jOrgChart .node span{
+      color: #333;
+      font-weight: 700;
+      text-shadow:0 0 0 1px #fff;
+}
+.jOrgChart .node.active{
+
+}
+.jOrgChart .node span.node_progress{
+      display:inline;
+      font-weight: normal;
+      font-style: italic;
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 20%;
+      float: none;
+      top: 0;
+      left: 0;
+      border-radius: 4px 0 0 4px;
+      -webkit-background-size: 60px 60px;
+      -moz-background-size: 60px 60px;
+      -o-background-size: 60px 60px;
+      background-size: 60px 60px;
+      opacity: 0.5;
+}
+.jOrgChart .node span.node_progress>span{
+        display: none;
+}
+/* jQuery drag 'n drop */
+
+.drag-active {
+  border-style: solid !important;
+  border-color: #ddd;
+}
+
+.drop-hover {
+  border-style: solid !important;
+  border-color: #E05E00 !important;
+}
+.jOrgChart .node>div.nodetri{
+        width: 20px;
+        height: 20px;
+        background: url(images/nodetri.png);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 12;
+        cursor: s-resize;
+}
+/*.jOrgChart .node>div.nodetri>div.nodetip{
+       width: 100px;
+        height: 50px;
+        background: url(images/nodetip.png);
+        position: absolute;
+        top: 90%;
+       left: -20px;
+        z-index: 12;
+}*/

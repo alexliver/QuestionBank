@@ -1,0 +1,45 @@
+function my_callback(data){
+    if(data.message=='save'){
+		$.msg('已保存',{live:3000});
+	}else{
+    	$.msg(data.message,{live:3000});
+	}
+}
+
+function note_saved(data){ 
+	if(data.message=='save'){
+		$.msg('已保存',{live:3000});
+	}else{
+		$.msg('Error',{live:3000});
+	}
+	$('#noteid').val(data.note_id);
+}
+
+function redirect_callback(data){
+	if(data.message=='200'){
+		$.msg('转跳',{live:3000});
+		window.location.href=data.redirect+'/';
+	}else if(data.message=='300'){
+		$.msg('已保存,转跳',{live:3000});
+		window.location.href=data.redirect+'/';
+	}else{
+		$.msg(data.message,{live:3000});
+	}
+
+}
+
+function save_event(){
+	alert('Running!');
+	Dajaxice.Problem.new_event(my_callback,,{'eventform':$('#eventform').serialize(true)});
+	alert('Running!');
+}
+
+function submitquestion(){
+	document.getElementById("questionform").submit();
+}
+
+function confirmNewSubset(){
+	$('div.modal-setdetail.addsection').hide();
+	$('div.modal-drop.addsection').hide();
+	Dajaxice.Problem.new_subset(Dajax.process,{'subsetform':$('#newsubset').serialize(true)});			
+}

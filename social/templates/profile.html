@@ -1,0 +1,45 @@
+{% extends "structure.html" %}
+
+{% block title %}{{target_user.username}}{% endblock %}
+{% ifequal target_user.id user.id %}
+{% block extra_meta %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}whitelabel/css/light/pi.css">
+	<script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/pi.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/dashboard.js"></script>
+{% endblock %}
+{% endifequal %}
+
+{% block main %}
+	<div class="g12 info_container">
+	{% ifequal target_user.id user.id %}
+		{% include "pi_self.html" %}
+	{% else %}
+		{% include "pi_public.html" %}
+	{% endifequal %}
+		<div class="g9 pi_content">
+			<div class="pi_content_state">
+				{% autoescape off %}
+				{% include "status.html" %}
+				{% endautoescape %}
+			</div>
+			<div class="pi_content_diary">
+				{% autoescape off %}
+				{% include "log.html" %}
+				{% endautoescape %}
+			</div>
+				<div class="pi_content_set">
+					<a id="set"></a>
+
+				</div>
+				<div class="pi_content_comment">
+					<a id="comment"></a>
+
+				</div>
+				<div class="pi_content_share">
+					<a id="share"></a>
+
+				</div>
+			</div>
+</div>
+{% endblock %}

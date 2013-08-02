@@ -1,0 +1,274 @@
+{% extends "base.html" %}
+
+{% block title %}当前习题{% endblock %}
+{% block extra_meta %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/course.css">
+	<script src="{{ STATIC_URL }}whitelabel/js/course-signin.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/piDialog.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/viewtree.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/jquery.viewjOrgChart.js"></script>
+{% endblock %}
+{% block body_type%}<body class='cs_signin'>{% endblock %}
+
+
+{% block content %}	
+	<section id="content">
+		<div class="cs_signin_topbg">
+			<div class="cs_signin_info">
+				<div>
+					<h1>{{session.course.name}}</h1>
+					<h3>by {% for teacher in session.instructors.all %}{{teacher}} {% endfor %}</h3>
+					<p>Duration: {{session.duration}} weeks, from {{session.start}}</p>
+				</div>
+				<hr>
+				<ul>	<li><a href="#cs_link1" class='active cs_link1'><i class="icon-calendar  icon-large"></i> 课程安排</a></li>
+					<li><a href="#cs_link2" class=' cs_link2'><i class="icon-exclamation-sign icon-large"></i>  课程通知</a></li>
+					<li><a href="#cs_link3" class='cs_link3'><i class="icon-info-sign  icon-large"></i> 课程信息</a></li>
+					<li><a href="#cs_link4" class='cs_link4'><i class="icon-bar-chart  icon-large"></i> 知识树</a></li>
+					<li><a href="#cs_link5" class='cs_link5'><i class="icon-edit  icon-large"></i> 测验&作业</a></li>
+					
+					
+				</ul>	
+			</div>
+
+		</div>
+		<div class="cs_course_content">
+			<a id="cs_link1"></a>
+			<h2><i class="icon-calendar icon-large"></i> 课程安排</h2>
+			<hr>
+			<div class="drag-calendar">
+         	</div> 
+			
+         	{% include 'announcement.html'%}
+
+					<a id="cs_link3"></a>
+		<h2><i class="icon-info-sign  icon-large"></i> 课程信息</h2>
+		<hr>
+			<h3 class='first'>About the Course</h3>
+			<p>Since antiquity, philosophers have questioned the foundations--the foundations of the physical world, of our everyday experience, of our scientific knowledge, and of culture and society. In recent years, more and more young philosophers have become convinced that, in order to understand these foundations, and thus to make progress in philosophy, the use of mathematical methods is of crucial importance. This is what our course will be concerned with: mathematical philosophy, that is, philosophy done with the help of mathematical methods.
+
+As we will try to show, one can analyze philosophical concepts much more clearly in mathematical terms, one can derive philosophical conclusions from philosophical assumptions by mathematical proof, and one can build mathematical models in which we can study philosophical problems.
+
+So, as Leibniz would have said: even in philosophy, calculemus. Let's calculate.</p>
+		
+		<h3>Course Syllabus</h3>
+		<ul>
+			<li>Week One: Infinity.</li>
+			<li>Week Two: Truth.</li>
+			<li>Week Three: Rational belief.</li>
+			<li>Week Four: If-then.</li>
+			<li>Week Five: Confirmation.</li>
+			<li>Week Six: Decision.</li>
+			<li>Week Seven: Voting.</li>
+			<li>Week Eight: Quantum Logic.</li>
+		</ul>
+		<h3>Recommended Background</h3>
+		<p>We will not presuppose more than bits of high school mathematics.</p>
+		<h3>Course Format</h3>
+		<p>The class will consist of lecture videos, which are between 8 and 12 minutes in length.</p>
+		<p> These contain 1-2 integrated quiz questions per video.</p>
+		<h3>FAQ</h3>
+		<p><strong>Will I get a Statement of Accomplishment after completing this class?</strong></p>
+		<p>Yes. Students who successfully complete the class will receive a Statement of Accomplishment signed by the instructors.</p>
+			
+			{% include 'viewtree.html'%}
+									  
+			<a id="cs_link5"></a>
+			<h2><i class="icon-edit  icon-large"></i> 测验&作业</h2>
+			<hr><h3>最近三周:</h3>	
+		<div class="g12 resultlistitem">
+			<div class="g3">
+				<div class="resultimg">
+				<a class="listviewcover">
+				<div>
+					<span>
+					<button class="i_admin_user small icon">作者名字</button>
+					<button class="i_calendar_day small icon">13/04/22</button>
+					<button class="i_fullscreen small icon">查看详情</button></span>	
+				</div>
+				<img src="images/post/postsample10.jpg" alt="" name="点击查看详细内容">
+				</a>
+				</div>
+			</div>
+			<div class="g5 result-info">
+
+				  <h3>一个习题集sample</h3>  
+				  <div class="g12">
+                  <div class="right tagcontainer"><button class="i_tags small icon">标签</button><a href="">数学</a><a href="">三角</a><a href="">难</a></div>
+</div>
+<div class="g12">
+  <span class="result-info-id g6">题集编号：<span>2123</span></span>
+
+                           <span class="g6">习题数量: <span>13道</span></span>
+</div>
+<div class="g12">
+                  <span class="g6"><a class="checkreview">总体评价: </a><span class="reviewstar"><!-- 86/<span>100</span> -->☆☆☆☆</span></span>
+
+                     <span class="g6">订阅人数：<span>12345</span></span>
+</div>
+<div class="g12">
+                  <span class="g6">热度：<span>1534</span></span>
+
+                     <span class="g6">推荐次数：<span>514</span></span>
+</div>
+
+ 
+
+      </div>
+			<div class="g4 resulttree">
+	<div class="g12">
+        <!-- tree-info goes here -->
+          <div class="g12 result-tree-info">
+            <span>相关知识树:  <span>数学&gt;三角函数</span></span>
+        </div>
+             <div class="g12 result-tree-info">
+             <span>你已经完成了:
+                      <span class=" result-tree-number">75&nbsp; /<span>&nbsp;100</span></span></span>
+          	</div>
+          	<div class="g12 result-tree-progress">
+            <div class="progress progress-striped active">
+  	<div class="bar" style="width: 75%;"></div>	
+	</div>       
+	<button class="small right checktree">查看相关知识树信息</button>
+          </div>
+	</div>	
+			</div>
+
+		</div>
+
+	<!-- end of a result item -->
+
+		<h3>三周之前:</h3>	
+		<div class="g12 resultlistitem">
+
+			<div class="g3">
+				<div class="resultimg">
+				<a class="listviewcover">
+				<div>
+					<span>
+					<button class="i_admin_user small icon">作者名字</button>
+					<button class="i_calendar_day small icon">13/04/22</button>
+					<button class="i_fullscreen small icon">查看详情</button></span>	
+				</div>
+				<img src="images/post/postsample1.jpg" alt="" name="点击查看详细内容">
+				</a>
+				</div>
+			</div>
+			<div class="g5 result-info">
+
+				  <h3>一个习题集sample2</h3>  
+				  <div class="g12">
+                  <div class="right tagcontainer"><button class="i_tags small icon">标签</button><a href="">数学</a><a href="">函数</a><a href="">中</a></div>
+</div>
+<div class="g12">
+  <span class="result-info-id g6">题集编号：<span>2123</span></span>
+
+                           <span class="g6">习题数量: <span>5道</span></span>
+</div>
+<div class="g12">
+                  <span class="g6"><a class="checkreview">总体评价: </a><span class="reviewstar"><!-- 86/<span>100</span> -->☆☆☆</span></span>
+
+                     <span class="g6">订阅人数：<span>12345</span></span>
+</div>
+<div class="g12">
+                  <span class="g6">热度：<span>1534</span></span>
+
+                     <span class="g6">推荐次数：<span>514</span></span>
+</div>
+
+ 
+
+      </div>
+			<div class="g4 resulttree">
+	<div class="g12">
+        <!-- tree-info goes here -->
+          <div class="g12 result-tree-info">
+            <span>相关知识树:  <span>数学&gt;函数</span></span>
+        </div>
+             <div class="g12 result-tree-info">
+             <span>你已经完成了:
+                      <span class=" result-tree-number">15&nbsp; /<span>&nbsp;100</span></span></span>
+          	</div>
+          	<div class="g12 result-tree-progress">
+            <div class="progress progress-striped active progress-danger">
+  	<div class="bar" style="width: 15%;"></div>	
+	</div>       
+	<button class="small right checktree">查看相关知识树信息</button>
+          </div>
+	</div>	
+	</div>
+	</div>
+<!-- end of a result item -->
+
+.
+		<div class="g12 resultlistitem">
+			<div class="g3">
+				<div class="resultimg">
+				<a class="listviewcover">
+				<div>
+					<span>
+					<button class="i_admin_user small icon">作者名字</button>
+					<button class="i_calendar_day small icon">13/04/22</button>
+					<button class="i_fullscreen small icon">查看详情</button></span>	
+				</div>
+				<img src="images/post/postsample6.jpg" alt="" name="点击查看详细内容">
+				</a>
+				</div>
+			</div>
+			<div class="g5 result-info">
+
+				  <h3>一个习题集sample3</h3>  
+				  <div class="g12">
+                  <div class="right tagcontainer"><button class="i_tags small icon">标签</button><a href="">数学</a><a href="">函数</a><a href="">中</a></div>
+</div>
+<div class="g12">
+  <span class="result-info-id g6">题集编号：<span>2123</span></span>
+
+                           <span class="g6">习题数量: <span>5道</span></span>
+</div>
+<div class="g12">
+                  <span class="g6"><a class="checkreview">总体评价: </a><span class="reviewstar"><!-- 86/<span>100</span> -->☆☆☆</span></span>
+
+                     <span class="g6">订阅人数：<span>12345</span></span>
+</div>
+<div class="g12">
+                  <span class="g6">热度：<span>1534</span></span>
+
+                     <span class="g6">推荐次数：<span>514</span></span>
+</div>
+
+ 
+
+      </div>
+			<div class="g4 resulttree">
+	<div class="g12">
+        <!-- tree-info goes here -->
+          <div class="g12 result-tree-info">
+            <span>相关知识树:  <span>数学&gt;函数</span></span>
+        </div>
+             <div class="g12 result-tree-info">
+             <span>你已经完成了:
+                      <span class=" result-tree-number">95&nbsp; /<span>&nbsp;100</span></span></span>
+          	</div>
+          	<div class="g12 result-tree-progress">
+            <div class="progress progress-striped active progress-success">
+  	<div class="bar" style="width: 95%;"></div>	
+	</div>       
+	<button class="small right checktree">查看相关知识树信息</button>
+			</div>
+
+		</div>
+
+</div>
+</div>
+	<!-- end of sets -->
+	<h2><i class="icon-external-link icon-large"></i> 相关链接</h3></h2>
+	<hr>
+	<a id="cs_link5"></a>
+	<a href="" class='cs_course_outlink'><h3><i class="icon-group   icon-large"></i> 讨论区</h3></a>
+	
+</div>
+</section>
+<div class="tree-drop"></div>
+{% endblock %}

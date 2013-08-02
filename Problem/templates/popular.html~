@@ -1,0 +1,38 @@
+{% extends "structure.html" %}
+
+{% block navi %}
+		<li class="i_house"><a href="dashboard.html"><span>我的科聚</span></a></li>
+		<li class="i_create_write"><a href="form.html"><span>学习日志</span></a></li>
+		<li class="i_images"><a class='active' href="/qb/search/"><span>发现</span></a></li>
+		<li class="i_blocks_images"><a href="/qb/myset/"><span>题集列表</span></a></li>
+		<li class="i_graph"><a href="/qb/statistics/"><span>做题统计</span></a></li>
+		<li class="i_breadcrumb"><a href="breadcrumb.html"><span>我的收藏</span></a></li>
+		<li class="i_calendar_day"><a href="calendar.html"><span>学习计划</span></a></li>
+		<li class="i_table"><a href="/qb/myprogress/"><span>学习进度</span></a></li>
+		<li class="i_typo"><a href="typo.html"><span>当前习题</span></a></li>
+{% endblock %}
+
+{% block content %}			
+	<div class="g12">
+	<h1>Gallery</h1>
+			<p>a sortable gallery with lightbox</p>
+			<hr>
+			<h3>Popular Questions</h3>
+			<ul class="gallery">
+				{% for questionset in popular_set%}
+				<li><a href="http://images.revaxarts-themes.com/201456/800x400.jpg" title="{{questionset.name}}"><img src="http://images.revaxarts-themes.com/201456/116x116.jpg" width="116" height ="116" alt="{{questionset.name}}"></a></li>
+				{% endfor %}
+			</ul>
+			
+			<hr>
+			<h3>Popular Question Set</h3>
+			<ul class="gallery">
+				{% for questionset in popular_set%}
+				<li><a href="http://images.revaxarts-themes.com/201456/800x400.jpg" title="{{questionset.name}}"><img src="http://images.revaxarts-themes.com/201456/116x116.jpg" width="116" height ="116" alt="{{questionset.name}}"></a></li>
+				{% endfor %}
+			</ul>
+			
+			
+</div>
+
+{% endblock %}			

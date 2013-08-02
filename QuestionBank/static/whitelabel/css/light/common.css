@@ -1,0 +1,333 @@
+/*------------------------------common--------------------------------*/
+/*------------------------------contents--------------------------------*/
+/* color theme
+/* gradient theme
+/* border theme
+/* border radius theme
+/* float rules
+/* custom grid
+/* override default theme
+/* scroll control
+/* basic elements
+/*----------------------------------------------------------------------*/
+/*------------------------------color theme---------------------------*/
+.cgreen{
+	background-color: #468847;
+}
+.cblue1{
+	background-color: #3a87ad;
+}
+.cblue2{
+	background-color: #2980B9;
+}
+.cred{
+	background-color: #b94a48;
+}
+.cyellow{
+	background-color: #f89406;
+}
+/*------------------------------gradient theme-------------------------*/
+.gr1{
+	background: #F6F6F6;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#f1f1f1');
+	background: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6), to(#F1F1F1));
+	background: -moz-linear-gradient(top, #F6F6F6, #F1F1F1);
+	background: -o-linear-gradient(top, #F6F6F6, #F1F1F1);
+}
+.gr2{
+	background-image: -moz-linear-gradient(top, rgba(250, 250, 250, 1) 0%, rgba(230, 230, 230, 1) 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(250, 250, 250, 1)), color-stop(100%,rgba(230, 230, 230, 1)));
+	background-image: -webkit-linear-gradient(top, rgba(250, 250, 250, 1) 0%,rgba(230, 230, 230, 1) 100%);
+	background-image: -o-linear-gradient(top, rgba(250, 250, 250, 1) 0%,rgba(230, 230, 230, 1) 100%);
+	background-image: -ms-linear-gradient(top, rgba(250, 250, 250, 1) 0%,rgba(230, 230, 230, 1) 100%);
+	background-image: linear-gradient(to bottom, rgba(250, 250, 250, 1) 0%,rgba(230, 230, 230, 1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FAFAFA', endColorstr='#e6e6e6',GradientType=0 );
+}
+/*------------------------------border-radius------------------------------*/
+.r2{
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-khtml-border-radius: 2px;
+}
+.r3{
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-khtml-border-radius: 3px;
+}
+.r4{
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	-khtml-border-radius: 4px;
+}
+.r12{
+	border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-o-border-radius: 12px;
+	-khtml-border-radius: 12px;
+}
+/*------------------------------overide fefault------------------------------*/
+.clearall{
+	background: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+}
+hr.clearall{
+	margin: 1px;
+}
+/*------------------------------float rules----------------------------------*/
+.right{
+	float: right;
+}
+.left{
+	float: left;
+}
+/*------------------------------scroll control------------------------------*/
+#header ul.fixed{
+	position: fixed;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	-moz-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+	border-top-color: #d7d7d7;
+	background: #f3f3f3;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#f1f1f1));
+	background: -moz-linear-gradient(top, #f6f6f6, #f1f1f1);
+	background: -o-linear-gradient(top, #f6f6f6, #f1f1f1);
+	top: 0;
+	left:0px;
+	padding: 5px 0 2px 30%;
+	height: 30px;
+	width: 100%;
+	z-index:3000;
+	opacity: 0;
+}
+#header ul.fixed:hover{
+	opacity: 1;
+	-webkit-transition: all 0.1s ease-in-out;
+}
+nav.fixed{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+/*	height: 35px;*/
+	overflow: hidden;
+	opacity: 0;
+	z-index: 301;
+}
+nav.fixed:hover{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height:auto;
+	opacity: 1;
+	-webkit-transition: opacity 0.2s ease-in-out;
+}
+#header ul.fixed li ul{
+	padding: 2px 0;
+}
+#header ul.fixed li ul li ul{
+	padding: 0;
+}
+#content.fixed{
+	padding: 15px 120px 15px 115px;
+}
+/*------------------------------basic elements------------------------------*/
+div.topline{
+	-webkit-box-shadow: 3px 0 4px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 3px 0 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 3px 0 4px rgba(0, 0, 0, 0.1);
+	background: #f3f3f3;
+	background: -webkit-gradient(linear, left bottom, left bottom, from(#f6f6f6), to(#f1f1f1));
+	background: -moz-linear-gradient(bottom, #f6f6f6, #f1f1f1);
+	background: -o-linear-gradient(bottom, #f6f6f6, #f1f1f1);
+	position: relative;
+	border-bottom: 1px solid #d7d7d7;
+	z-index: 1000;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-left-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	border-bottom-right-radius: 4px;
+	margin-bottom: 15px;
+}
+div.topline>span.kejulogo{
+	margin-left: 30px;
+	color: #353535;
+	text-shadow: 0px 1px 0 #ffffff;
+	line-height: 40px;
+	font-size: 30px;
+	width: 224px;
+	border: 0;
+	font-weight: 700px;
+	-webkit-border-top-left-radius: 4px;
+	-moz-border-radius-topleft: 4px;
+	border-top-left-radius: 4px;
+}
+div.logicon{
+	float: right;
+	margin-right: 15px;
+}
+div.logicon>a>img{
+	height: 27px;
+	width: 27px;
+	margin: 10px 5px 0 0;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+}
+div.logicon>a:hover{
+	text-decoration: none;
+}
+div.logicon>a.btn{
+	top:-10px;
+	position: relative;
+}
+div.logicon div.do-btngroup{
+	margin-bottom: 20px;
+}
+div.logicon div.do-btngroup ul.do-dropdown{
+	border-radius: 4px;
+	width: 130px;
+	min-width: 100px;
+	left: -64px;
+}
+header>span{
+	color: rgba(21,21,21,0.8);
+	text-shadow: 1px 2px 4px #fff,0 0 0 #000,1px 2px 4px #fff,0 1px 0 #fff;
+	height:24px;
+	line-height: 60px;
+	margin-left: 30px;
+	width:224px;
+	border:0;
+	font-weight: 400;
+	font-size: 23px;
+}
+li#itemsearchbar>input{
+	width: 280px;
+}
+#header ul.searchnav{
+	width: 90%;
+}
+div.qcontent{
+	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	background-image: url(images/paper_02.png);
+	border:1px solid #bbbbbb;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+div.qcontent>.qproblem{
+	width: 90%;
+	position: relative;
+	padding: 0;
+	clear: both;
+	margin: 0;
+	color: #111;
+	padding: 15px 10px;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 14px;
+}
+div.qcontent>.qquestion {
+	color: #111;
+	background-image: url(images/paper_02.png);
+	background-color: #f1f1f1;
+	width: 90%;
+	clear: both;
+	margin-left: 2%;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+	font-size: 14px;
+	padding: 3px 1px;
+	border: 1px solid #bbbbbb;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	padding: 12px 15px;
+	line-height: 18px;
+	margin-bottom: 18px;
+	line-height: 18px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+footer h2, footer p{
+	margin-bottom: 20px;
+	text-align: left;
+}
+footer ul li a{
+	text-align: left;
+}
+footer ul{
+	list-style: none;
+	float: left;
+}
+footer .g12{
+	border-bottom: 1px solid #e3e3e3;
+}
+footer a.weibo{
+	float: left;
+	display: block;
+	height: 29px;
+	margin: 0 2px 0 0;
+	overflow: hidden;
+	text-indent: -99999px;
+	width: 29px;
+	background: url(images/weibo.png);
+}
+footer a.weibo:hover{
+	background: url(images/weiboa.png);}
+footer a.weixin{
+	float: left;
+	display: block;
+	height: 29px;
+	margin: 0 2px 0 0;
+	overflow: hidden;
+	text-indent: -99999px;
+	width: 29px;
+	background: url(images/weixin.png);
+}
+footer a.weixin:hover{
+	display: block;
+	height: 29px;
+	margin: 0 2px 0 0;
+	overflow: hidden;
+	text-indent: -99999px;
+	width: 29px;
+	background: url(images/weixina.png);
+}
+footer a.qq{
+	float: left;
+	display: block;
+	height: 29px;
+	margin: 0 2px 0 0;
+	overflow: hidden;
+	text-indent: -99999px;
+	width: 29px;
+	background: url(images/qq.png);
+}
+footer .g12 a.finduson{
+	float: left;
+}
+footer a.qq:hover{
+	background: url(images/qqa.png);
+}
+

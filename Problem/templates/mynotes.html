@@ -1,0 +1,37 @@
+{% extends "structure.html" %}
+
+{% block title %}当前习题{% endblock %}
+{% block extra_meta %}
+
+	<script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/notes.js"></script>
+
+{% endblock %}
+
+{% block main %}	
+
+<div class="g12">
+	{% for questionset in all_questionset %}{% if questionset.related_notes.count > 0 %}
+	<div class="notes-container tiny" id="153434343">
+		<div class="note-info">
+			<hr><!-- inportant! -->
+			<h4>我的笔记{{questionset.name}}<code>{{questionset.name}}，2013.05.30</code><button class="small">收起</button></h4>
+			<hr>
+		</div>
+			{% for note in questionset.related_notes %}
+			<div class="do-problem-note notes">
+			    <!-- store content in placeholder prop				 -->
+				<textarea type="text" id="note" name="notes-{{note.id}}" cols="30" rows="5">{{note.text_body}}</textarea><a id="note-new">编辑</a><a id="note-save">保存</a>
+			</div>
+			{% endfor %}			
+
+			<div class="do-problem-note notes last">				
+				<textarea type="text" id="note" name="记一笔" placeholder="题集:{{questionset.name}}
+					时间:{{note.created}}" cols="30" rows="5"></textarea><a id="note-check">查看</a>
+			</div>
+		<hr> 	
+	</div>	
+	{% endif %}
+	{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "structure.html" %}
+
+{% block title %}做题统计{% endblock %}
+
+{% block navi %}
+		<li class="i_house"><a href="dashboard.html"><span>我的科聚</span></a></li>
+		<li class="i_create_write"><a href="form.html"><span>学习日志</span></a></li>
+		<li class="i_images"><a href="/qb/search/"><span>发现</span></a></li>
+		<li class="i_blocks_images"><a href="/qb/myset/"><span>我的题集</span></a></li>
+		<li class="i_graph"><a class="active" href="/qb/statistics/"><span>做题统计</span></a></li>
+		<li class="i_breadcrumb"><a href="breadcrumb.html"><span>我的收藏</span></a></li>
+		<li class="i_calendar_day"><a href="calendar.html"><span>学习计划</span></a></li>
+		<li class="i_table"><a href="/qb/myprogress/"><span>学习进度</span></a></li>
+		<li class="i_typo"><a href="typo.html"><span>当前习题</span></a></li>
+{% endblock %}
+
+
+{% block main %}	
+<div class="g12">
+<h1>做题统计</h1>
+			
+<table class="datatable">
+<thead>
+	<tr>
+	<th>Question Set Name</th><th>Created</th><th>Saved Questions</th><th>Graded Questions</th><th>Total</th>
+	</tr>
+</thead>
+<tbody>
+{% for questionset in questionSets %}
+	<tr class="gradeX">
+		<td><a href="/qb/qs/{{ questionset.id }}/">{{questionset.name }}</a></td><td>{{questionset.created}}</td><td>{{questionset.saved}}</td><td class="c">{{questionset.graded}}</td><td class="c">{{questionset.count_of }}</td>
+	</tr>
+{% endfor %}   	
+</tbody>
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+		<div class="cp_question">	
+			<input type="text" name="question_text" value="{{question.sample_instance.question_text}}" class="g10">
+		</div>		
+		<form class="clearall choice_container" id="form-{{question.id}}">
+		{% for choice in question.sample_instance.answer_text.splitlines %}							
+			<div class="cp_choice">
+				<input type="checkbox" name="choice-marker{{forloop.counter}}" class="checkbox" {% if question.sample_instance.solution_text == choice %} checked {% endif %}>
+				<input type="text" name="choice-value{{forloop.counter}}" value="{{ choice }}" class="g10">
+			</div>
+		{% endfor %}
+		</form>
+				
+			<div class="do-btngroup small active cp_option2">
+				<a class="cp_addoption disabled">请在正确选项旁打勾√</a>
+				<a class="cp_addvar">添加变量</a>
+				<a class="cp_addoption">添加选项</a>
+				<a class="cp_deleteoption">删除最后选项</a>
+				<a class="cp_explanation">添加疑难解答</a>
+				<a class="cp_hint">添加提示</a>
+				<a class="cp_save" onclick="Dajaxice.Problem.save_new_question(my_callback,{'qi_id':{{question.sample_instance.id}},'hint':$('#q_hint-{{question.id}}').val(),'q_exp':$('#q_exp-{{question.id}}').val(),'newqform':$('#form-{{question.id}}').serialize(true)});">保存</a>
+			</div>						

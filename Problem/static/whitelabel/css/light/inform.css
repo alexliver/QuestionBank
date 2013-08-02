@@ -1,0 +1,279 @@
+/*------------------------------inform--------------------------------*/
+/*------------------------------contents--------------------------------*/
+/* base
+/* cal
+/* color
+/* dialog
+/* float rules
+/* custom grid
+/* override default theme
+/* scroll control
+/* basic elements
+/*----------------------------------------------------------------------*/
+/*------------------------------base-----------------------------------*/
+.informsys_trigger{
+	position: fixed;
+	right:0;
+	top: 0;
+	width: 50px;
+	height: 50px;
+	background: none;
+	opacity: 0;
+	z-index: 20000;
+}
+.informsys_trigger.active{
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+}
+.informsys_trigger.active .informsys{
+	display: block;
+}
+.informsys{
+	width: 760px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -380px;
+	height: 100%;
+	background: rgba(255,255,255,0.4);
+	display: none;
+}
+.informsys hr{
+	margin: 0;
+}
+.informsys_title{
+	width: 100%;
+	height: 33px;
+	position: relative;
+}
+.informsys_title>span{
+	font-size: 16px;
+	font-weight: 700px;
+	float: left;
+	display: block;
+	margin: 5px;
+	color: #777;
+	margin-left: 20px;
+}
+.informsys span.closemark{
+	font-size: 25px;
+	top: -5px;
+	position: absolute;
+	right: 10px;
+	display: none;
+}
+.informsys a:hover{ 
+	text-decoration: none;
+}
+.informsys_title>span>i{
+	margin-right: 15px;
+}
+.informsys_date{
+	padding-top: 20px;
+	padding-left: 45px;
+	padding-bottom: 20px;
+	overflow: hidden;
+	border-bottom:1px solid #e1e1e1;
+	background-color: rgba(255,255,255,0.2);
+}
+.informsys_date>a{
+	padding: 0px 0 3px 0;
+	width: 221px;
+	float: left;
+	text-align: center;
+	display: block;
+	color: #2980B9;
+	font-size: 16px;
+	line-height: 25px;
+	border:1px solid #e1e1e1;
+	border-right:1px solid #ffffff;
+}
+.informsys_date>a:hover,
+.informsys_date>a.active{
+	background-color: rgba(255,255,255,0.7);
+	text-decoration: none;
+	color: #2980B9;
+}	
+.informsys_date>a:first-child{
+	border-radius: 4px 0 0 4px;
+}
+.informsys_date>a:last-child{
+	border-radius:0 4px  4px 0;
+	border-right:1px solid #e1e1e1;
+}
+/*------------------------------calendar-----------------------------------*/
+.informsys_event{
+	border-left: 3px solid transparent;
+}
+.informsys_event{
+	background-color: rgba(255,255,255,0.2);
+	padding: 5px;
+	border-bottom:1px solid #e1e1e1;
+	padding-left: 20px;
+	position: relative;
+}
+.informsys_event>p{
+	line-height: 25px;
+	margin: 0;
+	padding: 0;
+}
+.informsys_event>p>span{
+	padding-right: 20px;
+}
+/*------------------------------color-----------------------------------*/
+.informsys_event.red{
+	border-left-color: #b94a48;
+}
+.informsys_event.red>p>span{
+	color: #b94a48;
+}
+.informsys_event.green{
+	border-left-color: #468847;
+}
+.informsys_event.green>p>span{
+	color: #468847;
+}
+.informsys_event.blue{
+	border-left-color: #3a87ad;
+}
+.informsys_event.blue>p>span{
+	color: #3a87ad;
+}
+.informsys_event.orange{
+	border-left-color: #f89406;
+}
+.informsys_event.orange>p>span{
+	color: #f89406;
+}
+.informsys_event.grey{
+	border-left-color: #999;
+}
+.informsys_event.grey>p>span{
+	color: #999;
+}
+.informsys_event.v4{
+	border-left-color: #fc756f;
+}
+.informsys_event.v4>p>span{
+	color: #fc756f;
+}
+.informsys_event.v6{
+	border-left-color: #f8b161;
+}
+.informsys_event.v6>p>span{
+	color: #f8b161;
+}
+.informsys_event.vg{
+	border-left-color:#4d8c9d;
+}
+.informsys_event.vg>p>span{
+	color:#4d8c9d;
+}
+.informsys_event.vs{
+	border-left-color:#e66b20;
+}
+.informsys_event.vs>p>span{
+	color:#e66b20;
+}
+.informsys_event.vgre{
+	border-left-color:#97d1bc;
+}
+.informsys_event.vgre>p>span{
+	color:#97d1bc;
+}
+.informsys_event.vi{
+	border-left-color:#c29ad2;
+}
+.informsys_event.vi>p>span{
+	color:#c29ad2;
+}
+/*------------------------------dialog-----------------------------------*/
+.informsys_dialog{
+	position: fixed;
+	width: 740px;
+	height: 30px;
+	left: 50%;
+	padding: 10px;
+	top: 0px;
+	margin-left: -380px;
+	background: rgba(255,255,255,0.7);
+	border-radius: 7px;
+	-webkit-box-shadow: inset 0 8px 10px #ebebeb,inset 4px 35px 65px 5px rgba(242,242,242,0.9),rgba(0,0,0,0.3) 0 1px 3px;
+	-moz-box-shadow: inset 0 8px 10px #ebebeb,inset 4px 35px 65px 5px rgba(242,242,242,0.9),rgba(0,0,0,0.3) 0 1px 3px;
+	box-shadow: inset 0 8px 10px #ebebeb,inset 4px 35px 65px 5px rgba(242,242,242,0.9),rgba(0,0,0,0.3) 0 1px 3px;
+	z-index: 20000;
+	cursor: pointer;
+	display: none;
+}
+.inform_dialog_rope{
+	position: absolute;
+	background: url(images/idr.png);
+	height: 300px;
+	width: 17px;
+	bottom: 100%;
+	left: 45px;
+}
+.inform_dialog_rope2{
+	position: absolute;
+	background: url(images/idr.png);
+	height: 300px;
+	width: 17px;
+	bottom: 100%;
+	right: 45px;
+}
+.informsys_dialog>.informsys_event{
+	background: none;
+	border-bottom: none;
+	width: 670px;
+	float: right;
+	position: relative;
+}
+.informsys_dialog i{
+	font-size: 25px;
+	position: absolute;
+	left: -40px;
+}
+.informsys_event>p>span.inform_icon{
+	padding-right: 0;
+}
+.informsys_dialog>.informsys_event>p{
+	font-size: 15px;
+}
+.informsys_section3 form{
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.informsys_section3 form>a.searchnode_submit{
+	right: 165px;
+	top: 10px;
+}
+.informsys_section3 form input{
+	width: 460px;
+	padding-right: 30px;
+	height: 30px;
+	padding: 0;
+	margin: auto;
+	color: #777;
+	background: none;
+	padding-left: 10px;
+	border: solid 4px rgba(255,255,255,0.3);
+	border-radius: 4px;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+	margin-left: 130px;
+	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.informsys_section2,
+.informsys_section3{
+	display: none;
+}
+
+
+

@@ -1,0 +1,328 @@
+/*------------------------------common--------------------------------*/
+/*------------------------------contents--------------------------------*/
+/* frame
+/* header
+/* body
+/* details
+/* problem list
+/* set review
+/* set progress
+/* footer
+/* edit
+/* drop
+/* dialog specification
+/*----------------------------------------------------------------------*/
+/*------------------------------frame---------------------------------*/
+div.modal-setdetail{
+	min-width: 445px;
+	position: fixed;
+	top: 15%;
+	left: 50%;
+	z-index: 1050;
+	width: 560px;
+	margin-left: -280px;
+	background:url(images/paper_01.png);
+	border: 1px solid #999;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius:6px;
+	outline: none;
+	-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding-box;
+	background-clip: padding-box;
+}
+/*------------------------------header--------------------------------*/
+div.modal-setdetail-head{
+	position: relative;
+	/*background: url(images/paper_01.png);*/
+	cursor: move;
+}
+div.modal-setdetail-head>img{
+	width: 100%;
+	height:100px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	-moz-border-top-left-radius: 6px;
+	-moz-border-top-right-radius: 6px;
+}
+div.modal-setdetail-head>span.shadow{
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	-moz-border-top-left-radius: 6px;
+	-moz-border-top-right-radius: 6px;
+	top: 0;
+	width: 100%;
+	height:100px;
+	position: absolute;
+	background-image: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.9)));
+	background-image: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.9) 100%);
+	background-image: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.9) 100%);
+	background-image: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.9) 100%);
+	background-image: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.9) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=' rgba(0,0,0,0)', endColorstr='rgba(0,0,0,0.9)',GradientType=0 );
+}
+/*------------------------------body--------------------------------*/
+div.modal-setdetail-body{
+	background: url(images/paper_01.png);
+	position: relative;
+	width: 100%;
+	height: 44px;
+}
+div.modal-setdetail-body>div.shareset{	
+}
+div.modal-setdetail-body>div.shareset>div{
+	position: relative;
+	margin-bottom: 10px;
+	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+div.modal-setdetail-body>div.shareset>div>a{
+	margin: 0px 5px;
+}
+div.modal-setdetail-body>div.shareset>div>a>img{
+	height: 20px;
+	width: 20px;
+}
+div.modal-setdetail-body>div.g6>span:first-child{
+	font-size: 20px;
+	font-weight: 700;
+	color: #2980B9;
+	padding:0 10px 0 10px;
+	/*text-shadow: 0 1px 0 #eee, 0 1px 0 #c9c9c9, 0 1px 0 #bbb, 0 2px 0 #b9b9b9, 0 3px 0 #aaa, 0 3px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 3px 5px rgba(0, 0, 0, .25), 0 5px 5px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .15);*/
+}
+a.modal-edit{
+	z-index: 1000;
+}
+/*------------------------------details--------------------------------*/
+div.modal-setdetail-details{
+	position: relative;
+	width: 100%;
+}
+div.modal-setdetail-details>span:first-child{
+	margin-left: 20px;
+}
+div.modal-setdetail-details>span{
+	margin-right: 10px;
+}
+div.modal-setdetail-details>span.active{
+	cursor: hand;
+	color: #000;
+	padding: 1px 7px 1px 7px;
+	font-size: 12px;
+	border-radius: 9px;
+	background: #ccc;
+	border: 1px #555 solid;
+	 box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.7) inset;
+	-webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.7) inset;
+	-moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.7) inset;
+	-ms-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.7) inset;
+	-o-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.7) inset;
+}
+div.modal-setdetail-details>span>a:hover{
+	text-decoration: none;
+	font-weight: 700;
+}
+div.modal-setdetail-details>span.triangle{
+	position: absolute;
+	left: 35px;
+	top:63px;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	-webkit-transform:rotate(360deg);
+	border-width: 0 11px 11px 11px;
+	border-color: transparent transparent rgba(0,0,0,0.3) transparent;
+	line-height: 0px;
+	_border-color: #000000 #000000 #cccccc #000000;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+div.modal-setdetail-details>div:hover{
+	overflow-y: scroll;
+	overflow-x:hidden;
+}
+div.modal-setdetail-details>div{
+	height: 350px;
+	overflow-y: hidden;
+	overflow-x:hidden;
+	margin: 10px 0 0 0;
+	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+div.modal-setdetail-details>div>hr{
+	margin: 10px 0;
+}
+/*------------------------------problem list--------------------------------*/
+div.modal-setdetail-details>div.problemsetreview>h4,
+div.modal-setdetail-details>div.problemlist>h4{
+	font-size: 16px;
+	padding-left: 20px;
+	padding-top: 10px;
+	text-shadow:0 1px 0 white;
+	color: black;
+	font-weight: 700;
+}
+div.problemlist{
+	padding: 0 10px 10px 10px;
+}
+div.modal-setdetail-details>div.problemlist>ul{
+	margin: 2px;
+	padding: 5px 0px 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background-image: url(images/paper_01.png);
+}
+div.modal-setdetail-details>div.problemlist>ul>li:first-child>a{
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-moz-border-top-left-radius: 4px;
+	-moz-border-top-right-radius: 4px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+div.modal-setdetail-details>div.problemlist>ul>li:last-child>a{
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-bottom-left-radius: 4px;
+	-moz-border-bottom-right-radius: 4px;
+}
+div.modal-setdetail-details>div.problemlist>ul>li:nth-child(2n)>a{
+	background: #f1f1f1;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+div.modal-setdetail-details>div.problemlist>ul>li{
+	display: block;
+	margin-left: 0;
+}
+div.modal-setdetail-details>div.problemlist>ul>li>a{
+	width: 96%;
+	border-top: 1px solid rgba(0, 0, 0, 0.05);
+	background: #ffffff url(images/ui-bg_flat_90_ffffff_40x100.png) 50% 50% repeat-x;
+	font-weight: 700;
+	color: rgba(0,0,0,0.75);
+	display: block;
+	margin-left: 0;
+	font-size: 16px;
+	padding: 10px 10px 10px 10px;
+}
+div.problemlist div.qcontent{
+	width: 96%;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: relative;
+}
+div.modal-setdetail-details>div.problemlist>ul>li>a:hover{
+	background: rgba(255, 255, 255, 0.07);
+	text-decoration: none;
+}
+  /*------------------------------set review--------------------------------*/
+div.modal-setdetail-details>div.problemsetreview>h4,
+div.modal-setdetail-details>div.problemsetprogress>h4{
+	font-size: 16px;
+	padding-left: 20px;
+	padding-top: 10px;
+	text-shadow:0 1px 0 white;
+	color: black;
+	font-weight: 700;
+}
+div.problemsetreview{
+	padding: 0 10px 10px 10px;
+}
+div.problemsetreview>p.briefintro{
+	color: #111;
+	background-image: url(images/paper_02.png);
+	background-color: #f1f1f1;
+	width: 90%;
+	clear: both;
+	margin-left: 3%;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+	font-size: 14px;
+	padding: 3px 10px;
+	border: 1px solid #bbbbbb;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	line-height: 18px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/*------------------------------set progress--------------------------------*/
+div.modal-setdetail-details>div.problemsetprogress{
+	padding: 0 10px 10px 10px;
+}
+/*------------------------------footer--------------------------------------*/
+div.modal-setdetail-footer{
+}
+div.modal-setdetail-footer>button{
+	margin:15px 25px 10px 0;
+}
+/*------------------------------edit---------------------------------------*/
+div.modal-setdetail-edit:hover{
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+div.modal-setdetail-edit{
+	padding:10px;
+	height: 350px;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+div.modal-setdetail-edit>h4{
+	font-size: 16px;
+	padding-left: 20px;
+	padding-top: 10px;
+	text-shadow:0 1px 0 white;
+	color: black;
+	font-weight: 700;
+}
+div.modal-setdetail-edit>hr{
+	margin: 10px 0;
+}
+/*------------------------------drop----------------------------------*/
+div.modal-edit-drop{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1040;
+	opacity: 0.7;
+	background-color: #FFF;
+}
+div.modal-drop{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1040;
+	opacity: 0.7;
+	background-color: #FFF;
+}
+/*------------------------------dialog specification----------------------------------*/
+div.modal-setdetail form{
+	background: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+}

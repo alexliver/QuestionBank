@@ -1,0 +1,61 @@
+{% extends "structure.html" %}
+
+{% block title %}当前习题{% endblock %}
+
+{% block main %}	
+
+<h1>{{raw.title}} </h1>
+
+<form method="post" action="/qb/qs/{{question_set.id}}/" data-ajax="false">
+{% csrf_token %}
+	<fieldset>
+		<label>{{raw.title }}</label>
+		{% if raw.text_body %}
+		<section><pre>{{ raw.text_body }}</pre></section>
+		{% endif %}
+		
+		{% for questionInstance in raw.instance_set %}  
+		<section><label for="input">Question</label>
+			{% ifnotequal questionInstance.question_text "N/A" %}
+			<div>{{ questionInstance.question_text }}</div>
+			{% endifnotequal %}
+			<div>
+			{% for choice in questionInstance.choices %}
+				{% if questionInstance.user_solution == choice %}
+					
+				<input type="checkbox" id="answer{{ questionInstance.id }}" name="answer{{ questionInstance.id }}" value="{{ choice }}" checked>
+					{% if questionInstance.marked %}
+					{% ifequal questionInstance.solution_text choice %}
+					<label class="correct" for="answer{{ questionInstance.id }}">{{ choice }}</label>
+					{% else %}
+					<label class="incorrect" for="answer{{ questionInstance.id }}">{{ choice }}</label>
+					{% endifequal %}
+					{% else %}
+					<label for="answer{{ questionInstance.id }}">{{ choice }}</label>
+					{% endif %}
+				{% else %}
+				<input type="checkbox" name="answer{{ questionInstance.id }}" id="answer{{ questionInstance.id }}" value="{{ choice }}">
+					
+					{% if questionInstance.marked %}
+					{% ifequal questionInstance.solution_text choice %}		
+					<label class='missing' for="answer{{ questionInstance.id }}">{{ choice }}</label>
+					{% else %}
+					<label for="answer{{ questionInstance.id }}">{{ choice }}</label>	
+					{% endifequal %}					
+					{% else %}				
+					<label for="answer{{ questionInstance.id }}">{{ choice }}</label>				
+					{% endif %}
+				{% endif %}
+				
+				{% ifnotequal questionInstance.question_text "N/A" %}
+				<br />
+				{% endifnotequal %}
+			{% endfor %}			
+			</div>	
+			
+		</section>
+		{% endfor %}
+	</fieldset>
+</form>
+
+{% endblock %}

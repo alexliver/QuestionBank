@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block content %}		
+	<!-- Header here -->	
+	<header>
+
+		<span>我的题集:</span>
+
+		<div id="header">
+
+			<ul id="headernav">
+				<li><ul>
+				{% block headnavi %}
+					<li><a href="wizard.html">条件筛选</a>
+
+						<ul>
+							<li><a href="#">由我创建</a></li>
+
+							<li><a href="#">系统提供</a></li>
+
+							<li><a href="#">他人创建</a></li>
+
+						</ul>
+
+					</li>
+
+					<li><a href="#">夜间模式</a>
+
+					</li>
+
+					<li><a href="#">字体大小</a>
+
+						<ul>
+
+							<li><a href="#">小</a></li>
+
+							<li><a href="#">中</a></li>
+
+							<li><a href="#">大</a></li>
+
+							<li><a href="#">特大</a></li>
+
+						</ul>
+
+					</li>
+
+					<!--<li><a class="createnewset" href="/qb/add_set/">新建题集</a><span>!</span></li>-->
+				{% endblock %}
+				</ul></li>
+
+			</ul>
+
+			<div id="searchbox">
+
+				<form id="searchform" autocomplete="off">
+
+					<input type="search" name="query" id="search" placeholder="Search">
+
+				</form>
+
+			</div>
+
+			<ul id="searchboxresult">
+
+			</ul>
+
+		</div>
+
+	</header>
+
+	<!-- Navigation here -->
+	<nav>
+	<ul id="nav">
+		{% block navi %}
+		<li class="i_house"><a href="/qb/dashboard/"><span>我的科聚</span></a></li>
+		<li class="i_images"><a href="/qb/search/"><span>搜索发现</span></a></li>
+		<li class="i_blocks_images"><a><span>我的题集</span></a>			
+			<ul>
+				<li><a href="/qb/myset/own/"><span>我的创建</span></a></li>
+				<li><a href="/qb/myset/collect/"><span>共享题集</span></a></li>
+				<li><a href="/qb/myset/course/"><span>课程题集</span></a></li>
+				<li><a href="/qb/myset/wrong/"><span>错题集</span></a></li>				
+			</ul>
+		</li>
+		<!--<li class="i_calendar_day"><a href="/qb/studyplan/"><span>学习计划</span></a></li>-->		
+		<li class="i_table"><a href="/qb/myprogress/"><span>学习进度</span></a></li>
+		<li class="i_cog"><a><span>分享贡献</span></a>
+			<ul>
+				<li class="i_create_write"><a href="/qb/add_set/"><span>新建题集</span></a></li>	
+				<li class="i_create_write"><a href="/qb/new_question/"><span>新建练习</span></a></li>	
+			</ul>
+		</li>		
+		<li class="i_file_cabinet"><a><span>工具箱</span></a>
+			<ul>
+				<li class="i_create_write"><a href="/qb/wordbook/"><span>生词本</span></a></li>
+				<li class="i_create_write"><a href="/qb/studynote/"><span>学习笔记</span></a></li>	
+				<li class="i_create_write"><a href="/qb/studylog/"><span>日志</span></a></li>			
+			</ul>
+		
+		</li>		
+		<li><a href="/qb/messages/"><span>消息通知</span></a></li>			
+		{% endblock %}
+	</ul>
+	</nav>
+		
+			
+	<section id="content">
+	{% block main %}{% endblock %}	
+	</section><!-- end div #content -->
+{% endblock %}

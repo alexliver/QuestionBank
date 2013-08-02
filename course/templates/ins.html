@@ -1,0 +1,174 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+
+	<meta charset="utf-8">
+
+	
+
+	<title>科聚 | City University of Hong Kong</title>
+
+	
+
+	<meta name="description" content="">
+
+	<meta name="author" content="keju.com">
+
+	
+	<!-- Google Font and style definitions -->
+
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold">
+
+	<link rel="stylesheet" href="/static/css/modified-style.css">
+
+	
+
+	<!-- include the skins (change to dark if you like) -->
+
+	<link rel="stylesheet" href="/static/css/light/modified-theme.css" id="themestyle">
+
+
+	<!-- <link rel="stylesheet" href="/static/css/dark/theme.css" id="themestyle"> -->
+
+	
+
+	<!--[if lt IE 9]>
+
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
+	<link rel="stylesheet" href="/static/css/ie.css">
+
+	<![endif]-->
+
+	
+
+	<!-- Apple iOS and Android stuff -->
+
+	<meta name="apple-mobile-web-app-capable" content="no">
+
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+	
+
+	<!-- Apple iOS and Android stuff - don't remove! -->
+
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+
+	
+
+	<!-- Use Google CDN for jQuery and jQuery UI -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+
+	
+
+	<!-- Loading JS Files this way is not recommended! Merge them but keep their order -->
+
+	
+	<script src="/static/js/course.js"></script>
+	<script src="/static/js/animate/TweenMax.min.js"></script>
+	<!-- modified -->
+	<link rel="stylesheet" href="/static/css/light/forcourseonly.css">
+	
+
+</head>
+
+<body class='cs'>
+	<div class="cs_banner">
+		<!-- <img src="images/blurbg2.png" alt="" class="banner"> -->
+		<div class="cs_topline">
+			<a class="cs_logo">科聚 <span>Keju</span> </a>
+			<ul>
+				<li><a href="">我的课程</a></li>
+				<li><a href="">院校</a></li>
+				<li><a href="">习题集</a></li>
+				<li><a href="">{{user}}</a></li>
+			</ul>
+		</div>	
+		<div class="cs_college_info">
+			<div class="cs_text">
+			
+			<h1>
+			<div class="cs_college_logo">
+				<img src="/media/{{institute.badge}}" >
+			</div>{{institute.name}}
+			<p>{{institute.introduction}}</p>
+			</h1>
+			<div class="cs_college_search">
+				<form action="" class="clearall" id="searchcollege">
+			<input type="text" class="cs_college_search" placeholder="搜索课程,教授等...">
+			<a class="searchnode_submit" title="点击搜索或筛选"></a></form>
+			</div>
+
+			</div>
+		</div>
+			<div class="cs_nav">
+				<a class="cs_logo">科聚 <span>Keju</span> </a>
+			<ul class="cs_nav">
+				<li ><a href="#cs_link1" class="cs_link1">课程</a></li>
+				<li><a href="#cs_link2" class="cs_link2">
+					名师
+					<span class='tri'>&#9660;</span>
+					</a>
+					<ul class="cs_nav_dropdown">
+						<li><a href="#cs_link_ct1">Borriello</a></li>
+						<li><a href="#cs_link_ct2">Domingos</a></li>
+						<li><a href="#cs_link_ct3">Fairhall</a></li>
+						<li><a href="#cs_link_ct4">Sparke</a></li>
+					</ul>  
+				</li>
+				<li><a href="#cs_link3" class="cs_link3">练习</a></li>
+				<li><a href="#cs_link4" class="cs_link4">信息</a></li>
+				<li><a href="#cs_link5" class="cs_link5">更多</a></li>
+			</ul>
+			</div>
+	</div>
+	<div class="cs_container">
+			<a id='cs_link1'></a>
+				{% autoescape off %}
+				{% include "course_part_in_institute.html" %}
+				{% endautoescape %}
+			<a id='cs_link2'></a>
+				{% autoescape off %}
+				{% include "teacher_part_in_institute.html" %}
+				{% endautoescape %}
+			<!-- exercises -->
+			<a id='cs_link3'></a>
+				{% autoescape off %}
+				{% include "exercise_part_in_institute.html" %}
+				{% endautoescape %}
+			<a id='cs_link4'></a>
+				<h3><span>信息 <span>★</span> Contacts</span></h3>
+				<div class="cs_college_contact">
+					<h3>Website: <a href="">{{institute.url}}</a></h3>
+					<h3>Address: <span>{{institute.location}}</span></h3>
+					<h3>Phone:<span> {{institute}}</span></h3>
+					<h3>Email:<span> Email: webmaster@cityu.edu.hk  </span></h3>
+					<h3>Facebook<a href=''> facebook.com/CityuHK </a></h3>
+					<h3>Twitter<a href=''> @CityuHK </a></h3>
+				</div>
+		<iframe class="googlemap" width="425" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=zh-CN&amp;geocode=&amp;q=city+university+of+hong+kong&amp;aq=&amp;sll=47.909412,-122.219426&amp;sspn=6.473484,16.907959&amp;ie=UTF8&amp;hq=city+university+of&amp;hnear=%E9%A6%99%E6%B8%AF&amp;ll=22.360037,114.160771&amp;spn=0.087338,0.123058&amp;t=m&amp;output=embed"></iframe>
+		<!-- others -->
+		<a id='cs_link5'></a>
+		<h3><span>更多 <span>★</span> For More </span></h3>
+	<!-- container --></div>
+	<footer>
+		<ul>
+			<li><a href="">关于科聚</a></li>
+			<li><a href="">使用条款</a></li>	
+			<li><a href="">隐私政策</a></li>
+			<li><a href="">联系我们</a></li>
+			<li><a href="">网站地图</a></li>
+		
+		</ul>
+		<span>Copyright © 2013 - 20** Keju. All Rights Reserved</span>
+	</footer>
+	
+</body>
+</html>

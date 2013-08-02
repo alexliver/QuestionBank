@@ -1,0 +1,46 @@
+{% extends "structure.html" %}
+
+{% block title %}学习进度{% endblock %}
+
+{% block main %}
+	<div class="g12">			
+	<h1>学习进度</h1>
+			
+	<div class="alert info">This Table is used in all Examples!</div>
+	
+	{% for progress in progress_set %}					
+	<hr>						
+	<h3>{% if progress.topic.is_leaf %}{{progress.topic }}
+		{% else %}<a href="/qb/topicprogress/{{progress.topic.id}}/">{{progress.topic }}</a>
+		{% endif %}
+	</h3>
+		<table class="chart">
+			<thead>
+				<tr>
+				<th></th>
+				{% for update in progress.updates.all %}
+				<th>{{update.update.date}}</th>
+				{% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+		
+				<tr>
+					<th>Overal</th>
+					{% for update in progress.updates.all %}
+					<td>{{update.overal}}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Grade</th>
+					{% for update in progress.updates.all %}
+					<td>{{update.grade_point}}</td>					
+					{% endfor %}
+				</tr>
+				
+			</tbody>
+		</table>
+						
+	{% endfor %}
+	</div>
+{% endblock %}

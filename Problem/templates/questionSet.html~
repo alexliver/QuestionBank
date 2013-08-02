@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>My Question Set</title>
+
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}problems/css/question.css" />
+</head>
+
+<body>
+<h1> My Question Sets</h1>
+<h3> question set owned by : {{user}}</h3>
+
+{% for questionset in questionSets %}
+<div class="course-quiz-question-body">		
+	<h3 class="course-quiz-question-number">{{questionset.name }}</h3>
+	<div>Created: {{questionset.created}}</div>
+	<div>Introduction: {{questionset.introduction}}</div>	
+	
+	<div><a href="qb/qs/{{questionset.id }}/">Start to Do </a></div>	
+</div>
+{% endfor %}        
+
+</body>
+
+</html>
+

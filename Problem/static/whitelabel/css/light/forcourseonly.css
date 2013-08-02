@@ -1,0 +1,9 @@
+::selection {
+		background: rgba(52,152,219,0.3);
+	}
+::-webkit-input-placeholder {
+	color: #ddd;
+}
+:-ms-input-placeholder {  
+	color:#ddd;
+}

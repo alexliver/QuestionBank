@@ -1,0 +1,63 @@
+{% extends "structure.html" %}
+{% load  getProgressMeasurement%}
+
+{% block title %}学习进度{% endblock %}
+
+{% block extra_meta %}
+	
+	<script src="{{ STATIC_URL }}whitelabel/js/viewtree.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/jquery.viewjOrgChart.js"></script>
+	
+
+{% endblock %}
+
+{% block main %}
+		
+<!-- 	 --><!-- 			 <ul class='knowledgetree' style="display:none">
+									    <li>
+									      <span>数学</span><span class='node_progress'><span>21%</span></span>
+									       <ul>
+									         <li><span>离散数学</span><span class='node_progress'><span>53%</span></span></li>
+									         <li><span>几何学</span><span class='node_progress'><span>45%</span></span>
+									           <ul>
+									             <li><span>平面几何</span><span class='node_progress success'><span>75%</span></span></li>
+									             <li><span>立体几何</span><span class='node_progress'><span>12%</span></span></li>
+									             <li><span>解析几何</span><span class='node_progress success'><span>82%</span></span></li>
+									           </ul>
+									         </li>
+									         <li><span>分析</span><span class='node_progress'><span>62%</span></span>
+									           <ul>
+									             <li><span> 常微分方程</span><span class='node_progress'><span>32%</span></span>
+									             </li>
+									             <li class='collapsed'><span>偏微分方程</span><span class='node_progress danger'><span>13%</span></span>
+									               <ul>
+									                 <li><span>热传导方程式</span><span class='node_progress danger'><span>12%</span></span></li>
+									                 <li><span>泊松方程式</span><span class='node_progress'><span>65%</span></span></li>
+									                 <li><span>波动方程式</span><span class='node_progress'><span>24%</span></span></li>
+									                  <li><span>拉普拉斯方程式</span><span class='node_progress danger'><span>12%</span></span></li>
+									               </ul>
+									             </li>
+									           </ul>
+									         </li>
+									         <li><span>通用</span><span class='node_progress danger'><span>13%</span></span></li>
+									         <li class='collapsed'><span>应用数学</span><span class='node_progress success'><span>95%</span></span>
+									           <ul>
+									             <li><span>概率论和随机过程</span><span class='node_progress'><span>24%</span></span></li>
+									             <li><span>统计学</span><span class='node_progress'><span>32%</span></span></li>
+									             <li><span>数值分析</span><span class='node_progress'><span>54%</span></span></li>
+									             <li><span>计算机科学</span><span class='node_progress danger'><span>13%</span></span></li>
+									           </ul>
+									         </li>
+									       </ul>
+									     </li>
+									   </ul> 
+									  <div id="chart" class="orgChart"></div>   -->    
+
+{% autoescape off %}
+{% include "progress_tree.html" %}
+{% endautoescape %}
+
+{% endblock %}
+{% block popup %}		
+{% include "progress.html" %}
+{% endblock %}

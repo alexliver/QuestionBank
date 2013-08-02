@@ -1,0 +1,31 @@
+{% extends "structure.html" %}
+
+<script type="text/javascript">
+
+function redirect() {
+	window.location = "http://www.google.com/"
+
+}
+
+</script>
+
+{% block title %}贡献{% endblock %}
+
+{% block main %}	
+<form enctype="multipart/form-data" action='' method='post' data-ajax="false">
+{% csrf_token %}
+<fieldset>
+	<label>Input Fields</label>
+	{% for field in form %}
+	<section>
+	{{ field.errors }}
+	{{field.label_tag}} 
+	<div>{{field}}</div>
+	</section>
+	{% endfor %}
+</fieldset>
+<button class="red submit" name="auto" value="auto">Auto Generate</button>
+<button class="submit" name="submit" value="submit">Just Create</button>
+</form>
+
+{% endblock %}

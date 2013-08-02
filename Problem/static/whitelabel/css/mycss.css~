@@ -1,0 +1,10 @@
+#id_honeypot {
+    display: none;
+}
+
+.namecard {
+	}
+.namecard img {
+	border:5px dashed #DDD
+	height:150px;
+}

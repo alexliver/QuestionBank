@@ -1,0 +1,283 @@
+{% extends "structure.html" %}
+
+{% block title %}当前习题{% endblock %}
+{% block extra_meta %}
+	<script src="{{ STATIC_URL }}whitelabel/js/audio/audio.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/inform.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/prettify/prettify.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/jquery.raty.min.js"></script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<script type="text/x-mathjax-config">
+  		MathJax.Hub.Config({
+    	tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] }
+  		});
+	</script>
+
+{% endblock %}
+
+{% block main %}	
+
+<div class="g12">
+	<div class="do-problem-container fp-container">	
+		<div class='starbar{{raw.get_rating|floatformat:"0"}} starbar'></div>
+		<div class="do-problem">
+		<div class="do-problem-content">
+
+		<h5>2009 SAT 完形填空<span>{{raw.get_rating}}星</span><span>{{raw.created}}</span><span>{{raw.origin.name}}</span><span>难度:{{raw.original_difficulty}}</span></h5>
+		<hr>						
+		{% if raw.text_body%}
+			<p>{% autoescape off %}{{raw.text_body}}{% endautoescape %}</p><hr>
+		{% endif %}
+		{% for audio in raw.audios %}
+			<audio src="{{audio.file.url}}" preload="auto"></audio><hr>
+		{% endfor %}
+
+		{% for question in raw.question_raws.all %}  
+		<p class="simplequestion {{question.sample_instance.get_extra_class}}">{% autoescape off %}{{ question.sample_instance.question_text }}{% endautoescape %}<br/>
+				{% if question.question_type == 0 or question.question_type == 4 %}					
+					{% for choice in question.sample_instance.answer_text.splitlines %}
+						<span class="choice">
+							{% if choice == question.sample_instance.solution_text %}<span class='check'>✓</span>{%endif%}<input type="{{question.sample_instance.get_choice_type}}" disabled>{{ choice }}
+						</span>		
+					{%endfor%}
+				{% elif question.question.question_type == 1 %}											
+					<input type="text" class="g5" placeholder="第一空" value='{{question.sample_instance.solution_text}}' disabled><br>						
+				{% elif question.question.question_type == 2 %}					
+					<textarea rows="4" cols="50" placeholder="your answer" value='{{question.sample_instance.solution_text}}' disabled></textarea>				
+				{% endif %}							
+				{%for exp in question.explanations.all %}<span class="explanation">疑难解答：{{exp.content}}</span>{%endfor%}
+		</p>
+
+		{% endfor %}
+			
+
+		<div class="widget-log">
+			<div class="tab">
+	          <ul>
+	            <li><a href="#tabs-0">习题评分</a></li>
+	            <li><a href="#tabs-1">我的做题情况</a></li>
+	            <li><a href="#tabs-2">做题统计</a></li>
+	            <li><a href="#tabs-3">相关题集</a></li>
+	          </ul>
+	           <div id="tabs-0">
+			        <ul>
+			           	<li><span>总体评价</span> {{raw.get_rating}}星</li>
+			            <li>
+			            	<span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span> <div class="progress progress-info progress-striped">
+			        			<div class="bar" style="width: {{raw.rating_5}}%"></div>
+			      			</div>
+			      		</li>
+			            <li><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>  
+			            	<div class="progress progress-info progress-striped">
+			        			<div class="bar" style="width: {{raw.rating_4}}%"></div>
+			      			</div>
+			  			</li>
+			            <li><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span>  
+			            	<div class="progress progress-info progress-striped">
+			        			<div class="bar" style="width: {{raw.rating_3}}%"></div>
+			      			</div>
+			      		</li>
+			            <li><span><i class="icon-star"></i><i class="icon-star"></i></span>  
+			            	<div class="progress progress-info progress-striped">
+			        			<div class="bar" style="width: {{raw.rating_2}}%"></div>
+			      			</div>
+			      		</li>
+			            <li><span><i class="icon-star"></i></span>  
+			            	<div class="progress progress-info progress-striped">
+			        			<div class="bar" style="width: {{raw.rating_1}}%"></div>
+			      			</div>
+			  			</li>
+			        </ul>
+	          </div>
+	          <div id="tabs-1">
+				<ul>
+	            <li><span>订阅日期</span>2013.05.07</li>
+	            <li><span>做题日期</span> 2013.06.13</li>
+	            <li><span>难度评价</span> 中等难度</li>
+	            <li><span>正确与否</span> 否</li>
+	            <li><span>质疑题目</span> 是</li>
+	           </ul>
+	          </div>
+	          <div id="tabs-2">
+	              <ul>
+	            <li><span>做题人数</span> {{raw.attempts}}</li>
+	            <li><span>正确率</span> 58%</li>
+	            <li><span>难度评价</span> 中等难度</li>
+	            <li><span>完善答案</span> {{raw.raw_explanations.count}}</li>
+	            <li><span>评论数量</span> 124条</li>
+	           </ul>
+	          </div>
+	          <div id="tabs-3">
+	            <ul>
+	            <li><span>评价: 4.7星</span><a href="">某某题目</a></li>
+	            <li><span>评价: 4.2星</span> <a href="">某某题目</a></li>
+	            <li><span>评价: 4.0星</span> <a href="">某某题目</a></li>
+	            <li><span>评价: 3.5星</span><a href="">某某题目</a></li>
+	            <li><span>评价: 3.2星</span> <a href="">某某题目</a></li>
+	           </ul>
+	          </div>
+	        </div>
+        </div>
+		
+		<hr>	
+	
+		<div class='bestanswer'>
+				<p>{{raw.get_best_exp.content}}</p><hr>
+				<div class="bestanswer-user">
+					<a href="#" class="icon" original-title="用户名:someone"> <img src="{{raw.best_exp.creator.social_profile.avatar.url}}" class="profileicon" alt=""> </a><span>{{raw.best_exp.creator}}</span><span>发表于 {{raw.best_exp.created}}</span>
+				</div>
+				<div class="do-btngroup small active">
+					<a><i class="icon-thumbs-up-alt icon-large"></i> : <span>{{raw.best_exp.get_up_count|default_if_none:"0"}}</span></a>
+					<a><i class="icon-thumbs-down-alt icon-large"></i> : <span>{{raw.best_exp.get_down_count|default_if_none:"0"}}</span></a>
+					<a>引用</a>
+					<a>我要作答</a>
+				</div>
+			</div>	
+		</div>	
+		<h5>其他答案</h5>
+		<hr>			
+		
+		<div class="g12 pi_content info">
+		<div class="pi_content_state fp_otheranswer">
+
+			{% for exp in raw.raw_explanations.all %}		
+				<div class="pi_content_post">
+						<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="{{exp.creator.social_profile.avatar.url}}" class="profileicon" alt=""> </a>
+						<span class="pi_content_post_header">{{exp.creator}} <span>(@{{exp.creator}})</span></span>
+						<span class="right">{{ exp.created }}</span>
+
+						<p>{{ exp.content }}</p>
+						<div class="do-btngroup small active">
+							<a><i class="icon-thumbs-up-alt icon-large"></i> : <span>{{ exp.get_up_count }}</span></a>
+							<a><i class="icon-thumbs-down-alt icon-large"></i> : <span>{{ exp.get_down_count }}</span></a>
+							<a class='completebestanswer' href='#bestanswertextarea'>我要完善</a>
+						</div>
+				</div>
+				<hr>
+			{% endfor %}
+					<div class="pi_content_post pi_content_post_reply">
+						<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="{{user.social_profile.avatar.url}}" class="profileicon" alt=""> </a>
+						<!--<span class="pi_content_post_header">Tony Stark: <span>(@ironman)</span></span>-->
+						<textarea name="" id="" cols="30" rows="10"></textarea>
+						<div class="do-btngroup small active">
+								<a>插入图片</a>
+								<a>发表</a>
+						</div>
+					</div>
+			</div>
+			</div>
+			<!-- end of answers -->
+		<h5>用户评论</h5>
+		<hr>			
+		<div class="g12 pi_content info fp_reply">
+		<div class="pi_content_state">
+					
+					<div class="pi_content_post" id="post1257125441">
+						<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="images/icon.jpg" class="profileicon" alt=""> </a>
+						<span class="pi_content_post_header">Tony Stark: <span>(@ironman)</span></span>
+						<span class="right">19:30 2013.05.28</span>
+						<p>Take a look at Robert Downey Jr. (#TonyStark) ringing the opening bell at the #NYSE with @Iron_Man & @Marvel staff! <a href="">pic.twitter.com/uwFfw6VaNo</a></p>
+						<div class="option">
+							<a class="pi_content_post_expand">操作</a>
+			
+							<button class="small forward">引用</button>
+							<button class="small reply">评论</button>
+							<button class="small plusone">赞: <span>51</span></button>	<button class="small minusone">踩: <span>7</span></button>	
+						</div>
+						<div class="pi_content_post_comment">
+							<ul>
+								<hr>
+								<li><a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="images/icon2.jpg" class="profileicon" alt=""> </a>
+									<p><span>Pepper:</span>Star of @Marvel’s #IronMan3 @GwynethPaltrow answers panel questions in Munich during the Iron Man 3 World Tour! <a href="">pic.twitter.com/Hy7rYH0aDv</a></p>
+									<div class="option">
+										<span class="pi_content_post_expand">11:05 2013.06.01</span>
+										
+										<button class="tiny forward">引用</button>
+										<button class="tiny reply">评论</button>
+										<button class="tiny plusone">赞: <span>51</span></button>
+										<button class="tiny minusone">踩: <span>7</span></button>	
+									</div>
+								</li>
+							</ul>
+							
+						</div>
+					</div>
+					<hr>
+					<!-- post2 -->
+					<div class="pi_content_post" id="post1534135474">
+						<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="images/icon.jpg" class="profileicon" alt=""> </a>
+						<span class="pi_content_post_header">Tony Stark: <span>(@ironman)</span></span>
+						<span class="right">19:30 2013.05.28</span>
+						<p>Star of @Marvel’s #IronMan3 @GwynethPaltrow answers panel questions in Munich during the Iron Man 3 World Tour! <a href="">pic.twitter.com/Hy7rYH0aDv</a> </p>
+						<div class="option">
+							<a class="pi_content_post_expand">操作</a>
+			
+							<button class="small forward">引用</button>
+							<button class="small reply">评论</button>
+							<button class="small plusone">赞: <span>51</span></button>	
+							<button class="small minusone">踩: <span>7</span></button>	
+						</div>
+						<div class="pi_content_post_comment">
+							<ul>
+								<hr>
+								<li><a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="images/icon.jpg" class="profileicon" alt=""> </a>
+									<p><span>Tony Stark:</span>Star of @Marvel’s #IronMan3 @GwynethPaltrow answers panel questions in Munich during the Iron Man 3 World Tour! <a href="">pic.twitter.com/Hy7rYH0aDv</a></p>
+									<div class="option">
+										<span class="pi_content_post_expand">11:05 2013.06.01</span>
+										
+										<button class="tiny forward">引用</button>
+										<button class="tiny reply">评论</button>
+										<button class="tiny plusone">赞: <span>51</span></button>
+										<button class="tiny minusone">踩: <span>7</span></button>	
+									</div>
+								</li>
+								<hr>
+								<li><a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="images/icon2.jpg" class="profileicon" alt=""> </a>
+									<p><span>Pepper:</span>Star of @Marvel’s #IronMan3 @GwynethPaltrow answers panel questions in Munich during the Iron Man 3 World Tour! <a href="">pic.twitter.com/Hy7rYH0aDv</a></p>
+									<div class="option">
+										<span class="pi_content_post_expand">11:05 2013.06.01</span>
+										
+										<button class="tiny forward">引用</button>
+										<button class="tiny reply">评论</button>
+										<button class="tiny plusone">赞: <span>51</span></button>
+										<button class="tiny minusone">踩: <span>7</span></button>	
+									</div>
+								</li>
+							</ul>
+							
+						</div>
+					</div>
+					<hr>
+					<!-- post3 -->
+					<div class="pi_content_post" id="post153454534">
+						<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="images/icon.jpg" class="profileicon" alt=""> </a>
+						<span class="pi_content_post_header">Tony Stark: <span>(@ironman)</span></span>
+						<span class="right">19:30 2013.05.28</span>
+						<p>Have you purchased any of the #IronMan3-themed items from the Xbox LIVE Marketplace yet? http://bit.ly/133ef97  pic.twitter.com/krFqe5ilVR</p>
+						<div class="option">
+							<a class="pi_content_post_expand">操作</a>
+			
+							<button class="small forward">引用</button>
+							<button class="small reply">评论</button>
+							<button class="small plusone">赞: <span>51</span></button>	<button class="small minusone">踩: <span>7</span></button>	
+						</div>
+					</div>
+					<hr>
+					<div class="pi_content_post pi_content_post_reply">
+						<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="images/icon.jpg" class="profileicon" alt=""> </a>
+						<span class="pi_content_post_header">Tony Stark: <span>(@ironman)</span></span>
+						<textarea name="" id="" cols="30" rows="10"></textarea>
+						<div class="do-btngroup small active">
+								<a>插入图片</a>
+								<a>发表</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end of comments -->
+		         </div>
+			</div>
+		</div>
+
+{% endblock %}

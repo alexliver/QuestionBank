@@ -1,0 +1,54 @@
+{% extends "structure.html" %}
+
+<script type="text/javascript">
+
+function redirect() {
+	window.location = "http://www.google.com/"
+
+}
+
+</script>
+
+{% block title %}贡献{% endblock %}
+
+
+{% block main %}	
+<form enctype="multipart/form-data" action='/qb/auto/' method='post' data-ajax="false">
+{% csrf_token %}
+<fieldset>
+	<label>Input Fields</label>
+	<input type="hidden" name="questionset" value="{{set.id}}" />
+	<section>
+	<label for="topic">Topics Included</label>
+	<div><select name="topic" id="topic" multiple>
+		{% for topic in topics %}
+		<option value="{{topic.name}}">{{topic.name}}</option>
+		{% endfor %}
+	</select></div>
+	</section>
+
+	<section>
+	<label>Difficulty</label>
+							
+	<div>
+	<div class="slider" data-range="true" data-max="1000" data-values="[250,750]" data-connect="[slider_range_from,slider_range_to]"></div>
+	<input type="number" class="integer" id="slider_range_from">
+	<input type="number" class="integer" id="slider_range_to">							
+	</div>
+	</section>
+	<section>
+	<label>Count</label>
+							
+	<div>
+	<div class="slider" data-range="true" data-max="1000" data-values="[250,750]" data-connect="[slider_range_from,slider_range_to]"></div>
+	<input type="number" class="integer" id="slider_range_from">
+	<input type="number" class="integer" id="slider_range_to">							
+	</div>
+	</section>
+
+
+</fieldset>
+<button class="red submit" name="submit_type" value="auto">Generate</button>
+</form>
+
+{% endblock %}

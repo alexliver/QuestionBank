@@ -1,0 +1,91 @@
+<h2><i class="icon-pencil  icon-large"></i> 相关题集</h2>
+			<hr>
+			<div class="cs_course_set">
+			
+			
+			
+	<div class="halfcol">
+		<div class="halfcol">
+			{% for qs in questionSubSet1 %}
+			<a class="setphotoviewitem" style="opacity: 1; visibility: visible; height: auto; -webkit-transform: matrix(1, 0, 0, 1, 0, 0);">
+				<div class="setphotoviewpic"><img src="/media/{{qs.thumbnail}}" alt="">
+					<div>
+						<span>description
+						click to see more</span>
+						<span class="buttoncontainer">
+						<button class="small editset icon i_cog">编辑</button>
+						<button class="small viewset  icon i_create_write">做题</button>
+						</span>
+					</div>
+				</div>		
+				<div class="setphotoviewinfo">
+					<h6>{{qs.name}}<span class="right">{{qs.owner}}</span></h6>	
+				</div>
+			</a>
+			{% endfor %}
+			
+		</div>
+		<div class="halfcol">
+			{% for qs in questionSubSet2 %}
+			<a class="setphotoviewitem" style="opacity: 1; visibility: visible; height: auto; -webkit-transform: matrix(1, 0, 0, 1, 0, 0);">
+				<div class="setphotoviewpic"><img src="/media/{{qs.thumbnail}}" alt="">
+					<div>
+						<span>description
+						click to see more</span>
+						<span class="buttoncontainer">
+						<button class="small editset icon i_cog">编辑</button>
+						<button class="small viewset  icon i_create_write">做题</button>
+						</span>
+					</div>
+				</div>		
+				<div class="setphotoviewinfo">
+					<h6>{{qs.name}}<span class="right">{{qs.owner}}</span></h6>	
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="halfcol">
+		<div class="halfcol">
+			{% for qs in questionSubSet3 %}
+			<a class="setphotoviewitem" style="opacity: 1; visibility: visible; height: auto; -webkit-transform: matrix(1, 0, 0, 1, 0, 0);">
+				<div class="setphotoviewpic"><img src="/media/{{qs.thumbnail}}" alt="">
+					<div>
+						<span>description
+						click to see more</span>
+						<span class="buttoncontainer">
+						<button class="small editset icon i_cog">编辑</button>
+						<button class="small viewset  icon i_create_write">做题</button>
+						</span>
+					</div>
+				</div>		
+				<div class="setphotoviewinfo">
+					<h6>{{qs.name}}<span class="right">{{qs.owner}}</span></h6>	
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+		<div class="halfcol">
+			{% for qs in questionSubSet4 %}
+			<a class="setphotoviewitem" style="opacity: 1; visibility: visible; height: auto; -webkit-transform: matrix(1, 0, 0, 1, 0, 0);">
+				<div class="setphotoviewpic"><img src="/media/{{qs.thumbnail}}" alt="">
+					<div>
+						<span>{{qs.introduction}}</span>
+						<span class="buttoncontainer">
+						<button class="small editset icon i_cog">编辑</button>
+						<button class="small viewset  icon i_create_write">做题</button>
+						</span>
+					</div>
+				</div>		
+				<div class="setphotoviewinfo">
+					<h6>{{qs.name}}<span class="right">{{qs.owner}}</span></h6>	
+				</div>
+			</a>
+			{% endfor %}
+			
+			
+		</div>
+	</div>
+	<!-- end of half col -->
+	</div>	
+	<!-- end of sets -->

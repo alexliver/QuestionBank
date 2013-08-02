@@ -1,0 +1,27 @@
+{% extends "structure.html" %}
+
+{% block title %}贡献{% endblock %}
+
+{% block navi %}
+		<li class="i_house"><a href="dashboard.html"><span>我的科聚</span></a></li>
+		<li class="i_create_write"><a href="form.html"><span>学习日志</span></a></li>
+		<li class="i_images"><a href="/qb/search/"><span>发现</span></a></li>
+		<li class="i_blocks_images"><a href="/qb/myset/"><span>我的题集</span></a></li>
+		<li class="i_graph"><a href="/qb/statistics/"><span>做题统计</span></a></li>
+		<li class="i_breadcrumb"><a href="breadcrumb.html"><span>我的收藏</span></a></li>
+		<li class="i_calendar_day"><a href="calendar.html"><span>学习计划</span></a></li>
+		<li class="i_table"><a href="/qb/myprogress/"><span>学习进度</span></a></li>
+		<li class="i_typo"><a class="active" href="typo.html"><span>贡献</span></a></li>
+{% endblock %}
+
+
+{% block main %}	
+<form action='' method='post' data-ajax="false">
+{% csrf_token %}
+{{ form.as_p }}
+
+<button class="red submit" name="submit" value="auto">Auto Generate</button>
+<button class="submit" name="submit" value="submit">Just Create</button>
+</form>
+
+{% endblock %}

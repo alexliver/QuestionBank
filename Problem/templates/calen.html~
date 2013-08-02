@@ -1,0 +1,156 @@
+<div class="g12">
+			<h3>我的习题集库<!-- <span><a href="doc-calendar.html" class="small">Documentation</a></span> --></h3>
+			<h5>使用拖拽快速安排日程</h5>
+			<hr>
+			<div class="calsetcontainer g12">
+				<span class="calblue ui-draggable" style="position: relative;">习题一</span>
+				<span class="calgreen ui-draggable" style="position: relative; left: 4px; top: -1px;">习题二</span>
+				<span class="cal ui-draggable" style="position: relative; left: 4px; top: 1px;">习题三</span>
+				<span class="calred ui-draggable" style="position: relative; left: 65px; top: -4px;">习题四</span>
+				<span class="calwarning ui-draggable" style="position: relative; left: -44px; top: -2px;">习题五</span>
+			</div>
+			<h3>日程列表</h3>
+			<hr>
+			<table class="weektable">
+							<thead>
+								<tr>
+									<th></th>
+									<th>星期一</th>
+									<th>星期二</th>
+									<th>星期三</th>
+									<th>星期四</th>
+									<th>星期五</th>
+									<th>星期六</th>
+									<th>星期日</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>6:00~8:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+								<tr>
+									<th>8:00~10:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+								<tr>
+									<th>10:00~12:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+								<tr>
+									<th>12:00~14:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+								<tr>
+									<th>14:00~16:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+								<tr>
+									<th>16:00~18:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+								<tr>
+									<th>18:00~20:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+								<tr>
+									<th>20:00~22:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+								<tr>
+									<th>22:00~24:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+								<tr>
+									<th>0:00~2:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+								<tr>
+									<th>2:00~4:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+								<tr>
+									<th>4:00~6:00</th>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+									<td class="ui-droppable"></td>
+								</tr>
+							</tbody>
+						</table>
+
+
+		
+
+			
+			
+		</div>

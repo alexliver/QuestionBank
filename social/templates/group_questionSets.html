@@ -1,0 +1,64 @@
+	<a  id="set"></a>
+		<span class="pi_content_title">好友的题集:{{ numberOfQuestionSet }}个新题集</span>
+		<hr class="first">
+			<div class="pi_content_set_showcase">
+				<div class="half left">
+
+            	{% for qs in qsSubset1 %}
+  					<a  class="setphotoviewitem">
+        				<div class="setphotoviewpic">
+        				<img src="/media/{{qs.thumbnail}}" alt="">
+          				<div>
+            				<span>
+             			 		<ul>
+                					<li>创建日期:{{qs.created}}</li>
+               						<li>评价:{{qs.comment}}</li>
+                					<li>题目数量:5道</li>
+                					<li>推荐次数:1086</li>
+                					<li>订阅人数:{{qs.subscribers.count}}</li>
+              					</ul>
+            				</span>
+            				<span class="buttoncontainer">
+            					<button class="small editset icon i_incomming">添加题集</button>
+            					<button class="small viewset  icon i_create_write">开始做题</button>
+            				</span>
+          				</div>
+        				</div>    
+    					<div  class="setphotoviewinfo">
+      						<h6>Name of the set<span class="right">author</span></h6>   
+    					</div>
+  					</a>
+  
+  				{% endfor %}
+  				</div>
+  <!-- 2/2 -->
+   				<div class="half left">
+            	{% for qs in qsSubset2 %}
+  					<a  class="setphotoviewitem">
+        				<div class="setphotoviewpic">
+        				<img src="/media/{{qs.thumbnail}}" alt="">
+          				<div>
+            				<span>
+             			 		<ul>
+                					<li>创建日期:{{qs.created}}</li>
+               						<li>评价:{{qs.comment}}</li>
+                					<li>题目数量:5道</li>
+                					<li>推荐次数:1086</li>
+                					<li>订阅人数:{{qs.subscribers.count}}</li>
+              					</ul>
+            				</span>
+            				<span class="buttoncontainer">
+            					<button class="small editset icon i_incomming">添加题集</button>
+            					<button class="small viewset  icon i_create_write">开始做题</button>
+            				</span>
+          				</div>
+        				</div>    
+    					<div  class="setphotoviewinfo">
+      						<h6>Name of the set<span class="right">author</span></h6>   
+    					</div>
+  					</a>
+  
+  				{% endfor %}
+  				</div>
+  		</div>
+  <hr>

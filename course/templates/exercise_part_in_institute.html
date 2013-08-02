@@ -1,0 +1,49 @@
+<h3><span>练习 <span>★</span> Exercises</span></h3>
+{% for qs in questionSets %}
+
+			<div class="cs_set resultlistitem">
+				<div class="resultimg">
+				<a  class="listviewcover">
+				<div>
+					<span>
+					<button class="i_admin_user small icon">{{qs.owner}}</button>
+					<button  class="i_calendar_day small icon">{{qs.created}}</button>
+					<button  class="i_fullscreen small icon">查看详情</button></span>	
+				</div>
+				<img src="/media/{{qs.thumbnail}}" alt="" name="点击查看详细内容"/>
+				</a>
+				</div>
+			<div class="result-info cs_set-info">
+
+				  <h3>{{qs.name}}</h3>  
+                  <div class="tagcontainer"><div class='right'> <button class="i_tags small icon">标签</button><a href="">数学</a><a href="">函数</a><a href="">中</a></div></div>
+  	<span class="result-info-id ">题集编号：<span>{{qs.pk}}</span></span>
+  	                        <span class="">习题数量: <span>5道</span></span>
+  	               <span  class=""><a class="checkreview">总体评价: </a><span class="reviewstar"><!-- 86/<span>100</span> -->&#9734;&#9734;&#9734;</span></span>
+  	                  <span  class="">订阅人数：<span>{{qs.subscribers.count}}</span></span>
+  	               <span  class="">热度：<span>1534</span></span>
+  	                  <span  class="">推荐次数：<span>514</span></span>
+  	   </div>
+	<div class="resulttree">
+	<div class="">
+  	     <!-- tree-info goes here -->
+  	       <div class=" result-tree-info">
+  	         <span>相关知识树:  <span>数学&gt;函数</span></span>
+  	     </div>
+  	          <div class=" result-tree-info">
+  	          <span>你已经完成了:
+  	                   <span class=" result-tree-number">15&nbsp; /<span>&nbsp;100</span></span></span>
+          	</div>
+          	<div class=" result-tree-progress">
+            <div class="progress progress-striped active progress-danger">
+  	<div class="bar" style="width: 15%;"></div>	
+	</div>       
+	<button class="small right checktree">查看相关知识树信息</button>
+          </div>
+	</div>	
+			</div>
+
+		</div>
+
+{% endfor %}
+<!-- end of a set -->

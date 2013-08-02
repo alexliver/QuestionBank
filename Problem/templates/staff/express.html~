@@ -1,0 +1,73 @@
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">	
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}admin/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}admin/css/forms.css" />
+	<!--<link rel="stylesheet" href="{{ STATIC_URL }}problems/css/question.css">-->
+	<link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css">
+
+	<script type="text/javascript">window.__admin_media_prefix__ = "/static/admin/";</script>
+<!--
+	<script type="text/javascript" src="/admin/jsi18n/"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}admin/js/core.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}admin/js/admin/RelatedObjectLookups.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}admin/js/jquery.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}admin/js/jquery.init.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}admin/js/actions.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}admin/js/calendar.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}admin/js/admin/DateTimeShortcuts.js"></script>-->
+
+	<title>Express Input</title>
+</head>
+<body>	
+
+<div id="header">
+	<div id="branding">      
+		<h1 id="site-name">Staff Tools</h1>
+        </div>
+        
+        <div id="user-tools">
+            Welcome,
+            <strong>{{user.username}}</strong>.
+                <a href="/admin/password_change/">Change password</a> /
+                <a href="/qb/logout/">Log out</a>
+        </div>                
+</div>
+
+<div id="content" class="colM">
+
+	<h1>Express Input</h1>
+	<div id="content-main">
+	<form action='' method='post'>
+	{% csrf_token %}
+	<fieldset class="module aligned ">
+	<div class="form-row">
+		<div>
+		<label for="id_questionset">Quetionset:</label>
+		<select name="questionset" id="id_questionset">
+		<option value="">------</option>
+	  	{% for questionset in myquestionset%}
+		<option value="{{questionset.id}}">{{questionset.name}}</option>
+		{% endfor %}
+		</select>
+		<a href="/admin/Problem/questionset/add/" class="add-another" id="add_id_container" onclick="return showAddAnotherPopup(this);"> <img src="/static/admin/img/icon_addlink.gif" width="10" height="10" alt="Add Another"></a>
+		</div>
+	</div>
+	 
+	{% for field in form %}
+		<div class="form-row">
+		<div>
+		{{field.errors}}
+		{{field.label_tag}} : {{field}}
+		</div>
+		</div>
+	{% endfor %}
+	</fieldset>
+	<input type="submit" value="submit">
+	</form>
+	</div>
+
+</div>
+</body>
+</html>
+

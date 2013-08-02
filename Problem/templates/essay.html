@@ -1,0 +1,13 @@
+		<div class="cp_question">
+			<form class="clearall" id="form-{{question.id}}">
+				<input type="text" name="question_text" value="{{question.sample_instance.question_text}}" class="g8">
+				<input type="text" name="solution_text" value="{{question.sample_instance.solution_text}}" class="g8">
+			</form>
+		</div>		
+							
+		<div class="do-btngroup small active cp_option2">
+			<a class="cp_addvar">添加变量</a>
+			<a class="cp_addoption">添加Blank</a>
+			<a class="cp_deleteoption">删除最后Blank</a>
+			<a class="cp_save" onclick="Dajaxice.Problem.save_new_question(Dajax.process,{'qi_id':{{question.sample_instance.id}},'hint':$('#q_hint-{{question.id}}').val(),'q_exp':$('#q_exp-{{question.id}}').val(),'newqform':$('#form-{{question.id}}').serialize(true)});">保存</a>
+		</div>	

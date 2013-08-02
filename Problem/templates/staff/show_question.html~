@@ -1,0 +1,45 @@
+{% extends "structure.html" %}
+
+{% block title %}当前习题{% endblock %}
+{% block extra_meta %}
+	<script src="{{ STATIC_URL }}whitelabel/js/audio.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/jquery-scrollspy.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/scroll-control.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/do.js"></script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endblock %}
+
+{% block main %}	
+
+<h1>Something </h1>
+
+<div class="g12">
+
+<form method="post" data-ajax="false">
+{% csrf_token %}
+	<div class="do-problem-container">
+	<div class="do-problem" title="第一题">
+	<div class="do-problem-content">
+		<h5>{{raw.title}}<span>{% for subtopic in raw.topic.all %} <a href="/qb/search/?topic={{subtopic}}">{{subtopic}}</a> {% endfor %}</span><span>{{raw.created}}</span><span>{{raw.orgin}}</span><span>难度:{{raw.original_difficulty}}</span></h5>
+		<hr>
+		{% if raw.text_body%}
+		<p>{{raw.text_body}}</p><hr>{% endif %}
+		{% for audio in raw.audios %}
+		<audio src="{{audio.file.url}}" preload="auto"></audio><hr>
+		{% endfor %}
+		<p class="simplequestion correct">{{ question.sample_instance.question_text }}
+			{% for choice in question.sample_instance.answer_text.splitlines %}<span class="choice">
+				<input type="checkbox" id="answer{{ questionInstance.id }}" name="answer{{ questionInstance.id }}" value="{{ choice }}">{{ choice }}
+				{% if question.sample_instance.solution_text == choice %}
+				<span class="check">✓</span>
+				{% endif %}</span>{%endfor%}
+			{%for exp in question.explanations.all %}<span class="explanation">疑难解答：{{exp.content}}</span>{%endfor%}
+		</p>
+		{% endfor %}
+	</div>				
+	</div>
+	</div>	
+</div>
+</form>
+
+{% endblock %}

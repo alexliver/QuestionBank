@@ -1,0 +1,155 @@
+{% extends "structure.html" %}
+
+{% block title %}学习进度{% endblock %}
+
+{% block main %}
+	<div class="g12">			
+	<h1>学习进度</h1>
+			
+	<div class="alert info">This Table is used in all Examples!</div>
+	
+	{% for progress in progress_set %}					
+	<hr>						
+	<h3>{% if progress.topic.is_leaf %}{{progress.topic }}
+		{% else %}<a href="/qb/topicprogress/{{progress.topic.id}}/">{{progress.topic }}</a>
+		{% endif %}
+	</h3>
+		<table class="chart">
+			<thead>
+				<tr>
+				<th></th>
+				{% for update in progress.updates %}
+				<th>{{update.update.date}}</th>
+				{% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+		
+				<tr>
+					<th>Overal</th>
+					{% for update in progress.updates %}
+					<td>{{update.overal}}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Grade</th>
+					{% for update in progress.updates %}
+					<td>{{update.grade_point}}</td>					
+					{% endfor %}
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>					
+	{% endfor %}
+						
+						<div class="g12">
+						<hr>
+						<h3>More customisation</h3>
+						<p>This Chart has following options:<br><code>data-points="false" data-fill="true" data-line-width="1" data-legend="false" data-stack="true" data-tooltip-gravity="s" data-tooltip-pattern="This is a custom Tooltip Pattern. Use placeholders (%n) to include data: %1 or '%3'"</code></p>
+						<table class="chart" data-points="false" data-fill="true" data-line-width="1" data-legend="false" data-stack="true" data-tooltip-gravity="s" data-tooltip-pattern="This is a custom Tooltip Pattern. Use placeholders (%n) to include data: %1 or '%3'">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Label 1</th>
+									<th>Label 2</th>
+									<th>Label 3</th>
+									<th>Label 4</th>
+									<th>Label 5</th>
+									<th>Label 6</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>First Label</th>
+									<td>48</td>
+									<td>125</td>
+									<td>159</td>
+									<td>147</td>
+									<td>154</td>
+									<td>114</td>
+								</tr>
+								<tr>
+									<th>Second Label</th>
+									<td>8</td>
+									<td>27</td>
+									<td>25</td>
+									<td>79</td>
+									<td>47</td>
+									<td>59</td>
+								</tr>
+								<tr>
+									<th>Third Label</th>
+									<td>28</td>
+									<td>56</td>
+									<td>98</td>
+									<td>112</td>
+									<td>87</td>
+									<td>26</td>
+								</tr>
+								<tr>
+									<th>Fourth Label</th>
+									<td>38</td>
+									<td>43</td>
+									<td>69</td>
+									<td>54</td>
+									<td>16</td>
+									<td>16</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="alert info">The Tooltip Patter can be a function too!</div>
+						<p>This Chart has following options:<br><code>data-type="bars" data-legend-position="nw" data-height="500" data-tooltip="false" data-colors="[#ff0000,#aaa,black]"</code></p>
+						<table class="chart" data-type="bars" data-legend-position="nw" data-height="500" data-tooltip="false" data-colors="[#ff0000,#aaa,black]">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Label 1</th>
+									<th>Label 2</th>
+									<th>Label 3</th>
+									<th>Label 4</th>
+									<th>Label 5</th>
+									<th>Label 6</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>First Label</th>
+									<td>48</td>
+									<td>125</td>
+									<td>159</td>
+									<td>147</td>
+									<td>154</td>
+									<td>114</td>
+								</tr>
+								<tr>
+									<th>Second Label</th>
+									<td>8</td>
+									<td>27</td>
+									<td>25</td>
+									<td>79</td>
+									<td>47</td>
+									<td>59</td>
+								</tr>
+								<tr>
+									<th>Third Label</th>
+									<td>28</td>
+									<td>56</td>
+									<td>98</td>
+									<td>112</td>
+									<td>87</td>
+									<td>26</td>
+								</tr>
+								<tr>
+									<th>Fourth Label</th>
+									<td>38</td>
+									<td>43</td>
+									<td>69</td>
+									<td>54</td>
+									<td>16</td>
+									<td>16</td>
+								</tr>
+							</tbody>
+						</table>
+			</div>
+{% endblock %}

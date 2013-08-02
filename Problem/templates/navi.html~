@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block pageoption %}
+<nav>
+	<ul id="nav">
+		<li class="i_house"><a href="dashboard.html"><span>Dashboard</span></a></li>
+		<li class="i_create_write"><a href="form.html"><span>Form</span></a></li>
+		<li class="i_graph"><a href="charts.html"><span>Charts</span></a></li>
+		<li class="i_images"><a href="gallery.html"><span>Gallery</span></a></li>
+		<li class="i_blocks_images"><a href="widgets.html"><span>Widgets</span></a></li>
+		<li class="i_breadcrumb"><a href="breadcrumb.html"><span>Breadcrumb</span></a></li>
+		<li class="i_file_cabinet"><a href="fileexplorer.html"><span>Fileexplorer</span></a></li>
+		<li class="i_calendar_day"><a href="calendar.html"><span>Calendar</span></a></li>
+		<li class="i_speech_bubbles_2"><a href="dialogs_and_buttons.html"><span>Dialogs &amp; Buttons</span></a></li>
+		<li class="i_table"><a href="datatable.html"><span>Table</span></a></li>
+		<li class="i_typo"><a href="typo.html"><span>Typo</span></a></li>
+		<li class="i_grid"><a href="grid.html"><span>Grid</span></a></li>
+	</ul>
+</nav>
+{% block content %}

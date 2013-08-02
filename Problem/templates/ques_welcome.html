@@ -1,0 +1,177 @@
+{% extends "structure.html" %}
+
+{% load comments %}
+
+{% block extra_meta %}
+    <script src="{{ STATIC_URL }}whitelabel/js/piDialog.js"></script>
+    <script src="{{ STATIC_URL }}whitelabel/js/info.js"></script>
+
+{% endblock %}
+
+{% block title %}当前习题{% endblock %}
+
+{% block main %}	
+
+<h1>{{question_set.name}} </h1>
+<p> Creator: <a href="/social/user/{{question_set.owner.id}}/">{{question_set.owner}}</a></p>
+	<div class="g12 resultlistitem">
+      <div class="g3 ">
+         		<div class="info-cover"><img src="{{question_set.thumbnail.url}}" alt="" name="点击查看详细内容">		
+        		</div>
+      		</div>
+      	<div class="g5 result-info">
+         		<h3>{{question_set.name}}</h3>
+         		<div class="g12">
+            		<div class="tagcontainer"><button class="i_tags small icon">标签</button><a href="">数学</a><a href="">函数</a><a href="">中</a></div>
+         		</div>
+         		<div class="g12">
+            		<span class="g6">
+               		<a class="checkreview">总体评价: </a>
+               		<span class="reviewstar">☆☆☆
+               		</span>
+            		</span>
+            		<span class="g6">订阅人数：<span>{{question_set.subscribers.count}}</span></span>
+         		</div>
+         		<div class="g12">
+            		<span class="g6">热度:<span>{{question_set.views}}</span></span>
+            		<span class="g6">推荐:<span>514</span></span>
+         		</div>
+      </div>
+      <div class="g4">
+         <p class="briefintro">{{question_set.introduction}}</p>
+      </div>
+   </div>
+
+	<h3>我的进度:</h3>
+   	<div class="g12 info-tree">
+      	<div class="g6 result-tree-info">
+        <span><span>数学&gt;函数</span></span>
+      	</div>
+      	<div class="g6 result-tree-info">
+        <span>
+        <span class="result-tree-number">{{question_set.progress_percent}}&nbsp; /<span>&nbsp;100</span></span></span>
+      	</div>
+	
+      	<div class="g12 result-tree-progress">
+        	<div class="progress progress-striped active progress-info">
+            	<div class="bar" style="width: {{question_set.progress_percent}}%;"></div>
+         </div>
+      </div>
+   </div>
+
+	<h3>题目概览</h3>
+	<div class="g12 problem-general">
+	{% for subset in subsets %}      	
+	   <ul>
+        <h5>   
+        <span><a href="/qb/qs/{{question_set.id}}/{{subset.id}}/">{{subset.name}}</a></span>   
+          {% if user == question_set.owner %}
+          <input type="text" name='subsetname' value='{{subset.name}}' class='g2 info_title'> 
+          <button class="small editinfo icon i_cog right">编辑</button>
+          <button class="small addinfo icon i_cog right" onclick="Dajaxice.Problem.add_q(my_callback, {'set_id':'{{subset.id}}', 'ques_id':$('#add_q{{subset.id}}').val() , 'add': 1})">添加</button>
+          <input type="text" id="add_q{{subset.id}}" value="通过链接快速添加" class="placeholder g3 right addinfo">
+          {% endif %}
+        </h5>
+        <div class="info-section">
+          <span>{{subset.intro}}</span>
+          <textarea name="subset_intro-{{subset.id}}" id="" cols="30" rows="10" class="clearall" placeholder=''>
+          </textarea>
+        </div>
+        <hr>
+
+		{% for question in subset.questions.all %}
+		<li><a href="" {% if question.finished %} class="complete" {%endif%}>{{question.title}} {{question.question_type}}/ {{question.original_difficulty}}</a>{% if not question.finished %}<button class="small deleteinfo icon i_cross right" onclick="Dajaxice.Problem.add_q(my_callback, {'set_id':'{{subset.id}}', 'ques_id':'{{question.id}}', 'add': 0})">删除</button>{%endif%}</li>
+		{% endfor %}
+      	</ul>
+	{% endfor %}
+  {% if user == question_set.owner %}
+  <button class="small addsection icon i_cog">新建分区</button>
+  {%endif%}
+  </div>
+<!--</div>-->
+{% if user in question_set.subscribers.all or user == question_set.owner %}
+<div class="pi_btn huge"><button onclick="Dajaxice.Problem.start_qs(redirect_callback,{'qs_id':{{question_set.id}}});">开始做题</button></div>
+{% else %}
+<div class="pi_btn huge"><button onclick="Dajaxice.Problem.start_qs(redirect_callback,{'qs_id':{{question_set.id}}});">收藏并开始</button></div>
+{% endif %}
+
+<div class="g12">
+{% if user.is_authenticated %}
+    	{% get_comment_form for question_set as form %}
+    	<form action="{% comment_form_target %}" method="POST" data-ajax="false">
+	<fieldset>
+	<label>Add New Comment</label>
+	
+    	{% csrf_token %}
+    	<section>
+		<label>Comment Text</label>
+		<div><textarea id="id_comment" rows="10" cols="40" name="comment" autocomplete="off"></textarea></div>	
+	</section>
+    	{{ form.honeypot }}
+    	{{ form.content_type }}
+    	{{ form.object_pk }}
+    	{{ form.timestamp }}
+    	{{ form.security_hash }}
+	</fieldset>
+    	<input type="hidden" name="next" value="qb/qs/{{question_set.id}}/"/>
+    	<button class="submit green" type="submit" id="id_submit">Add comment</button>
+    </form>
+{% else %}
+    <p>Please <a href="{% url 'auth_login' %}">log in</a> to leave a comment.</p>
+{% endif %}
+</div>
+
+<div class="g12">
+<h3>Comments</h3>
+{% render_comment_list for question_set %}
+{% for comment in comment_list %}
+	{{comment.comment}}
+{% endfor %}
+</div>
+
+{% endblock %}
+
+{% block popup %}
+<!--
+<div class="modal-setdetail">		
+	<div class="modal-setdetail-head">
+		<strong>创建新的题集分区</strong><hr>
+		<form id="newsubset" class="clearall">{% csrf_token %}
+			<input type="hidden" name="questionset" value="{{question_set.id}}">
+			{% for field in subsetform %}	
+			<section>		
+			{{ field.errors }}{{field.label_tag}} 
+			<div>{{field}}</div>
+			</section>
+			{% endfor %}	
+		<section>	
+		<button class="confirmsubmit" onclick="confirmNewSubset()">确认</button>
+		<button class="addsection cancel">Cancel</button>
+		</section>
+		</form>	
+	</div>
+		
+</div>-->	
+<div class="modal-drop addsection">
+</div>  	
+
+  <div class="modal-setdetail addsection pi">   
+    <div class="modal-setdetail-head">
+      <strong>创建新的题集分区</strong><hr></div>
+    <div class="modal-setdetail-content">
+      <form id="newsubset" class="clearall">{% csrf_token %}
+        <input type="hidden" name="questionset" value="{{question_set.id}}">
+        <h4>标题</h4><input type="text" id="text_placeholder" name="subset_name" placeholder="新分区标题" class="placeholder info_new_section_title">
+        <h4>简介</h4><textarea name="" id="text_placeholder" name="subset_intro" placeholder="新分区简介" class="placeholder info_new_section_intro" cols="20" rows="5" ></textarea> 
+        <h4>添加题目</h4><textarea name="" id="text_placeholder" name="subset_questions" placeholder="添加题目,用；隔开题目ID" class="placeholder info_new_section_problem" cols="20" rows="5" ></textarea> 
+      </form>
+    </div>
+    <div class="modal-setdetail-footer">
+      <button class="right" onclick="confirmNewSubset()">确认</button>
+    </div>
+  </div>  
+
+  <div class="modal-drop pi_drop">
+  </div>    
+
+{% endblock %}

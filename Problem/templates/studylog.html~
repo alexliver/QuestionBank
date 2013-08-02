@@ -1,0 +1,18 @@
+{% extends "structure.html" %}
+
+{% block title %}学习日志{% endblock %}
+
+{% block main %}
+	
+	<div class="g12">
+			<h1>学习日志</h1>
+			<span><a href="/qb/add/log/">Add New</a></span>
+			{% for log in logs %}
+			<div class="widget">
+			<h3 class="handle icon">{{log.title}}</h3>
+			</div>
+			{% endfor %}
+			
+			
+	</div>
+{% endblock %}

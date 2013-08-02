@@ -1,0 +1,38 @@
+{% extends "structure.html" %}
+
+{% block title %}我的日程安排{% endblock %}
+
+{% block main %}
+	
+	<div class="g12">
+		<h1>我的日程安排<!-- <span><a href="doc-calendar.html" class="small">Documentation</a></span> --></h1>
+		<h6>使用拖拽快速安排日程</h6>
+		<hr>
+		<div class="selecttime">
+	     		<div class="g12">
+		     	 	<span>提醒时间:</span>
+				<input id="integer" name="integer" type="number" class="integer">		     		
+	     		</div>
+			<div class="g12">
+		     	 	<span>天数:</span>
+		     		<input id="datetime" name="datetime" type="text" class="date">
+	     		</div>
+	     		<div class="g12">
+		      		<span class="left">填写备忘:</span>
+		     		<input type="text" class="g6"> <button class="small confirm-cal" onclick="">确认</button><hr>
+			</div>
+    
+     		</div>
+			
+		<div class="calsetcontainer g12" id="external-events">
+			{% for questionset in ip_questionsets %}
+			<span class="calblue external-event ui-draggable">{{questionset.name}}</span>
+			{% endfor %}
+      		</div>
+		<h3>日程列表</h3>
+		<hr>
+		<div class="drag-calendar">
+          	</div> 
+	</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+	<h3><span>课程 <span>★</span> Courses</span></h3>
+		{% for course in course_set %}
+			{% if forloop.counter0|divisibleby:3 %}
+				<div class="cs_course">
+			{% endif %}
+				<div class="cs_course_slide">
+		               <a href=""> <img src="/media/{{course.cover}}"></a>
+		                <div class="cs_course_slide_info">
+		                    <h5 class="bold">{{course}}</h5><span>{{course.allInstructorsName}}</span><hr>
+		                        <p>{{course.intro}}</p>
+		               	 </div>		
+      		 	 </div>
+      		{% if forloop.counter|divisibleby:3 %}
+				</div>
+			{% endif %}
+			
+			
+		{% endfor %}
+		{% if not course_set.count|divisibleby:3 %}
+				</div>
+		{% endif %}
+		
+	

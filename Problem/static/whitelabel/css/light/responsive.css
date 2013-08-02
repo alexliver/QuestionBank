@@ -1,0 +1,231 @@
+/*------------------------------responsive--------------------------------*/
+/*------------------------------contents--------------------------------*/
+/* devices
+/* 1080px
+/* 1040px
+/* 960px
+/* 920px
+/* 800px
+/* 700px
+/* 480px
+/*----------------------------------------------------------------------*/
+/*------------------------------devices--------------------------------*/
+.hide-text {
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	background-color: transparent;
+	border: 0;
+}
+.hidden {
+	display: none;
+	visibility: hidden;
+}
+.visible-phone {
+  	display: none !important;
+}
+.visible-tablet {
+  	display: none !important;
+}
+.hidden-desktop {
+  	display: none !important;
+}
+.visible-desktop {
+  	display: inherit !important;
+}
+/*------------------------------1080px--------------------------------*/
+@media (max-width: 1080px){
+/*------------------------------search--------------------------------*/
+li#itemsearchbar>input{
+	width: 200px;
+}
+}
+/*------------------------------1040px--------------------------------*/
+@media (max-width: 1040px){
+/*------------------------------dashboard--------------------------------*/
+div.myinfo.dashboard>div textarea{
+	width: 45%;
+}
+/*------------------------------info----------------------------------*/
+div.pi_function.info textarea{
+	width: 60%;
+}
+}
+/*------------------------------960px--------------------------------*/
+@media (max-width: 960px){
+/*------------------------------devices--------------------------------*/
+.hidden-desktop {
+   	display: inherit !important;
+}
+.visible-desktop {
+    	display: none !important ;
+}
+.visible-tablet {
+   	display: inherit !important;
+}
+.hidden-tablet {
+    	display: none !important;
+}
+/*------------------------------dashboard--------------------------------*/
+div.myinfo.dashboard>div textarea{
+	width: 40%;
+}
+/*------------------------------pi------------------------------------*/
+div.pi_follow>div.pi_following{
+	height: 59px;
+	padding-top: 5px;
+}
+div.pi_follow>div.pi_follower{
+	padding-top: 5px;
+}
+/*------------------------------info----------------------------------*/
+div.resulttree{
+	width: 100%;
+	margin:10px 0 10px 0;
+}
+div.g2.clue{
+	display: none;
+}
+div.g5.cluecontent{
+	width: 100%;
+}
+div.cluecontent>a>img{
+	margin-top: 10px;
+	width: 100%;
+	-webkit-perspective:300;
+	box-shadow: 0px -1px 2px rgba(0,0,0,.25); 
+	-webkit-box-reflect:none;
+}
+div.cluecontent>a:hover>img{
+/*box-shadow: none;*/
+-webkit-box-reflect:none;}
+div.clue-problemlist-link-container{
+	margin-top: -20px;
+}
+div.info-concrete{
+	padding-top: 0;
+}
+/*------------------------------views--------------------------------*/
+div.halfcol>div.halfcol{
+	width: 100%;
+	float: left;
+}
+/*------------------------------search--------------------------------*/
+li#itemsearchbar>input{
+	width: 160px;
+	height: 30px;
+	line-height: 25px;
+}
+}
+/*------------------------------920px--------------------------------*/
+@media (max-width: 920px){
+/*------------------------------dashboard--------------------------------*/
+div.myinfo.dashboard>div textarea{
+	width: 40%;
+}
+/*------------------------------pi-----------------------------------*/
+div.pi_follow>div.g12{
+	padding: 9px 0;
+} 
+}
+/*------------------------------860px--------------------------------*/
+@media (max-width: 860px){
+/*------------------------------dashboard--------------------------------*/
+div.myinfo.dashboard>div textarea{
+	width: 33%;
+}
+/*------------------------------info----------------------------------*/
+div.pi_function.info textarea{
+	width: 50%;
+}
+/*-----------------------------pi--------------------------------------*/
+div.pi_function ul>li>a{
+	font-size: 13px;
+}
+}
+/*------------------------------800px-------------------------------*/
+@media (max-width: 800px){
+/*------------------------------common-----------------------------*/
+#content.fixed{
+	padding:15px 80px 15px 80px;
+}
+/*------------------------------views--------------------------------*/
+div.halfcol{
+	width: 50%;
+	float: left;
+}
+div.halfcol>div.halfcol{
+	width: 100%;
+	float: left;
+}
+}
+/*------------------------------700px--------------------------------*/
+@media (max-width: 700px){
+/*------------------------------info--------------------------------*/
+div.result-info>h3{
+	margin-top: 10px;
+}
+/*----------------------------dashboard-----------------------------*/
+div.myinfo.dashboard>div>div span.pi_btn{
+	position: relative;
+}
+div.myinfo.dashboard>div>div div.state_btn{
+	float:none;
+	position: absolute;
+	bottom: 10px;
+	right: 0;
+	height: auto;
+	padding-top: 0;
+}
+/*------------------------------info----------------------------------*/
+div.pi_function.info textarea{
+	width: 40%;
+}
+/*-----------------------------pi--------------------------------------*/
+div.pi_function ul>li>a{
+	font-size: 12px;
+}
+}
+/*------------------------------480px--------------------------------*/
+@media (max-width: 480px){
+/*------------------------------devices--------------------------------*/
+.hidden-desktop {
+    	display: inherit !important;
+}
+.visible-desktop {
+    	display: none !important;
+}
+.visible-phone {
+   	display: inherit !important;
+}
+.hidden-phone {
+    	display: none !important;
+}
+/*-----------------------------common------------------------------*/
+#content.fixed{
+	padding:0;
+}
+/*------------------------------info----------------------------------*/
+div.pi_function.info textarea{
+	width: 30%;
+}
+/*-----------------------------pi--------------------------------------*/
+div.pi_function ul>li>a{
+	font-size: 10px;
+}
+/*------------------------------views--------------------------------*/
+div.halfcol{
+	width: 100%;
+	float: left;
+}
+div.halfcol>div.halfcol{
+	width: 100%;
+	float: left;
+}
+/*------------------------------do----------------------------------*/
+div.do-problem-container.active{
+	z-index: 1041;
+	position: relative;
+	left: 0;
+}
+}

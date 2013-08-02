@@ -1,0 +1,125 @@
+{% extends "structure.html" %}
+
+{% block title %}Tree{% endblock %}
+{% block extra_meta %}
+	<script src="{{ STATIC_URL }}whitelabel/js/customecal.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/tree.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+	<script src="{{ STATIC_URL }}whitelabel/js/jquery.createjOrgChart.js"></script>
+{% endblock %}
+
+{% block main %}	
+
+<h1>{{question_set.container.name}} </h1>
+	<div class="ct">
+		<div class="ct_btn_container">
+			<ul class="breadcrumb ct_btn">
+					<li><a class="ct_info_link active">知识结构图:点击展开选项</a></li>
+					<li><a class="ct_info_link" >高三</a></li>
+					<li><a class="ct_info_link" >数学</a></li>
+					<li><a class="ct_info_link ct_info_level">中等难度</a></li>
+					<li><a class="ct_info_link ct_info_name">知识树名称</a></li>
+					<li><a class="ct_info_submit" onclick="Dajaxice.Problem.save_tree(Dajax.process,{'treeform':$('#topictree').serialize(true)});">点击提交:还未提交</a></li>
+					<div class="ct_info">
+						<h4>点击选中的项,可多选</h4>
+						<form action="" class="clearall" id="searchnode">
+							<input type="text" placeholder='搜索或筛选'>
+							<a class="searchnode_submit" title='点击搜索或筛选'></a>
+						</form>
+						<hr>
+						<div>
+						{% for topic in siblings %}
+						<a href="/qb/staff/newtree/{{topic.id}}/"><span {% if topic == root %}class="choosed"{% endif %}>{{topic.name}}</span></a>
+						{% endfor %}
+						</div>
+						<hr>
+						<h4>选择难度  
+							<div class="do-btngroup  right">
+							<a href="">高等难度</a>
+							<a href="" class="active">中等难度</a>
+							<a href="">低等难度</a>
+							</div>
+						</h4>
+						<hr>
+						<h4 class="rel">为知识树命名
+							<form action="" class="clearall" id="nodename">
+							<input type="text" placeholder='命名'>
+							</form>
+						</h4>
+					</div>
+			</ul>
+		</div>
+		<ul class="knowledgetree" style="display:none">
+		
+			<li>{{root.name}} <input type="hidden" name="root{{root.id}}" value="1"/>
+				{% if root.children.count > 0 %}<ul>
+					{% for topic1 in root.children.all %} 
+					<li> <a href="/qb/staff/newtree/{{topic1.id}}/">{{topic1.name}}</a> <input type="hidden" name="topic{{topic1.id}}" value="1"/>
+						{% if topic1.children.count > 0 %}<ul>
+						{% for topic2 in topic1.children.all %} 
+							<li> <a href="/qb/staff/newtree/{{topic2.id}}/">{{topic2.name}} </a> <input type="hidden" name="topic{{topic2.id}}" value="1"/>
+								{% if topic2.children.count > 0 %}<ul>
+								{% for topic3 in topic2.children.all %} 
+									<li> <a href="/qb/staff/newtree/{{topic3.id}}/">{{topic3.name}} </a> <input type="hidden" name="topic{{topic3.id}}" value="1"/>
+										{% if topic3.children.count > 0 %}<ul>
+										{% for topic4 in topic3.children.all %} 								
+										<li {% if topic4.children.count > 0 %}class="collapsed" {% endif %} <a href="/qb/staff/newtree/{{topic4.id}}/">{{topic4.name}} </a></li> <input type="hidden" name="topic{{topic4.id}}" value="1"/>
+										{% endfor %}
+										</ul> {% endif %}
+									</li>
+								{% endfor %}
+								</ul> {% endif %}
+							</li> 
+						{% endfor %}
+						</ul>{% endif %}
+					</li> 
+					{% endfor %}
+				</ul>{% endif %}
+			</li>
+		
+		</ul> 
+		<ul id="knowledgetree" style="display:none">
+		    <li>数学
+		       <ul>
+		         <li id="n1545645">离散数学</li>
+		         <li>几何学
+		           <ul>
+		             <li id="n1513245">平面几何</li>
+		             <li id="n1125645">立体几何</li>
+		             <li>解析几何</li>
+		           </ul>
+		         </li>
+		         <li>分析
+		           <ul>
+		             <li> 常微分方程
+		             </li>
+		             <li>偏微分方程
+		               <ul>
+		                 <li>热传导方程式</li>
+		                 <li>泊松方程式</li>
+		                 <li>波动方程式</li>
+		                  <li>拉普拉斯方程式</li>
+		               </ul>
+		             </li>
+		           </ul>
+		         </li>
+		         <li>通用</li>
+		         <li>应用数学
+		           <ul>
+		             <li>概率论和随机过程</li>
+		             <li>统计学</li>
+		             <li>数值分析</li>
+		             <li>计算机科学</li>
+		           </ul>
+		         </li>
+		       </ul>
+		     </li>
+		</ul>            
+									    
+		<form class="clearall" id="topictree"><div id="chart" class="orgChart"></div></form>
+				
+	</div>
+	<div id="testing"></div>
+
+{% endblock %}
+

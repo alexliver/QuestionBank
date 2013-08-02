@@ -1,0 +1,402 @@
+{% extends "structure.html" %}
+{% block title %}我的科聚{% endblock %}
+
+{% block extra_meta %}
+		 
+    <script src="{{ STATIC_URL }}whitelabel/js/dashboard.js"></script>
+    <script src="{{ STATIC_URL }}whitelabel/js/piDialog.js"></script>
+    <script src="{{ STATIC_URL }}whitelabel/js/customecal.js"></script>
+    <script src="{{ STATIC_URL }}whitelabel/js/animate/TweenMax.min.js"></script>
+    <script src="{{ STATIC_URL }}whitelabel/js/chosen.jquery.js"></script>
+    <script src="{{ STATIC_URL }}whitelabel/js/inform.js"></script>
+{% endblock %}
+
+{% block main %}
+ <div class="g12 myinfo dashboard">
+        <div>
+        <div class="g12 pi_icon">
+        <a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="{{user.social_profile.avatar.url}}" class="profileicon" alt=""> </a>
+        </div>
+       <ul>
+         <li class="active"><a class="active">发表状态</a></li>
+         <li ><a>分享题集</a></li>
+         <li><a>新建备忘</a></li>
+         <li><a>记录心得</a></li>
+       </ul>
+       <div class="state1 state">
+       <textarea name="" id="" cols="30" rows="10" placeholder="在这里发表状态"></textarea>
+        <div class="state_btn">
+       <span class="pi_btn">
+        <button class="addpic">图片</button>
+      </span>
+        <span class="pi_btn">
+        <button>发表</button>
+       </span>
+      </div>
+      </div>
+      <div class="state2 state">
+       <textarea name="" id="" cols="30" rows="10" placeholder="介绍题集"></textarea>
+        <div class="state_btn">
+       <span class="pi_btn">
+        <button class="addset">题集</button>
+      </span>
+        <span class="pi_btn">
+        <button>分享</button>
+       </span>
+      </div>
+      </div>
+      <div class="state3 state">
+       <textarea name="" id="" cols="30" rows="10" placeholder="新建备忘"></textarea>
+         <div class="state_btn">
+       <span class="pi_btn">
+        <button class="alarm">提醒</button>
+      </span>
+        <span class="pi_btn">
+        <button>创建</button>
+       </span>
+      </div>
+      </div>
+      <div class="state4 state">
+       <textarea name="" id="" cols="30" rows="10" placeholder="在这里记录心得"></textarea>
+       <div class="state_btn">
+       <span class="pi_btn">
+        <button class="editor">题目</button>
+      </span>
+        <span class="pi_btn">
+        <button>发表</button>
+       </span>
+      </div>
+    </div>
+        </div>
+      </div>
+    <div class="g6 widgets">
+    
+      <div class="widget" id="calendar_widget" data-icon="calendar">
+        <h3 class="handle">日程安排</h3>
+        <div>
+           
+          <h5>使用拖拽快速安排日程</h5>
+      <div class="calsetcontainer g12" id="external-events">
+           <span class="cal small external-event ui-draggable">事件类型--无</span>
+        <span class="calblue small external-event ui-draggable">事件类型--日常</span>
+        <span class="calgreen small external-event ui-draggable">事件类型--学习</span>  
+        <span class="calred small external-event ui-draggable">事件类型--测试</span>
+        <span class="calwarning small external-event ui-draggable">事件类型--紧急</span>
+      </div>
+
+          <div class="drag-calendar" data-header="small">
+          </div>          
+          <p>
+          <a class="cusbtn " href="calendar.html">转到我的日程</a>
+          </p>
+        </div>
+      </div>
+      
+      <div class="widget widget-log" id="widget_tabs">
+        <h3 class="handle">学习日志</h3>
+        <div class="tab">
+          <ul>
+            <li><a href="#tabs-0">提醒事项</a></li>
+            <li><a href="#tabs-1">选择查看日期</a></li>
+            <li><a href="#tabs-2">今天</a></li>
+            <li><a href="#tabs-3">昨天</a></li>
+          </ul>
+           <div id="tabs-0">
+           <ul>
+            <li><span>5-24 15:00</span> 完成题集一</li>
+            <li><span>5-25 14:00</span> 完成题集二</li>
+            <li><span>5-26 9:15</span> 完成题集三</li>
+            <li><span>5-27 18:10</span> 完成题集四</li>
+            <li><span>5-29 12:15</span> 完成题集五</li>
+           </ul>
+          </div>
+          <div id="tabs-1">
+            <p>
+         <input id="date" name="date" type="text" class="date">
+              <button class="small">提交</button></p>
+          </div>
+          <div id="tabs-2">
+              <ul>
+            <li><span>8:59</span>登录科聚</li>
+            <li><span>9:00</span> 搜索题集</li>
+            <li><span>9:15</span> 进入做题-题集名字</li>
+            <li><span>12:12</span> 完成题集-题集名字</li>
+            <li><span>12:15</span> 退出科聚</li>
+           </ul>
+          </div>
+          <div id="tabs-3">
+              <ul>
+            <li><span>8:59</span>登录科聚</li>
+            <li><span>9:00</span> 搜索题集</li>
+            <li><span>9:15</span> 进入做题-题集名字</li>
+            <li><span>12:12</span> 完成题集-题集名字</li>
+            <li><span>12:15</span> 退出科聚</li>
+           </ul>
+          </div>
+        </div>
+      </div>
+    
+   <!-- end of first lines -->
+    </div>
+    
+    
+    <div class="g6 widgets">
+      <div class="widget" id="widget_charts" data-icon="graph">
+        <h3 class="handle">学习情况追踪</h3>
+        <div>
+          <table class="chart" data-fill="true" data-tooltip-pattern="当日%2%1记录于 2013-05-%3">
+            <thead>
+              <tr>
+                <th></th>
+                <th>01</th><th>02</th><th>03</th><th>04</th><th>05</th><th>06</th><th>07</th><th>08</th><th>09</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th>
+                <th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>25</th><th>26</th><th>27</th><th>28</th><th>29</th><th>30</th><th>31</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>得分</th>
+                <td>331</td><td>306</td><td>337</td><td>340</td><td>332</td><td>330</td><td>307</td><td>343</td><td>307</td><td>322</td><td>319</td><td>314</td><td>326</td><td>317</td><td>323</td><td>347</td><td>317</td><td>341</td><td>328</td><td>307</td><td>350</td><td>330</td><td>313</td><td>314</td><td>332</td><td>330</td><td>317</td><td>346</td><td>328</td><td>312</td><td>311</td>
+              </tr>
+              <tr>
+                <th>失分</th>
+                <td>113</td><td>126</td><td>143</td><td>126</td><td>147</td><td>131</td><td>150</td><td>112</td><td>110</td><td>130</td><td>109</td><td>115</td><td>146</td><td>129</td><td>138</td><td>122</td><td>114</td><td>112</td><td>128</td><td>111</td><td>122</td><td>136</td><td>109</td><td>106</td><td>104</td><td>146</td><td>123</td><td>139</td><td>117</td><td>116</td><td>143</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+             <a class="cusbtn " href="calendar.html">查看完整学习情况</a>
+          </p>
+          </div>
+        </div>
+        
+        <div class="widget" id="widget_accordion">
+          <h3 class="handle">我的消息</h3>
+          <div>
+           
+          </div>
+        </div>
+  <div class="widget" id="widget_hot">
+          <h3 class="handle">今日热门</h3>
+          <div>
+            <!-- begin of cols -->
+            <div class="halfcol">
+    <!-- first 1/2 -->
+    <div class="halfcol">
+      <!-- first 1/4 -->
+      <!-- basic element -->
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample1.jpg" alt="">
+          <div>
+            <span>
+              <ul>
+                <li>创建日期:2013.05.23</li>
+                <li>评价:&#9734;&#9734;&#9734;</li>
+                <li>题目数量:5道</li>
+                <li>推荐次数:1086</li>
+                <li>订阅人数:10086</li>
+              </ul>
+            </span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div>
+        </div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6>   
+    </div>
+  </a>
+  <!-- end of the basic element -->
+  
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample2.jpg" alt=""><div>
+            <span>
+              <ul>
+                <li>创建日期:2013.05.23</li>
+                <li>评价:&#9734;&#9734;&#9734;</li>
+                <li>题目数量:5道</li>
+                <li>推荐次数:1086</li>
+                <li>订阅人数:10086</li>
+              </ul>
+            </span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div></div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6>     
+    </div>
+      </a>
+      <!-- basic element -->
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample3.jpg" alt=""><div>
+            <span>description
+            click to see more</span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div></div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6>   
+    </div>
+      </a>
+    </div>
+
+    <div class="halfcol">
+      <!-- second 1/4 -->
+      <!-- basic element -->
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample4.jpg" alt=""><div>
+            <span>description
+            click to see more</span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div></div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6> 
+    </div>
+      </a>
+      <!-- basic element -->
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample5.jpg" alt=""><div>
+            <span>description
+            click to see more</span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div></div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6> 
+    </div>
+      </a>
+      <!-- basic element -->
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample6.jpg" alt=""><div>
+            <span>description
+            click to see more</span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div></div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6>     
+    </div>
+      </a>
+    </div>
+  </div>
+  <div class="halfcol">
+    <!-- second 1/2 -->
+    <div class="halfcol">
+      <!-- third 1/4 -->
+      <!-- basic element -->
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample9.jpg" alt=""><div>
+            <span>description
+            click to see more</span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div></div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6>     
+    </div>
+      </a>
+      <!-- basic element -->
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample7.jpg" alt=""><div>
+            <span>description
+            click to see more</span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div></div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6>     
+    </div>
+      </a>
+      <!-- basic element -->
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample8.jpg" alt=""><div>
+            <span>description
+            click to see more</span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div></div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6>   
+    </div>
+      </a>
+    </div>
+    <div class="halfcol">
+      <!-- last 1/4 -->
+      <!-- basic element -->
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample10.jpg" alt=""><div>
+            <span>description
+            click to see more</span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div></div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6>     
+    </div>
+    <!-- basic element -->
+      </a>
+      <!-- basic element -->
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample12.jpg" alt=""><div>
+            <span>description
+            click to see more</span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div></div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6>     
+    </div>
+      </a>
+      <!-- basic element -->
+      <a  class="setphotoviewitem">
+        <div class="setphotoviewpic"><img src="images/post/postsample11.jpg" alt=""><div>
+            <span>description
+            click to see more</span>
+            <span class="buttoncontainer">
+            <button class="small editset icon i_incomming">添加题集</button>
+            <button class="small viewset  icon i_create_write">开始做题</button>
+            </span>
+          </div></div>    
+    <div  class="setphotoviewinfo">
+      <h6>Name of the set<span class="right">author</span></h6>     
+    </div>
+      </a>
+    </div>
+  </div>    
+            <!-- end of cols -->
+            <p class="left">
+                <a class="cusbtn " href="calendar.html">发现更多</a>
+            </p>
+          </div>
+        </div>
+      </div>
+<div class="g12 widgets">
+       
+</div>
+
+{% endblock %}
+
+{% block popup %} {% include 'event_popup.html' %}{% include 'inform.html' %}{% endblock %}
+
+{% block drop %}<div class="img-drop widget-drop"></div>{% endblock %}

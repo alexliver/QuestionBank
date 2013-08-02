@@ -1,0 +1,47 @@
+<html>
+<head>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,bold">
+<link rel="stylesheet" href="{{ STATIC_URL }}/www.css">
+<title>{{institute.name}}</title>
+</head>
+<body>
+<div class="coursera-body">
+	<div class="coursera-banner-bg">
+		<div style="background-image:url({{institute.cover.url}})" class="coursera-hero-banner"></div>
+	</div>
+	<div class="container">
+	<div class="row-fluid">
+		<div class="coursera-uni-profile-header-info">
+			<div class="span3">
+				<div class="coursera-uni-profile-container-logo"><img src={{institute.badge.url}} class="coursera-uni-logo">
+				</div>
+			</div>
+			<div class="span9">
+				<div class="coursera-uni-profile-container-info">
+				<h1>{{institute.name}}</h1>
+				<h2>{{institute.introduction}}</h2>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<div class="coursera-front-sections">
+	
+	
+	<div class="coursera-uni-page-externalLinks">
+		<div class="span3"><div class="coursera-uni-profile-links">
+			<ul class="unstyled">
+				<li class="coursera-uni-profile-link"><span class="icon-globe"></span><a href="http://{{institute.url}}" target="_blank" style=""> psu.edu </a></li>
+				<li class="coursera-uni-profile-link"><span class="icon-facebook"></span><a href="http://facebook.com/pennstate" target="_blank" style=""> pennstate</a></li>
+				<li class="coursera-uni-profile-link"><span class="icon-twitter"></span><a href="http://twitter.com/penn_state" target="_blank" style=""> penn_state</a></li>
+				<li class="coursera-uni-profile-link"><span class="icon-film"></span><a href="http://youtube.com/pennstate" target="_blank" style=""> pennstate</a></li>
+			</ul>
+		</div></div>
+		<div class="span9">
+		<div style="" class="coursera-uni-profile-map"><a target="_blank" class="coursera-uni-profile-map-link" href="http://maps.google.com/?q=University Park, State College, PA, United States" style=""><img class="coursera-uni-profile-map-img" src="https://maps.google.com/maps/api/staticmap?center=40.7961111,-77.8627778&amp;zoom=9&amp;size=600x110&amp;sensor=false&amp;markers=size:small%7C40.7961111,-77.8627778"></a><div class="coursera-uni-profile-map-inner-shadow"></div></div></div></div>
+	</div>
+	</div>
+</div>
+</body>
+</html>

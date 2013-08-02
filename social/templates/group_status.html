@@ -1,0 +1,40 @@
+	<a id="state"></a>
+	<span class="pi_content_title">好友的动态:{{status_messages.count}}个新动态</span>
+	<hr class="first">
+{% for status in status_messages %}
+<div class="pi_content_post" id="{{status.id}}">
+	<a href="#" class="icon left" type="text" name="text_tooltip" original-title="用户名:someone"> <img src="{{status.owner.social_profile.avatar.url}}" class="profileicon" alt=""></a>
+	<span class="pi_content_post_header">{{status.owner}}: <span>(@{{status.owner}})</span></span>
+	<span class="right">{{status.created}}</span>
+	<p>{{status.status_text}}
+	{% if status.image %}
+	<img src="{{status.image.url}}" alt="" class="status"/> 
+	{% endif %}
+	</p>
+	<div class="option">
+		<a class="pi_content_post_expand">展开</a>
+		<button class="small forward icon i_bended_arrow_right">转发</button>
+		<button class="small reply icon i_speech_bubble_2">回复</button>
+		<button class="small plusone icon i_facebook_like">赞: <span>{{status.likes.count}}</span></button>	
+		<button class="small minusone icon i_footprint">踩: <span>{{status.hates.count}}</span></button>	
+	</div>
+	<div class="pi_content_post_comment">
+		<ul>
+		{% for reply in status.statusmessage_set.all %}
+			<hr>
+			<li><a href="" class="icon left" type="text" name="text_tooltip" original-title="用户名:{{reply.owner}}"> <img src="{{reply.owner.social_profile.avatar.url}}" class="profileicon" alt=""> </a>
+				<p><span>{{reply.owner}}:</span>{{reply.status_text}}</p>
+				<div class="option">
+					<span class="pi_content_post_expand">{{reply.created}}</span>
+					<button class="tiny forward">转发</button>
+					<button class="tiny reply">回复</button>
+					<button class="tiny plusone">赞: <span>{{reply.likes.count}}</span></button>
+					<button class="tiny minusone">踩: <span>{{reply.hates.count}}</span></button>	
+				</div>
+			</li>
+		{% endfor %}
+		</ul>							
+	</div>
+</div>
+<hr>	
+{% endfor %}				

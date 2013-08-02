@@ -1,0 +1,165 @@
+$(document).ready(function() {
+      // sections
+      $('form.do-problem-form').hide();
+       setTimeout(function(){
+               $('form.do-problem-form.section1').show();
+         },5);
+      $('div.sections.do-btngroup>a').click(function() {
+         $('div.sections.do-btngroup>a').removeClass("active");
+         $(this).addClass("active");
+         var a=$(this).index()+1;
+         var b="section"+a;
+         $('form.do-problem-form').hide();
+         setTimeout(function(){        
+               $('form.do-problem-form.'+b).fadeIn(500);
+         },5);
+      });
+      // code
+            $('code').addClass('prettyprint linenums');
+           prettyPrint();
+	// audio
+	audiojs.events.ready(function() {
+      	audiojs.createAll();
+       });
+	// note
+	 TweenLite.set($('div.do-problem-note.do'), {rotation:90,left:-170});
+	     $('div.do-problem-note.do').mouseenter(function(){
+            TweenLite.to(this, .75, {rotation:0,left:-4});
+        });     
+        $('div.do-problem-note.do').mouseleave(function(){
+            TweenLite.to(this, .75, {rotation:90,left:-170});
+        }); 
+         $('div.do-problem-note.do>a#note-save').click(function() {
+            Dajaxice.Problem.save_note(note_saved,{'qs_id':$("#qsid").val(),"note_body":$('#notebody').val(), 'note_id':$('#noteid').val()});      
+         });
+          $('div.do-problem-note.do>a#note-new').click(function() {
+           	$('div.do-problem-note.do>textarea').val('');
+		$('#noteid').val('0');
+         });
+          //vocab
+          $('div.do-problem-container p').bind("dblclick", function(event){  
+                 var selection = window.getSelection();  
+                $('span.do-vocab-text').text('将 '+selection+' 加入生词本');  
+                var w=$('span.do-vocab').width()*0.5;
+                $('.do-vocab.addtovocab').css('top', event.pageY+20);
+                $('.do-vocab.addtovocab').css('left', event.pageX-w-5);
+                $('.do-vocab.addtovocab').show();       
+          });
+           $('.do-vocab.addtovocab').click(function(event) {
+                      $(this).hide();
+                      $.msg("加入生词本成功！",{live:1000});
+            });
+           $('.vocab.explanation>span.notadd').click(function(event) {
+			var word_id = $(this).attr('id');
+			Dajaxice.Problem.addto_wordbook(my_callback,{'word_id':word_id});  
+           });
+	//correction
+	$('<span>A</span>').appendTo($('p.simplequestion.correction u:first-child'));
+	$('<span>B</span>').appendTo($('p.simplequestion.correction u:nth-child(2)'));
+	$('<span>C</span>').appendTo($('p.simplequestion.correction u:nth-child(3)'));
+	$('<span>D</span>').appendTo($('p.simplequestion.correction u:nth-child(4)'));
+           //rating
+           // $('.rating-star').mousemove(function(event) {
+           //    var a=event.pageX;
+           //    var b=$(this).offset().left;
+           //    var c=(a-b)/1.9;
+           //    var d=Math.floor(c*0.5*50/49)/10;
+           //    $(this).attr('title', '你的评分为 '+d);
+           //    $(this).children('.rating-color').css('width', c+'%');         
+           // });      
+           // $('.rating-star').click(function(event) {
+           //          $.msg("评分成功! "+$(this).attr('title'),{live:2000});
+           //         $(this).unbind('mousemove');
+           //         $(this).parent().parent().find('.divider-text.cp_dropdown_rating').html($(this).attr('title'));
+           //         $(this).unbind('click');
+           //  });
+  $('li.divider-text.cp_dropdown_rating>span.closemark').click(function(event) {
+                  $(this).parent().parent().slideUp(200);
+           });
+        $('.star').raty({
+		      cancel   : false, 
+		      half     : true,
+		      size     : 24,
+          starHalf : '/static/whitelabel/css/light/images/star/star-half.png',
+          starOff  : '/static/whitelabel/css/light/images/star/star-off.png',
+          starOn   : '/static/whitelabel/css/light/images/star/star-on.png',
+          score: function() {
+             return $(this).attr('data-score');
+           },
+      		click: function(score, evt) {
+            var raw_id = $(this).attr('id');
+            Dajaxice.Problem.rate_question(my_callback,{'raw_id':raw_id, "quality_rate":score, 'difficulty_rate':'-1',});      
+             $(this).parent().parent().find('li.divider-text.cp_dropdown_rating>span:first-child').text('你的评分为 '+score+',感谢你的评分');
+          }
+    });
+        $('.diff').raty({
+		        cancel   : false, 
+          	size     : 24,
+            starOff: '/static/whitelabel/css/light/images/star/off.png',
+        		starOn : '/static/whitelabel/css/light/images/star/on.png',
+        		score: function() {
+             return $(this).attr('data-score');
+           },
+            click: function(score, evt) {
+              var raw_id = $(this).attr('id');
+              Dajaxice.Problem.rate_question(my_callback,{'raw_id':raw_id, "quality_rate":'-1', 'difficulty_rate':score,});   
+        		  $(this).parent().parent().find('li.divider-text.cp_dropdown_rating_diff>span').text('你的难度评价为 '+score+',感谢你的评价');
+        		}
+        });
+	$('a.hintproblem').click(function(event) {
+                  var a=$(this).parent().parent().parent().find('span.hintproblem');
+                  a.show();
+                  TweenMax.fromTo(a, 0.2, {borderBottom: "0px dashed #2980B9"},{
+                      borderBottom: "1px dashed #2980B9",
+                      repeat: 5,
+                      yoyo: true,
+                      ease: Linear.easeNone
+                  })
+                  $(this).unbind('click');
+        });
+        $('a.do-addto').click(function(event) {
+                      var config = {
+                    '.chzn-select'           : {},
+                    '.chzn-select-deselect'  : {allow_single_deselect:true},
+                    '.chzn-select-no-single' : {disable_search_threshold:10},
+                    '.chzn-select-no-results': {no_results_text:'Oops, nothing found!'},
+                    '.chzn-select-width'     : {width:"250px"}
+                  }
+                  for (var selector in config) {
+                    $(selector).chosen(config[selector]);
+                  }
+                   piDialog.prototype.dr();
+              piDialog.prototype.promoteN('do-chooseset');
+        });
+          piDialog.prototype.dialog($('a.doubtproblem'),'你将跳转到题目解析页面,点击确认跳转','d13');
+          piDialog.prototype.dialog($('a.reportproblem'),'你将跳转到题目解析页面,点击确认跳转','d14');
+          $('a.markproblem').click(function(event) {
+            if ($(this).hasClass('active')){
+                 $(this).removeClass('active');
+            }else{
+              $(this).addClass('active');
+            } 
+          });
+          //////////////////////////////////////////fyi problem/////////////////////////////////
+          $('a.completebestanswer').click(function(event) {
+                var a=$(this).parent().parent().find('p').text();
+                var b=$(this).parent().parent().find('span').first().text();
+                $('.pi_content_post_reply textarea').val(b+':" '+a+' " ');
+          });
+          var lastsecondofanswers=$('.fp_otheranswer .pi_content_post::nth-last-child(2)');
+          $('<a id="#bestanswertextarea"></a>').prependTo(lastsecondofanswers);
+
+	 //approve
+	$('.fp_otheranswer div.do-btngroup a:first-child, .bestanswer div.do-btngroup a:first-child').click(function(event) {
+	       var count=$(this).find('span').text()+1;
+	       $(this).find('span').text(count);
+	       $(this).addClass('voted');
+	});
+	//disapprove
+	$('.fp_otheranswer div.do-btngroup a:nth-child(2), .bestanswer div.do-btngroup a:nth-child(2)').click(function(event) {
+	       var count=$(this).find('span').text()+1;
+	       $(this).find('span').text(count);
+	       $(this).addClass('voted');
+	});
+	$('.fp_otheranswer div.do-btngroup a.voted').unbind('click'');
+});

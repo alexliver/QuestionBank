@@ -1,0 +1,158 @@
+/*------------------------------dashboard--------------------------------*/
+/*------------------------------contents--------------------------------*/
+/* state
+/* what is hot
+/*----------------------------------------------------------------------*/
+/*------------------------------state----------------------------------*/
+div.myinfo.dashboard{
+	margin-bottom: 30px;
+}
+div.myinfo.dashboard>div>div.g12.pi_icon{
+	min-height: 0;
+}
+div.myinfo.dashboard>div>ul{
+	height: 120px;
+	width: 100px;
+	position: absolute;
+	left: 150px;
+	top: 0;
+	z-index: 5px;
+}
+div.myinfo.dashboard>div>ul li{
+	width: 100px;
+	display: block;
+	margin-left: 0;
+	height: 28px;
+	padding: 2px 0 2px 0;
+/*	border-top: 1px solid #f8f8f8;*/
+	border-bottom: 1px solid #c8c8c8;
+	border-right: 1px solid #c8c8c8;
+}
+div.myinfo.dashboard>div>ul li:last-child{
+	border-bottom:none;
+}
+div.myinfo.dashboard>div>ul li a{
+	color: #353535;
+	text-shadow: 0px 1px 0 #ffffff;
+	font-size: 15px;
+	width: 75px;
+	height: 17px;
+	line-height: 30px;
+	padding-left: 25px
+}
+div.myinfo.dashboard>div>ul li a:hover{
+	text-decoration: none;
+}
+div.myinfo.dashboard>div>ul li,
+div.pi_function ul>li:hover,
+div.pi_function ul>li.active{	
+	background-image: -moz-linear-gradient(top, rgba(233, 233, 233, 1) 0%, rgba(241,241,241, 1) 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(233, 233, 233, 1)), color-stop(100%,rgba(241,241,241, 1)));
+	background-image: -webkit-linear-gradient(top, rgba(233, 233, 233, 1) 0%,rgba(241,241,241, 1) 100%);
+	background-image: -o-linear-gradient(top, rgba(233, 233, 233, 1) 0%,rgba(241,241,241, 1) 100%);
+	background-image: -ms-linear-gradient(top, rgba(233, 233, 233, 1) 0%,rgba(241,241,241, 1) 100%);
+	background-image: linear-gradient(to bottom, rgba(233, 233, 233, 1) 0%,rgba(241,241,241, 1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#e6e6e6',GradientType=0 );
+}
+div.myinfo.dashboard>div>ul li:hover{
+	box-shadow: none;
+	background: #f1f1f1;
+}
+div.myinfo.dashboard>div>ul li.active{
+	border-right: none;
+	background: none;
+}
+div.myinfo.dashboard>div textarea{
+	height: 100px;
+	margin-left: 270px;
+	margin-top: 10px;
+	min-width: 0;
+	width: 50%;
+	float: left;
+}
+div.myinfo.dashboard>div textarea.placeholder{
+	color: #999;
+}
+div.myinfo.dashboard>div>div span.pi_btn{
+	position: relative;
+}
+div.myinfo.dashboard>div>div div.state_btn{
+	float: left;
+	width:70px;
+	height: 55px;
+	padding-top: 65px;
+}
+/*------------------------------what is hot---------------------------*/
+.widget-log div div ul{
+	margin: 0 10px;
+	margin-bottom: 10px;
+}
+.widget-log div div ul li{
+	display: block;
+	margin: 0;
+	list-style: none;
+	border-top: 1px dotted #555555;;
+	padding: 14px 10px 4px;
+	margin: 0;
+}
+.widget-log div div ul li:first-child{
+	border-top: none;
+}
+.widget-log div div ul li span{
+	text-align: right;
+	display: inline-block;
+	width: 100px;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: -0.05em;
+	padding: 2px 6px 2px 0;
+	color:#2980B9;
+}
+div.selecttime span{
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: -0.05em;
+	padding: 0 10px;
+	color:#2980B9;
+}
+div.half{
+	width: 50%;
+	position: relative;
+}
+#widget_hot>div{
+	height: 500px;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+#widget_hot>div:hover{
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.widget.fullscreen{
+	position:fixed; 
+	width:92%; 
+	left:4%; 
+	top:50%;
+	z-index: 1040;
+	max-height: 90%;
+	overflow: auto;
+}
+#widget_hot.widget.fullscreen{
+	height: 80%;
+}
+#widget_hot.widget.fullscreen>div{
+	height: 100%;
+	overflow: hidden;
+}
+.img-drop.widget-drop{
+	background: rgba(0,0,0,.7);
+	z-index: 1039;
+}
+.g6 #widget_hot div.halfcol>div.halfcol {
+	width: 100%;
+	float: left;
+}
+.g6 #widget_hot.fullscreen div.halfcol>div.halfcol {
+	width: 50%;
+	float: left;
+}
